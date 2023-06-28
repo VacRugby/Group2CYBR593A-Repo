@@ -1,0 +1,1520 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - May 2016 Commit Log</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>May 2016 Commit Log</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for /geronimo</a></div>
+
+<div id="nav" class="section">
+<h2>Commit Logs</h2>
+<ul>
+    <li><a href="commitlog.html">June 2022</a></li>
+    <li><a href="2022-05.html">May 2022</a></li>
+    <li><a href="2022-04.html">April 2022</a></li>
+    <li><a href="2022-03.html">March 2022</a></li>
+    <li><a href="2022-02.html">February 2022</a></li>
+    <li><a href="2022-01.html">January 2022</a></li>
+    <li><a href="2021-12.html">December 2021</a></li>
+    <li><a href="2021-11.html">November 2021</a></li>
+    <li><a href="2021-10.html">October 2021</a></li>
+    <li><a href="2021-09.html">September 2021</a></li>
+    <li><a href="2021-08.html">August 2021</a></li>
+    <li><a href="2021-07.html">July 2021</a></li>
+    <li><a href="2021-06.html">June 2021</a></li>
+    <li><a href="2021-05.html">May 2021</a></li>
+    <li><a href="2021-04.html">April 2021</a></li>
+    <li><a href="2021-03.html">March 2021</a></li>
+    <li><a href="2021-02.html">February 2021</a></li>
+    <li><a href="2021-01.html">January 2021</a></li>
+    <li><a href="2020-12.html">December 2020</a></li>
+    <li><a href="2020-11.html">November 2020</a></li>
+    <li><a href="2020-10.html">October 2020</a></li>
+    <li><a href="2020-09.html">September 2020</a></li>
+    <li><a href="2020-08.html">August 2020</a></li>
+    <li><a href="2020-07.html">July 2020</a></li>
+    <li><a href="2020-06.html">June 2020</a></li>
+    <li><a href="2020-05.html">May 2020</a></li>
+    <li><a href="2020-04.html">April 2020</a></li>
+    <li><a href="2020-03.html">March 2020</a></li>
+    <li><a href="2020-02.html">February 2020</a></li>
+    <li><a href="2020-01.html">January 2020</a></li>
+    <li><a href="2019-12.html">December 2019</a></li>
+    <li><a href="2019-11.html">November 2019</a></li>
+    <li><a href="2019-10.html">October 2019</a></li>
+    <li><a href="2019-09.html">September 2019</a></li>
+    <li><a href="2019-08.html">August 2019</a></li>
+    <li><a href="2019-07.html">July 2019</a></li>
+    <li><a href="2019-06.html">June 2019</a></li>
+    <li><a href="2019-05.html">May 2019</a></li>
+    <li><a href="2019-04.html">April 2019</a></li>
+    <li><a href="2019-03.html">March 2019</a></li>
+    <li><a href="2019-02.html">February 2019</a></li>
+    <li><a href="2019-01.html">January 2019</a></li>
+    <li><a href="2018-12.html">December 2018</a></li>
+    <li><a href="2018-11.html">November 2018</a></li>
+    <li><a href="2018-10.html">October 2018</a></li>
+    <li><a href="2018-09.html">September 2018</a></li>
+    <li><a href="2018-08.html">August 2018</a></li>
+    <li><a href="2018-07.html">July 2018</a></li>
+    <li><a href="2018-06.html">June 2018</a></li>
+    <li><a href="2018-05.html">May 2018</a></li>
+    <li><a href="2018-04.html">April 2018</a></li>
+    <li><a href="2018-03.html">March 2018</a></li>
+    <li><a href="2018-02.html">February 2018</a></li>
+    <li><a href="2018-01.html">January 2018</a></li>
+    <li><a href="2017-12.html">December 2017</a></li>
+    <li><a href="2017-11.html">November 2017</a></li>
+    <li><a href="2017-10.html">October 2017</a></li>
+    <li><a href="2017-09.html">September 2017</a></li>
+    <li><a href="2017-08.html">August 2017</a></li>
+    <li><a href="2017-07.html">July 2017</a></li>
+    <li><a href="2017-06.html">June 2017</a></li>
+    <li><a href="2017-05.html">May 2017</a></li>
+    <li><a href="2017-04.html">April 2017</a></li>
+    <li><a href="2017-03.html">March 2017</a></li>
+    <li><a href="2017-02.html">February 2017</a></li>
+    <li><a href="2017-01.html">January 2017</a></li>
+    <li><a href="2016-12.html">December 2016</a></li>
+    <li><a href="2016-11.html">November 2016</a></li>
+    <li><a href="2016-10.html">October 2016</a></li>
+    <li><a href="2016-09.html">September 2016</a></li>
+    <li><a href="2016-08.html">August 2016</a></li>
+    <li><a href="2016-07.html">July 2016</a></li>
+    <li><a href="2016-06.html">June 2016</a></li>
+    <li><span class="here">May 2016</span></li>
+    <li><a href="2016-04.html">April 2016</a></li>
+    <li><a href="2016-03.html">March 2016</a></li>
+    <li><a href="2016-02.html">February 2016</a></li>
+    <li><a href="2016-01.html">January 2016</a></li>
+    <li><a href="2015-12.html">December 2015</a></li>
+    <li><a href="2015-11.html">November 2015</a></li>
+    <li><a href="2015-10.html">October 2015</a></li>
+    <li><a href="2015-09.html">September 2015</a></li>
+    <li><a href="2015-08.html">August 2015</a></li>
+    <li><a href="2015-07.html">July 2015</a></li>
+    <li><a href="2015-06.html">June 2015</a></li>
+    <li><a href="2015-05.html">May 2015</a></li>
+    <li><a href="2015-04.html">April 2015</a></li>
+    <li><a href="2015-03.html">March 2015</a></li>
+    <li><a href="2015-02.html">February 2015</a></li>
+    <li><a href="2015-01.html">January 2015</a></li>
+    <li><a href="2014-12.html">December 2014</a></li>
+    <li><a href="2014-11.html">November 2014</a></li>
+    <li><a href="2014-10.html">October 2014</a></li>
+    <li><a href="2014-09.html">September 2014</a></li>
+    <li><a href="2014-08.html">August 2014</a></li>
+    <li><a href="2014-07.html">July 2014</a></li>
+    <li><a href="2014-06.html">June 2014</a></li>
+    <li><a href="2014-05.html">May 2014</a></li>
+    <li><a href="2014-04.html">April 2014</a></li>
+    <li><a href="2014-03.html">March 2014</a></li>
+    <li><a href="2014-02.html">February 2014</a></li>
+    <li><a href="2014-01.html">January 2014</a></li>
+    <li><a href="2013-12.html">December 2013</a></li>
+    <li><a href="2013-11.html">November 2013</a></li>
+    <li><a href="2013-10.html">October 2013</a></li>
+    <li><a href="2013-09.html">September 2013</a></li>
+    <li><a href="2013-08.html">August 2013</a></li>
+    <li><a href="2013-07.html">July 2013</a></li>
+    <li><a href="2013-06.html">June 2013</a></li>
+    <li><a href="2013-05.html">May 2013</a></li>
+    <li><a href="2013-04.html">April 2013</a></li>
+    <li><a href="2013-03.html">March 2013</a></li>
+    <li><a href="2013-02.html">February 2013</a></li>
+    <li><a href="2013-01.html">January 2013</a></li>
+    <li><a href="2012-12.html">December 2012</a></li>
+    <li><a href="2012-11.html">November 2012</a></li>
+    <li><a href="2012-10.html">October 2012</a></li>
+    <li><a href="2012-09.html">September 2012</a></li>
+    <li><a href="2012-08.html">August 2012</a></li>
+    <li><a href="2012-07.html">July 2012</a></li>
+    <li><a href="2012-06.html">June 2012</a></li>
+    <li><a href="2012-05.html">May 2012</a></li>
+    <li><a href="2012-04.html">April 2012</a></li>
+    <li><a href="2012-03.html">March 2012</a></li>
+    <li><a href="2012-02.html">February 2012</a></li>
+    <li><a href="2012-01.html">January 2012</a></li>
+    <li><a href="2011-12.html">December 2011</a></li>
+    <li><a href="2011-11.html">November 2011</a></li>
+    <li><a href="2011-10.html">October 2011</a></li>
+    <li><a href="2011-09.html">September 2011</a></li>
+    <li><a href="2011-08.html">August 2011</a></li>
+    <li><a href="2011-07.html">July 2011</a></li>
+    <li><a href="2011-06.html">June 2011</a></li>
+    <li><a href="2011-05.html">May 2011</a></li>
+    <li><a href="2011-04.html">April 2011</a></li>
+    <li><a href="2011-03.html">March 2011</a></li>
+    <li><a href="2011-02.html">February 2011</a></li>
+    <li><a href="2011-01.html">January 2011</a></li>
+    <li><a href="2010-12.html">December 2010</a></li>
+    <li><a href="2010-11.html">November 2010</a></li>
+    <li><a href="2010-10.html">October 2010</a></li>
+    <li><a href="2010-09.html">September 2010</a></li>
+    <li><a href="2010-08.html">August 2010</a></li>
+    <li><a href="2010-07.html">July 2010</a></li>
+    <li><a href="2010-06.html">June 2010</a></li>
+    <li><a href="2010-05.html">May 2010</a></li>
+    <li><a href="2010-04.html">April 2010</a></li>
+    <li><a href="2010-03.html">March 2010</a></li>
+    <li><a href="2010-02.html">February 2010</a></li>
+    <li><a href="2010-01.html">January 2010</a></li>
+    <li><a href="2009-12.html">December 2009</a></li>
+    <li><a href="2009-11.html">November 2009</a></li>
+    <li><a href="2009-10.html">October 2009</a></li>
+    <li><a href="2009-09.html">September 2009</a></li>
+    <li><a href="2009-08.html">August 2009</a></li>
+    <li><a href="2009-07.html">July 2009</a></li>
+    <li><a href="2009-06.html">June 2009</a></li>
+    <li><a href="2009-05.html">May 2009</a></li>
+    <li><a href="2009-04.html">April 2009</a></li>
+    <li><a href="2009-03.html">March 2009</a></li>
+    <li><a href="2009-02.html">February 2009</a></li>
+    <li><a href="2009-01.html">January 2009</a></li>
+    <li><a href="2008-12.html">December 2008</a></li>
+    <li><a href="2008-11.html">November 2008</a></li>
+    <li><a href="2008-10.html">October 2008</a></li>
+    <li><a href="2008-09.html">September 2008</a></li>
+    <li><a href="2008-08.html">August 2008</a></li>
+    <li><a href="2008-07.html">July 2008</a></li>
+    <li><a href="2008-06.html">June 2008</a></li>
+    <li><a href="2008-05.html">May 2008</a></li>
+    <li><a href="2008-04.html">April 2008</a></li>
+    <li><a href="2008-03.html">March 2008</a></li>
+    <li><a href="2008-02.html">February 2008</a></li>
+    <li><a href="2008-01.html">January 2008</a></li>
+    <li><a href="2007-12.html">December 2007</a></li>
+    <li><a href="2007-11.html">November 2007</a></li>
+    <li><a href="2007-10.html">October 2007</a></li>
+    <li><a href="2007-09.html">September 2007</a></li>
+    <li><a href="2007-08.html">August 2007</a></li>
+    <li><a href="2007-07.html">July 2007</a></li>
+    <li><a href="2007-06.html">June 2007</a></li>
+    <li><a href="2007-05.html">May 2007</a></li>
+    <li><a href="2007-04.html">April 2007</a></li>
+    <li><a href="2007-03.html">March 2007</a></li>
+    <li><a href="2007-02.html">February 2007</a></li>
+    <li><a href="2007-01.html">January 2007</a></li>
+    <li><a href="2006-12.html">December 2006</a></li>
+    <li><a href="2006-11.html">November 2006</a></li>
+    <li><a href="2006-10.html">October 2006</a></li>
+    <li><a href="2006-09.html">September 2006</a></li>
+    <li><a href="2006-08.html">August 2006</a></li>
+    <li><a href="2006-07.html">July 2006</a></li>
+    <li><a href="2006-06.html">June 2006</a></li>
+    <li><a href="2006-05.html">May 2006</a></li>
+    <li><a href="2006-04.html">April 2006</a></li>
+    <li><a href="2006-03.html">March 2006</a></li>
+    <li><a href="2006-02.html">February 2006</a></li>
+    <li><a href="2006-01.html">January 2006</a></li>
+    <li><a href="2005-12.html">December 2005</a></li>
+    <li><a href="2005-11.html">November 2005</a></li>
+    <li><a href="2005-10.html">October 2005</a></li>
+    <li><a href="2005-09.html">September 2005</a></li>
+    <li><a href="2005-08.html">August 2005</a></li>
+    <li><a href="2005-07.html">July 2005</a></li>
+    <li><a href="2005-06.html">June 2005</a></li>
+    <li><a href="2005-05.html">May 2005</a></li>
+    <li><a href="2005-04.html">April 2005</a></li>
+    <li><a href="2005-03.html">March 2005</a></li>
+    <li><a href="2005-02.html">February 2005</a></li>
+    <li><a href="2005-01.html">January 2005</a></li>
+    <li><a href="2004-12.html">December 2004</a></li>
+    <li><a href="2004-11.html">November 2004</a></li>
+    <li><a href="2004-10.html">October 2004</a></li>
+    <li><a href="2004-09.html">September 2004</a></li>
+    <li><a href="2004-08.html">August 2004</a></li>
+    <li><a href="2004-07.html">July 2004</a></li>
+    <li><a href="2004-06.html">June 2004</a></li>
+    <li><a href="2004-05.html">May 2004</a></li>
+    <li><a href="2004-04.html">April 2004</a></li>
+    <li><a href="2004-03.html">March 2004</a></li>
+    <li><a href="2004-02.html">February 2004</a></li>
+    <li><a href="2004-01.html">January 2004</a></li>
+    <li><a href="2003-12.html">December 2003</a></li>
+    <li><a href="2003-11.html">November 2003</a></li>
+    <li><a href="2003-10.html">October 2003</a></li>
+    <li><a href="2003-09.html">September 2003</a></li>
+    <li><a href="2003-08.html">August 2003</a></li>
+</ul>
+</div><dl class="attributes">
+    <dt>Number of Commits:</dt>
+    <dd>9</dd>
+    <dt>Number of Active Developers:</dt>
+    <dd>2</dd>
+</dl>
+<dl class="commitlist">
+  <dt><a name="9"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2016-05-23 10:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#9">#9</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1745209</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+add jsonp-1.1 to our spec roaster<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk</strong>:
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2016-05-23 10:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#8">#8</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1745208</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+rework JsonPointer to API. <br />
+<br />
+Will most probably be part of JSR-374 that way.<br />
+
+    </p>
+    <p class="commitdetails"><strong>14</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-json_1.1_spec/src/main/java/javax/json</strong>:
+        JsonPointer.java&#160;<span class="change">(+11&#160;-45)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-json_1.1_spec/src/main/java/javax/json/spi</strong>:
+        JsonProvider.java&#160;<span class="change">(+3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-18 13:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#7">#7</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1744439</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Update Copyright year
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.4</strong>:
+        NOTICE&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-18 12:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#6">#6</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1744438</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Add AL to Travis CI file<br />
+pre-commit-status-crumb=4a2134c9-43dd-43e8-b19d-6add0790bc95<br />
+
+    </p>
+    <p class="commitdetails"><strong>17</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.4</strong>:
+        .travis.yml&#160;<span class="change">(+17)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-11 15:18</span>
+    <a class="permalink" title="Permalink to this commit" href="#5">#5</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1743416</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fix testToString()
+    </p>
+    <p class="commitdetails"><strong>15</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.5_spec/src/test/java/javax/mail/internet</strong>:
+        ContentTypeTest.java&#160;<span class="change">(+15&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-11 13:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#4">#4</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1743403</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated 1.4 spec version to 1.5
+    </p>
+    <p class="commitdetails"><strong>31646</strong> lines of code changed in <span class="files">170 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5</strong>:
+        NOTICE&#160;<span class="change">(+2&#160;-2)</span>,
+        geronimo-javamail_1.4_mail&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+11&#160;-11)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.4_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPConnection.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail</strong>:
+        pom.xml&#160;<span class="change">(+165)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail/src/site</strong>:
+        site.xml&#160;<span class="change">(+40)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider</strong>:
+        pom.xml&#160;<span class="change">(+348)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/authentication</strong>:
+        AuthenticatorFactory.java&#160;<span class="change">(+91)</span>,
+        ClientAuthenticator.java&#160;<span class="change">(+89)</span>,
+        CramMD5Authenticator.java&#160;<span class="change">(+178)</span>,
+        DigestMD5Authenticator.java&#160;<span class="change">(+631)</span>,
+        LoginAuthenticator.java&#160;<span class="change">(+143)</span>,
+        PlainAuthenticator.java&#160;<span class="change">(+129)</span>,
+        SASLAuthenticator.java&#160;<span class="change">(+177)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractImageHandler.java&#160;<span class="change">(+94)</span>,
+        AbstractTextHandler.java&#160;<span class="change">(+137)</span>,
+        ImageGifHandler.java&#160;<span class="change">(+32)</span>,
+        ImageJpegHandler.java&#160;<span class="change">(+32)</span>,
+        MultipartHandler.java&#160;<span class="change">(+68)</span>,
+        RFC822MessageHandler.java&#160;<span class="change">(+123)</span>,
+        TextHtmlHandler.java&#160;<span class="change">(+32)</span>,
+        TextPlainHandler.java&#160;<span class="change">(+32)</span>,
+        TextXmlHandler.java&#160;<span class="change">(+32)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap</strong>:
+        ACL.java&#160;<span class="change">(+96)</span>,
+        IMAPAttachedMessage.java&#160;<span class="change">(+128)</span>,
+        IMAPFolder.java&#160;<span class="change">(+2396)</span>,
+        IMAPMessage.java&#160;<span class="change">(+1303)</span>,
+        IMAPMimeBodyPart.java&#160;<span class="change">(+362)</span>,
+        IMAPMultipartDataSource.java&#160;<span class="change">(+59)</span>,
+        IMAPNamespaceFolder.java&#160;<span class="change">(+54)</span>,
+        IMAPRootFolder.java&#160;<span class="change">(+134)</span>,
+        IMAPSSLStore.java&#160;<span class="change">(+45)</span>,
+        IMAPStore.java&#160;<span class="change">(+617)</span>,
+        Rights.java&#160;<span class="change">(+306)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPACLResponse.java&#160;<span class="change">(+55)</span>,
+        IMAPBody.java&#160;<span class="change">(+81)</span>,
+        IMAPBodySection.java&#160;<span class="change">(+276)</span>,
+        IMAPBodyStructure.java&#160;<span class="change">(+231)</span>,
+        IMAPCapabilityResponse.java&#160;<span class="change">(+93)</span>,
+        IMAPCommand.java&#160;<span class="change">(+1480)</span>,
+        IMAPConnection.java&#160;<span class="change">(+1995)</span>,
+        IMAPConnectionPool.java&#160;<span class="change">(+592)</span>,
+        IMAPContinuationResponse.java&#160;<span class="change">(+45)</span>,
+        IMAPDateFormat.java&#160;<span class="change">(+75)</span>,
+        IMAPEnvelope.java&#160;<span class="change">(+73)</span>,
+        IMAPFetchBodyPart.java&#160;<span class="change">(+79)</span>,
+        IMAPFetchDataItem.java&#160;<span class="change">(+64)</span>,
+        IMAPFetchResponse.java&#160;<span class="change">(+164)</span>,
+        IMAPFlags.java&#160;<span class="change">(+43)</span>,
+        IMAPFlagsResponse.java&#160;<span class="change">(+51)</span>,
+        IMAPInternalDate.java&#160;<span class="change">(+48)</span>,
+        IMAPInternetHeader.java&#160;<span class="change">(+69)</span>,
+        IMAPListResponse.java&#160;<span class="change">(+95)</span>,
+        IMAPListRightsResponse.java&#160;<span class="change">(+54)</span>,
+        IMAPMailboxResponse.java&#160;<span class="change">(+40)</span>,
+        IMAPMailboxStatus.java&#160;<span class="change">(+191)</span>,
+        IMAPMessageSize.java&#160;<span class="change">(+36)</span>,
+        IMAPMessageText.java&#160;<span class="change">(+55)</span>,
+        IMAPMyRightsResponse.java&#160;<span class="change">(+41)</span>,
+        IMAPNamespace.java&#160;<span class="change">(+52)</span>,
+        IMAPNamespaceResponse.java&#160;<span class="change">(+101)</span>,
+        IMAPOkResponse.java&#160;<span class="change">(+81)</span>,
+        IMAPPermanentFlagsResponse.java&#160;<span class="change">(+45)</span>,
+        IMAPQuotaResponse.java&#160;<span class="change">(+73)</span>,
+        IMAPQuotaRootResponse.java&#160;<span class="change">(+60)</span>,
+        IMAPResponse.java&#160;<span class="change">(+75)</span>,
+        IMAPResponseBuffer.java&#160;<span class="change">(+141)</span>,
+        IMAPResponseStream.java&#160;<span class="change">(+408)</span>,
+        IMAPResponseTokenizer.java&#160;<span class="change">(+1472)</span>,
+        IMAPSearchDateFormat.java&#160;<span class="change">(+72)</span>,
+        IMAPSearchResponse.java&#160;<span class="change">(+56)</span>,
+        IMAPServerStatusResponse.java&#160;<span class="change">(+53)</span>,
+        IMAPSizeResponse.java&#160;<span class="change">(+53)</span>,
+        IMAPStatusResponse.java&#160;<span class="change">(+85)</span>,
+        IMAPTaggedResponse.java&#160;<span class="change">(+164)</span>,
+        IMAPUid.java&#160;<span class="change">(+39)</span>,
+        IMAPUntaggedResponse.java&#160;<span class="change">(+70)</span>,
+        IMAPUntaggedResponseHandler.java&#160;<span class="change">(+37)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp</strong>:
+        NNTPFolder.java&#160;<span class="change">(+452)</span>,
+        NNTPGroupFolder.java&#160;<span class="change">(+394)</span>,
+        NNTPMessage.java&#160;<span class="change">(+380)</span>,
+        NNTPRootFolder.java&#160;<span class="change">(+402)</span>,
+        NNTPSSLStore.java&#160;<span class="change">(+47)</span>,
+        NNTPStore.java&#160;<span class="change">(+263)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp/newsrc</strong>:
+        NNTPNewsrc.java&#160;<span class="change">(+185)</span>,
+        NNTPNewsrcFile.java&#160;<span class="change">(+69)</span>,
+        NNTPNewsrcGroup.java&#160;<span class="change">(+188)</span>,
+        Range.java&#160;<span class="change">(+321)</span>,
+        RangeList.java&#160;<span class="change">(+230)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3Constants.java&#160;<span class="change">(+43)</span>,
+        POP3Folder.java&#160;<span class="change">(+518)</span>,
+        POP3Message.java&#160;<span class="change">(+381)</span>,
+        POP3RootFolder.java&#160;<span class="change">(+145)</span>,
+        POP3SSLStore.java&#160;<span class="change">(+46)</span>,
+        POP3Store.java&#160;<span class="change">(+362)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3/connection</strong>:
+        POP3Connection.java&#160;<span class="change">(+696)</span>,
+        POP3ConnectionPool.java&#160;<span class="change">(+227)</span>,
+        POP3ListResponse.java&#160;<span class="change">(+102)</span>,
+        POP3Response.java&#160;<span class="change">(+88)</span>,
+        POP3StatusResponse.java&#160;<span class="change">(+70)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/nntp</strong>:
+        NNTPConnection.java&#160;<span class="change">(+731)</span>,
+        NNTPReply.java&#160;<span class="change">(+245)</span>,
+        NNTPSSLTransport.java&#160;<span class="change">(+37)</span>,
+        NNTPTransport.java&#160;<span class="change">(+263)</span>,
+        StringListInputStream.java&#160;<span class="change">(+115)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        MalformedSMTPReplyException.java&#160;<span class="change">(+42)</span>,
+        SMTPAddressFailedException.java&#160;<span class="change">(+83)</span>,
+        SMTPAddressSucceededException.java&#160;<span class="change">(+83)</span>,
+        SMTPConnection.java&#160;<span class="change">(+1373)</span>,
+        SMTPMessage.java&#160;<span class="change">(+240)</span>,
+        SMTPReply.java&#160;<span class="change">(+211)</span>,
+        SMTPSTransport.java&#160;<span class="change">(+36)</span>,
+        SMTPSendFailedException.java&#160;<span class="change">(+77)</span>,
+        SMTPTransport.java&#160;<span class="change">(+659)</span>,
+        SMTPTransportException.java&#160;<span class="change">(+47)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/util</strong>:
+        CommandFailedException.java&#160;<span class="change">(+38)</span>,
+        ConnectionException.java&#160;<span class="change">(+38)</span>,
+        CountingOutputStream.java&#160;<span class="change">(+63)</span>,
+        InvalidCommandException.java&#160;<span class="change">(+38)</span>,
+        MIMEInputReader.java&#160;<span class="change">(+143)</span>,
+        MIMEOutputStream.java&#160;<span class="change">(+135)</span>,
+        MailConnection.java&#160;<span class="change">(+963)</span>,
+        ProtocolProperties.java&#160;<span class="change">(+294)</span>,
+        ResponseFormatException.java&#160;<span class="change">(+37)</span>,
+        TraceInputStream.java&#160;<span class="change">(+113)</span>,
+        TraceOutputStream.java&#160;<span class="change">(+100)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/META-INF</strong>:
+        javamail.default.address.map&#160;<span class="change">(+34)</span>,
+        javamail.default.providers&#160;<span class="change">(+43)</span>,
+        mailcap&#160;<span class="change">(+31)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/OSGI-INF/providers</strong>:
+        org.apache.javamail.handlers.ImageGifHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.handlers.ImageJpegHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.handlers.MultipartHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.handlers.RFC822MessageHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.handlers.TextHtmlHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.handlers.TextPlainHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.handlers.TextXmlHandler&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.store.imap.IMAPSSSLStore&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.store.imap.IMAPStore&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.store.nntp.NNTPSSLStore&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.store.nntp.NNTPStore&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.store.pop3.POP3SSLStore&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.store.pop3.POP3Store&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.transport.nntp.NNTPSSLTransport&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.transport.nntp.NNTPTransport&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.transport.smtp.SMTPSSLTransport&#160;<span class="change">(+1)</span>,
+        org.apache.javamail.transport.smtp.SMTPTransport&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/site</strong>:
+        site.xml&#160;<span class="change">(+40)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractHandler.java&#160;<span class="change">(+66)</span>,
+        TextHtmlTest.java&#160;<span class="change">(+43)</span>,
+        TextPlainTest.java&#160;<span class="change">(+43)</span>,
+        TextXmlTest.java&#160;<span class="change">(+43)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/issues</strong>:
+        GERONIMO6480Test.java&#160;<span class="change">(+140)</span>,
+        IssuesTest.java&#160;<span class="change">(+149)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap</strong>:
+        AuthenticationTest.java&#160;<span class="change">(+208)</span>,
+        IMAPStoreTest.java&#160;<span class="change">(+92)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPBodyStructureTest.java&#160;<span class="change">(+42)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3StoreTest.java&#160;<span class="change">(+452)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/testserver</strong>:
+        AbstractProtocolTest.java&#160;<span class="change">(+115)</span>,
+        ApopCmdHandler.java&#160;<span class="change">(+119)</span>,
+        MailServer.java&#160;<span class="change">(+590)</span>,
+        RefinedCoreCmdHandlerLoader.java&#160;<span class="change">(+31)</span>,
+        RefinedJMXHandlersLoader.java&#160;<span class="change">(+48)</span>,
+        RefinedSmtpCoreCmdHandlerLoader.java&#160;<span class="change">(+146)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPTransportTest.java&#160;<span class="change">(+57)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources</strong>:
+        dummykeystore.jks&#160;<span class="change">(changed)</span>,
+        pdf-test.pdf&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/imap</strong>:
+        multipart.bodystructure&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/messages</strong>:
+        multipart.msg&#160;<span class="change">(+19)</span>,
+        simple.msg&#160;<span class="change">(+11)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/markdown</strong>:
+        index.md&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-11 13:52</span>
+    <a class="permalink" title="Permalink to this commit" href="#3">#3</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1743402</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Add seed code for javamail 1.5
+    </p>
+    <p class="commitdetails"><strong>703</strong> lines of code changed in <span class="files">174 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5</strong>:
+        .travis.yml&#160;<span class="new">(new&#160;8)</span>,
+        LICENSE&#160;<span class="new">(new&#160;202)</span>,
+        NOTICE&#160;<span class="new">(new&#160;8)</span>,
+        README.txt&#160;<span class="new">(new&#160;19)</span>,
+        pom.xml&#160;<span class="new">(new&#160;273)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.4_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPConnection.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail/src/site</strong>:
+        site.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/authentication</strong>:
+        AuthenticatorFactory.java&#160;<span class="new">(new)</span>,
+        ClientAuthenticator.java&#160;<span class="new">(new)</span>,
+        CramMD5Authenticator.java&#160;<span class="new">(new)</span>,
+        DigestMD5Authenticator.java&#160;<span class="new">(new)</span>,
+        LoginAuthenticator.java&#160;<span class="new">(new)</span>,
+        PlainAuthenticator.java&#160;<span class="new">(new)</span>,
+        SASLAuthenticator.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractImageHandler.java&#160;<span class="new">(new)</span>,
+        AbstractTextHandler.java&#160;<span class="new">(new)</span>,
+        ImageGifHandler.java&#160;<span class="new">(new)</span>,
+        ImageJpegHandler.java&#160;<span class="new">(new)</span>,
+        MultipartHandler.java&#160;<span class="new">(new)</span>,
+        RFC822MessageHandler.java&#160;<span class="new">(new)</span>,
+        TextHtmlHandler.java&#160;<span class="new">(new)</span>,
+        TextPlainHandler.java&#160;<span class="new">(new)</span>,
+        TextXmlHandler.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap</strong>:
+        ACL.java&#160;<span class="new">(new)</span>,
+        IMAPAttachedMessage.java&#160;<span class="new">(new)</span>,
+        IMAPFolder.java&#160;<span class="new">(new)</span>,
+        IMAPMessage.java&#160;<span class="new">(new)</span>,
+        IMAPMimeBodyPart.java&#160;<span class="new">(new)</span>,
+        IMAPMultipartDataSource.java&#160;<span class="new">(new)</span>,
+        IMAPNamespaceFolder.java&#160;<span class="new">(new)</span>,
+        IMAPRootFolder.java&#160;<span class="new">(new)</span>,
+        IMAPSSLStore.java&#160;<span class="new">(new)</span>,
+        IMAPStore.java&#160;<span class="new">(new)</span>,
+        Rights.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPACLResponse.java&#160;<span class="new">(new)</span>,
+        IMAPBody.java&#160;<span class="new">(new)</span>,
+        IMAPBodySection.java&#160;<span class="new">(new)</span>,
+        IMAPBodyStructure.java&#160;<span class="new">(new)</span>,
+        IMAPCapabilityResponse.java&#160;<span class="new">(new)</span>,
+        IMAPCommand.java&#160;<span class="new">(new)</span>,
+        IMAPConnection.java&#160;<span class="new">(new)</span>,
+        IMAPConnectionPool.java&#160;<span class="new">(new)</span>,
+        IMAPContinuationResponse.java&#160;<span class="new">(new)</span>,
+        IMAPDateFormat.java&#160;<span class="new">(new)</span>,
+        IMAPEnvelope.java&#160;<span class="new">(new)</span>,
+        IMAPFetchBodyPart.java&#160;<span class="new">(new)</span>,
+        IMAPFetchDataItem.java&#160;<span class="new">(new)</span>,
+        IMAPFetchResponse.java&#160;<span class="new">(new)</span>,
+        IMAPFlags.java&#160;<span class="new">(new)</span>,
+        IMAPFlagsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPInternalDate.java&#160;<span class="new">(new)</span>,
+        IMAPInternetHeader.java&#160;<span class="new">(new)</span>,
+        IMAPListResponse.java&#160;<span class="new">(new)</span>,
+        IMAPListRightsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPMailboxResponse.java&#160;<span class="new">(new)</span>,
+        IMAPMailboxStatus.java&#160;<span class="new">(new)</span>,
+        IMAPMessageSize.java&#160;<span class="new">(new)</span>,
+        IMAPMessageText.java&#160;<span class="new">(new)</span>,
+        IMAPMyRightsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPNamespace.java&#160;<span class="new">(new)</span>,
+        IMAPNamespaceResponse.java&#160;<span class="new">(new)</span>,
+        IMAPOkResponse.java&#160;<span class="new">(new)</span>,
+        IMAPPermanentFlagsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPQuotaResponse.java&#160;<span class="new">(new)</span>,
+        IMAPQuotaRootResponse.java&#160;<span class="new">(new)</span>,
+        IMAPResponse.java&#160;<span class="new">(new)</span>,
+        IMAPResponseBuffer.java&#160;<span class="new">(new)</span>,
+        IMAPResponseStream.java&#160;<span class="new">(new)</span>,
+        IMAPResponseTokenizer.java&#160;<span class="new">(new)</span>,
+        IMAPSearchDateFormat.java&#160;<span class="new">(new)</span>,
+        IMAPSearchResponse.java&#160;<span class="new">(new)</span>,
+        IMAPServerStatusResponse.java&#160;<span class="new">(new)</span>,
+        IMAPSizeResponse.java&#160;<span class="new">(new)</span>,
+        IMAPStatusResponse.java&#160;<span class="new">(new)</span>,
+        IMAPTaggedResponse.java&#160;<span class="new">(new)</span>,
+        IMAPUid.java&#160;<span class="new">(new)</span>,
+        IMAPUntaggedResponse.java&#160;<span class="new">(new)</span>,
+        IMAPUntaggedResponseHandler.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp</strong>:
+        NNTPFolder.java&#160;<span class="new">(new)</span>,
+        NNTPGroupFolder.java&#160;<span class="new">(new)</span>,
+        NNTPMessage.java&#160;<span class="new">(new)</span>,
+        NNTPRootFolder.java&#160;<span class="new">(new)</span>,
+        NNTPSSLStore.java&#160;<span class="new">(new)</span>,
+        NNTPStore.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp/newsrc</strong>:
+        NNTPNewsrc.java&#160;<span class="new">(new)</span>,
+        NNTPNewsrcFile.java&#160;<span class="new">(new)</span>,
+        NNTPNewsrcGroup.java&#160;<span class="new">(new)</span>,
+        Range.java&#160;<span class="new">(new)</span>,
+        RangeList.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3Constants.java&#160;<span class="new">(new)</span>,
+        POP3Folder.java&#160;<span class="new">(new)</span>,
+        POP3Message.java&#160;<span class="new">(new)</span>,
+        POP3RootFolder.java&#160;<span class="new">(new)</span>,
+        POP3SSLStore.java&#160;<span class="new">(new)</span>,
+        POP3Store.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3/connection</strong>:
+        POP3Connection.java&#160;<span class="new">(new)</span>,
+        POP3ConnectionPool.java&#160;<span class="new">(new)</span>,
+        POP3ListResponse.java&#160;<span class="new">(new)</span>,
+        POP3Response.java&#160;<span class="new">(new)</span>,
+        POP3StatusResponse.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/nntp</strong>:
+        NNTPConnection.java&#160;<span class="new">(new)</span>,
+        NNTPReply.java&#160;<span class="new">(new)</span>,
+        NNTPSSLTransport.java&#160;<span class="new">(new)</span>,
+        NNTPTransport.java&#160;<span class="new">(new)</span>,
+        StringListInputStream.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        MalformedSMTPReplyException.java&#160;<span class="new">(new)</span>,
+        SMTPAddressFailedException.java&#160;<span class="new">(new)</span>,
+        SMTPAddressSucceededException.java&#160;<span class="new">(new)</span>,
+        SMTPConnection.java&#160;<span class="new">(new)</span>,
+        SMTPMessage.java&#160;<span class="new">(new)</span>,
+        SMTPReply.java&#160;<span class="new">(new)</span>,
+        SMTPSTransport.java&#160;<span class="new">(new)</span>,
+        SMTPSendFailedException.java&#160;<span class="new">(new)</span>,
+        SMTPTransport.java&#160;<span class="new">(new)</span>,
+        SMTPTransportException.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/util</strong>:
+        CommandFailedException.java&#160;<span class="new">(new)</span>,
+        ConnectionException.java&#160;<span class="new">(new)</span>,
+        CountingOutputStream.java&#160;<span class="new">(new)</span>,
+        InvalidCommandException.java&#160;<span class="new">(new)</span>,
+        MIMEInputReader.java&#160;<span class="new">(new)</span>,
+        MIMEOutputStream.java&#160;<span class="new">(new)</span>,
+        MailConnection.java&#160;<span class="new">(new)</span>,
+        ProtocolProperties.java&#160;<span class="new">(new)</span>,
+        ResponseFormatException.java&#160;<span class="new">(new)</span>,
+        TraceInputStream.java&#160;<span class="new">(new)</span>,
+        TraceOutputStream.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/META-INF</strong>:
+        javamail.default.address.map&#160;<span class="new">(new)</span>,
+        javamail.default.providers&#160;<span class="new">(new)</span>,
+        mailcap&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/OSGI-INF/providers</strong>:
+        org.apache.javamail.handlers.ImageGifHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.ImageJpegHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.MultipartHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.RFC822MessageHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.TextHtmlHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.TextPlainHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.TextXmlHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.imap.IMAPSSSLStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.imap.IMAPStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.nntp.NNTPSSLStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.nntp.NNTPStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.pop3.POP3SSLStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.pop3.POP3Store&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.nntp.NNTPSSLTransport&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.nntp.NNTPTransport&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.smtp.SMTPSSLTransport&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.smtp.SMTPTransport&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/site</strong>:
+        site.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractHandler.java&#160;<span class="new">(new)</span>,
+        TextHtmlTest.java&#160;<span class="new">(new)</span>,
+        TextPlainTest.java&#160;<span class="new">(new)</span>,
+        TextXmlTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/issues</strong>:
+        GERONIMO6480Test.java&#160;<span class="new">(new)</span>,
+        IssuesTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap</strong>:
+        AuthenticationTest.java&#160;<span class="new">(new)</span>,
+        IMAPStoreTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPBodyStructureTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3StoreTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/testserver</strong>:
+        AbstractProtocolTest.java&#160;<span class="new">(new)</span>,
+        ApopCmdHandler.java&#160;<span class="new">(new)</span>,
+        MailServer.java&#160;<span class="new">(new)</span>,
+        RefinedCoreCmdHandlerLoader.java&#160;<span class="new">(new)</span>,
+        RefinedJMXHandlersLoader.java&#160;<span class="new">(new)</span>,
+        RefinedSmtpCoreCmdHandlerLoader.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPTransportTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources</strong>:
+        dummykeystore.jks&#160;<span class="new">(new&#160;20)</span>,
+        pdf-test.pdf&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/imap</strong>:
+        multipart.bodystructure&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/messages</strong>:
+        multipart.msg&#160;<span class="new">(new)</span>,
+        simple.msg&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site</strong>:
+        site.xml&#160;<span class="new">(new&#160;86)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/apt</strong>:
+        privacy-policy.apt&#160;<span class="new">(new&#160;52)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/markdown</strong>:
+        index.md&#160;<span class="new">(new&#160;35)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-11 12:51</span>
+    <a class="permalink" title="Permalink to this commit" href="#2">#2</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1743398</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Should have svn copied instead of add to maintain provenance
+    </p>
+    <p class="commitdetails"><strong>388</strong> lines of code changed in <span class="files">173 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5</strong>:
+        .travis.yml&#160;<span class="del">(del)</span>,
+        LICENSE&#160;<span class="del">(del)</span>,
+        NOTICE&#160;<span class="del">(del)</span>,
+        README.txt&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail</strong>:
+        pom.xml&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail/src/site</strong>:
+        site.xml&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider</strong>:
+        pom.xml&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/authentication</strong>:
+        AuthenticatorFactory.java&#160;<span class="del">(del)</span>,
+        ClientAuthenticator.java&#160;<span class="del">(del)</span>,
+        CramMD5Authenticator.java&#160;<span class="del">(del)</span>,
+        DigestMD5Authenticator.java&#160;<span class="del">(del)</span>,
+        LoginAuthenticator.java&#160;<span class="del">(del)</span>,
+        PlainAuthenticator.java&#160;<span class="del">(del)</span>,
+        SASLAuthenticator.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractImageHandler.java&#160;<span class="del">(del)</span>,
+        AbstractTextHandler.java&#160;<span class="del">(del)</span>,
+        ImageGifHandler.java&#160;<span class="del">(del)</span>,
+        ImageJpegHandler.java&#160;<span class="del">(del)</span>,
+        MultipartHandler.java&#160;<span class="del">(del)</span>,
+        RFC822MessageHandler.java&#160;<span class="del">(del)</span>,
+        TextHtmlHandler.java&#160;<span class="del">(del)</span>,
+        TextPlainHandler.java&#160;<span class="del">(del)</span>,
+        TextXmlHandler.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap</strong>:
+        ACL.java&#160;<span class="del">(del)</span>,
+        IMAPAttachedMessage.java&#160;<span class="del">(del)</span>,
+        IMAPFolder.java&#160;<span class="del">(del)</span>,
+        IMAPMessage.java&#160;<span class="del">(del)</span>,
+        IMAPMimeBodyPart.java&#160;<span class="del">(del)</span>,
+        IMAPMultipartDataSource.java&#160;<span class="del">(del)</span>,
+        IMAPNamespaceFolder.java&#160;<span class="del">(del)</span>,
+        IMAPRootFolder.java&#160;<span class="del">(del)</span>,
+        IMAPSSLStore.java&#160;<span class="del">(del)</span>,
+        IMAPStore.java&#160;<span class="del">(del)</span>,
+        Rights.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPACLResponse.java&#160;<span class="del">(del)</span>,
+        IMAPBody.java&#160;<span class="del">(del)</span>,
+        IMAPBodySection.java&#160;<span class="del">(del)</span>,
+        IMAPBodyStructure.java&#160;<span class="del">(del)</span>,
+        IMAPCapabilityResponse.java&#160;<span class="del">(del)</span>,
+        IMAPCommand.java&#160;<span class="del">(del)</span>,
+        IMAPConnection.java&#160;<span class="del">(del)</span>,
+        IMAPConnectionPool.java&#160;<span class="del">(del)</span>,
+        IMAPContinuationResponse.java&#160;<span class="del">(del)</span>,
+        IMAPDateFormat.java&#160;<span class="del">(del)</span>,
+        IMAPEnvelope.java&#160;<span class="del">(del)</span>,
+        IMAPFetchBodyPart.java&#160;<span class="del">(del)</span>,
+        IMAPFetchDataItem.java&#160;<span class="del">(del)</span>,
+        IMAPFetchResponse.java&#160;<span class="del">(del)</span>,
+        IMAPFlags.java&#160;<span class="del">(del)</span>,
+        IMAPFlagsResponse.java&#160;<span class="del">(del)</span>,
+        IMAPInternalDate.java&#160;<span class="del">(del)</span>,
+        IMAPInternetHeader.java&#160;<span class="del">(del)</span>,
+        IMAPListResponse.java&#160;<span class="del">(del)</span>,
+        IMAPListRightsResponse.java&#160;<span class="del">(del)</span>,
+        IMAPMailboxResponse.java&#160;<span class="del">(del)</span>,
+        IMAPMailboxStatus.java&#160;<span class="del">(del)</span>,
+        IMAPMessageSize.java&#160;<span class="del">(del)</span>,
+        IMAPMessageText.java&#160;<span class="del">(del)</span>,
+        IMAPMyRightsResponse.java&#160;<span class="del">(del)</span>,
+        IMAPNamespace.java&#160;<span class="del">(del)</span>,
+        IMAPNamespaceResponse.java&#160;<span class="del">(del)</span>,
+        IMAPOkResponse.java&#160;<span class="del">(del)</span>,
+        IMAPPermanentFlagsResponse.java&#160;<span class="del">(del)</span>,
+        IMAPQuotaResponse.java&#160;<span class="del">(del)</span>,
+        IMAPQuotaRootResponse.java&#160;<span class="del">(del)</span>,
+        IMAPResponse.java&#160;<span class="del">(del)</span>,
+        IMAPResponseBuffer.java&#160;<span class="del">(del)</span>,
+        IMAPResponseStream.java&#160;<span class="del">(del)</span>,
+        IMAPResponseTokenizer.java&#160;<span class="del">(del)</span>,
+        IMAPSearchDateFormat.java&#160;<span class="del">(del)</span>,
+        IMAPSearchResponse.java&#160;<span class="del">(del)</span>,
+        IMAPServerStatusResponse.java&#160;<span class="del">(del)</span>,
+        IMAPSizeResponse.java&#160;<span class="del">(del)</span>,
+        IMAPStatusResponse.java&#160;<span class="del">(del)</span>,
+        IMAPTaggedResponse.java&#160;<span class="del">(del)</span>,
+        IMAPUid.java&#160;<span class="del">(del)</span>,
+        IMAPUntaggedResponse.java&#160;<span class="del">(del)</span>,
+        IMAPUntaggedResponseHandler.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp</strong>:
+        NNTPFolder.java&#160;<span class="del">(del)</span>,
+        NNTPGroupFolder.java&#160;<span class="del">(del)</span>,
+        NNTPMessage.java&#160;<span class="del">(del)</span>,
+        NNTPRootFolder.java&#160;<span class="del">(del)</span>,
+        NNTPSSLStore.java&#160;<span class="del">(del)</span>,
+        NNTPStore.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp/newsrc</strong>:
+        NNTPNewsrc.java&#160;<span class="del">(del)</span>,
+        NNTPNewsrcFile.java&#160;<span class="del">(del)</span>,
+        NNTPNewsrcGroup.java&#160;<span class="del">(del)</span>,
+        Range.java&#160;<span class="del">(del)</span>,
+        RangeList.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3Constants.java&#160;<span class="del">(del)</span>,
+        POP3Folder.java&#160;<span class="del">(del)</span>,
+        POP3Message.java&#160;<span class="del">(del)</span>,
+        POP3RootFolder.java&#160;<span class="del">(del)</span>,
+        POP3SSLStore.java&#160;<span class="del">(del)</span>,
+        POP3Store.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3/connection</strong>:
+        POP3Connection.java&#160;<span class="del">(del)</span>,
+        POP3ConnectionPool.java&#160;<span class="del">(del)</span>,
+        POP3ListResponse.java&#160;<span class="del">(del)</span>,
+        POP3Response.java&#160;<span class="del">(del)</span>,
+        POP3StatusResponse.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/nntp</strong>:
+        NNTPConnection.java&#160;<span class="del">(del)</span>,
+        NNTPReply.java&#160;<span class="del">(del)</span>,
+        NNTPSSLTransport.java&#160;<span class="del">(del)</span>,
+        NNTPTransport.java&#160;<span class="del">(del)</span>,
+        StringListInputStream.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        MalformedSMTPReplyException.java&#160;<span class="del">(del)</span>,
+        SMTPAddressFailedException.java&#160;<span class="del">(del)</span>,
+        SMTPAddressSucceededException.java&#160;<span class="del">(del)</span>,
+        SMTPConnection.java&#160;<span class="del">(del)</span>,
+        SMTPMessage.java&#160;<span class="del">(del)</span>,
+        SMTPReply.java&#160;<span class="del">(del)</span>,
+        SMTPSTransport.java&#160;<span class="del">(del)</span>,
+        SMTPSendFailedException.java&#160;<span class="del">(del)</span>,
+        SMTPTransport.java&#160;<span class="del">(del)</span>,
+        SMTPTransportException.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/util</strong>:
+        CommandFailedException.java&#160;<span class="del">(del)</span>,
+        ConnectionException.java&#160;<span class="del">(del)</span>,
+        CountingOutputStream.java&#160;<span class="del">(del)</span>,
+        InvalidCommandException.java&#160;<span class="del">(del)</span>,
+        MIMEInputReader.java&#160;<span class="del">(del)</span>,
+        MIMEOutputStream.java&#160;<span class="del">(del)</span>,
+        MailConnection.java&#160;<span class="del">(del)</span>,
+        ProtocolProperties.java&#160;<span class="del">(del)</span>,
+        ResponseFormatException.java&#160;<span class="del">(del)</span>,
+        TraceInputStream.java&#160;<span class="del">(del)</span>,
+        TraceOutputStream.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/META-INF</strong>:
+        javamail.default.address.map&#160;<span class="del">(del)</span>,
+        javamail.default.providers&#160;<span class="del">(del)</span>,
+        mailcap&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/OSGI-INF/providers</strong>:
+        org.apache.javamail.handlers.ImageGifHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.handlers.ImageJpegHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.handlers.MultipartHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.handlers.RFC822MessageHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.handlers.TextHtmlHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.handlers.TextPlainHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.handlers.TextXmlHandler&#160;<span class="del">(del)</span>,
+        org.apache.javamail.store.imap.IMAPSSSLStore&#160;<span class="del">(del)</span>,
+        org.apache.javamail.store.imap.IMAPStore&#160;<span class="del">(del)</span>,
+        org.apache.javamail.store.nntp.NNTPSSLStore&#160;<span class="del">(del)</span>,
+        org.apache.javamail.store.nntp.NNTPStore&#160;<span class="del">(del)</span>,
+        org.apache.javamail.store.pop3.POP3SSLStore&#160;<span class="del">(del)</span>,
+        org.apache.javamail.store.pop3.POP3Store&#160;<span class="del">(del)</span>,
+        org.apache.javamail.transport.nntp.NNTPSSLTransport&#160;<span class="del">(del)</span>,
+        org.apache.javamail.transport.nntp.NNTPTransport&#160;<span class="del">(del)</span>,
+        org.apache.javamail.transport.smtp.SMTPSSLTransport&#160;<span class="del">(del)</span>,
+        org.apache.javamail.transport.smtp.SMTPTransport&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/site</strong>:
+        site.xml&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractHandler.java&#160;<span class="del">(del)</span>,
+        TextHtmlTest.java&#160;<span class="del">(del)</span>,
+        TextPlainTest.java&#160;<span class="del">(del)</span>,
+        TextXmlTest.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/issues</strong>:
+        GERONIMO6480Test.java&#160;<span class="del">(del)</span>,
+        IssuesTest.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap</strong>:
+        AuthenticationTest.java&#160;<span class="del">(del)</span>,
+        IMAPStoreTest.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPBodyStructureTest.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3StoreTest.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/testserver</strong>:
+        AbstractProtocolTest.java&#160;<span class="del">(del)</span>,
+        ApopCmdHandler.java&#160;<span class="del">(del)</span>,
+        MailServer.java&#160;<span class="del">(del)</span>,
+        RefinedCoreCmdHandlerLoader.java&#160;<span class="del">(del)</span>,
+        RefinedJMXHandlersLoader.java&#160;<span class="del">(del)</span>,
+        RefinedSmtpCoreCmdHandlerLoader.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPTransportTest.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources</strong>:
+        dummykeystore.jks&#160;<span class="del">(del)</span>,
+        pdf-test.pdf&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/imap</strong>:
+        multipart.bodystructure&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/messages</strong>:
+        multipart.msg&#160;<span class="del">(del)</span>,
+        simple.msg&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site</strong>:
+        site.xml&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/apt</strong>:
+        privacy-policy.apt&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/markdown</strong>:
+        index.md&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_adc.html" class="author">adc</a>
+    <span class="date">2016-05-11 12:49</span>
+    <a class="permalink" title="Permalink to this commit" href="#1">#1</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1743397</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Add seed code for javamail 1.5
+    </p>
+    <p class="commitdetails"><strong>703</strong> lines of code changed in <span class="files">173 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5</strong>:
+        .travis.yml&#160;<span class="new">(new&#160;8)</span>,
+        LICENSE&#160;<span class="new">(new&#160;202)</span>,
+        NOTICE&#160;<span class="new">(new&#160;8)</span>,
+        README.txt&#160;<span class="new">(new&#160;19)</span>,
+        pom.xml&#160;<span class="new">(new&#160;273)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_mail/src/site</strong>:
+        site.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/authentication</strong>:
+        AuthenticatorFactory.java&#160;<span class="new">(new)</span>,
+        ClientAuthenticator.java&#160;<span class="new">(new)</span>,
+        CramMD5Authenticator.java&#160;<span class="new">(new)</span>,
+        DigestMD5Authenticator.java&#160;<span class="new">(new)</span>,
+        LoginAuthenticator.java&#160;<span class="new">(new)</span>,
+        PlainAuthenticator.java&#160;<span class="new">(new)</span>,
+        SASLAuthenticator.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractImageHandler.java&#160;<span class="new">(new)</span>,
+        AbstractTextHandler.java&#160;<span class="new">(new)</span>,
+        ImageGifHandler.java&#160;<span class="new">(new)</span>,
+        ImageJpegHandler.java&#160;<span class="new">(new)</span>,
+        MultipartHandler.java&#160;<span class="new">(new)</span>,
+        RFC822MessageHandler.java&#160;<span class="new">(new)</span>,
+        TextHtmlHandler.java&#160;<span class="new">(new)</span>,
+        TextPlainHandler.java&#160;<span class="new">(new)</span>,
+        TextXmlHandler.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap</strong>:
+        ACL.java&#160;<span class="new">(new)</span>,
+        IMAPAttachedMessage.java&#160;<span class="new">(new)</span>,
+        IMAPFolder.java&#160;<span class="new">(new)</span>,
+        IMAPMessage.java&#160;<span class="new">(new)</span>,
+        IMAPMimeBodyPart.java&#160;<span class="new">(new)</span>,
+        IMAPMultipartDataSource.java&#160;<span class="new">(new)</span>,
+        IMAPNamespaceFolder.java&#160;<span class="new">(new)</span>,
+        IMAPRootFolder.java&#160;<span class="new">(new)</span>,
+        IMAPSSLStore.java&#160;<span class="new">(new)</span>,
+        IMAPStore.java&#160;<span class="new">(new)</span>,
+        Rights.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPACLResponse.java&#160;<span class="new">(new)</span>,
+        IMAPBody.java&#160;<span class="new">(new)</span>,
+        IMAPBodySection.java&#160;<span class="new">(new)</span>,
+        IMAPBodyStructure.java&#160;<span class="new">(new)</span>,
+        IMAPCapabilityResponse.java&#160;<span class="new">(new)</span>,
+        IMAPCommand.java&#160;<span class="new">(new)</span>,
+        IMAPConnection.java&#160;<span class="new">(new)</span>,
+        IMAPConnectionPool.java&#160;<span class="new">(new)</span>,
+        IMAPContinuationResponse.java&#160;<span class="new">(new)</span>,
+        IMAPDateFormat.java&#160;<span class="new">(new)</span>,
+        IMAPEnvelope.java&#160;<span class="new">(new)</span>,
+        IMAPFetchBodyPart.java&#160;<span class="new">(new)</span>,
+        IMAPFetchDataItem.java&#160;<span class="new">(new)</span>,
+        IMAPFetchResponse.java&#160;<span class="new">(new)</span>,
+        IMAPFlags.java&#160;<span class="new">(new)</span>,
+        IMAPFlagsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPInternalDate.java&#160;<span class="new">(new)</span>,
+        IMAPInternetHeader.java&#160;<span class="new">(new)</span>,
+        IMAPListResponse.java&#160;<span class="new">(new)</span>,
+        IMAPListRightsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPMailboxResponse.java&#160;<span class="new">(new)</span>,
+        IMAPMailboxStatus.java&#160;<span class="new">(new)</span>,
+        IMAPMessageSize.java&#160;<span class="new">(new)</span>,
+        IMAPMessageText.java&#160;<span class="new">(new)</span>,
+        IMAPMyRightsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPNamespace.java&#160;<span class="new">(new)</span>,
+        IMAPNamespaceResponse.java&#160;<span class="new">(new)</span>,
+        IMAPOkResponse.java&#160;<span class="new">(new)</span>,
+        IMAPPermanentFlagsResponse.java&#160;<span class="new">(new)</span>,
+        IMAPQuotaResponse.java&#160;<span class="new">(new)</span>,
+        IMAPQuotaRootResponse.java&#160;<span class="new">(new)</span>,
+        IMAPResponse.java&#160;<span class="new">(new)</span>,
+        IMAPResponseBuffer.java&#160;<span class="new">(new)</span>,
+        IMAPResponseStream.java&#160;<span class="new">(new)</span>,
+        IMAPResponseTokenizer.java&#160;<span class="new">(new)</span>,
+        IMAPSearchDateFormat.java&#160;<span class="new">(new)</span>,
+        IMAPSearchResponse.java&#160;<span class="new">(new)</span>,
+        IMAPServerStatusResponse.java&#160;<span class="new">(new)</span>,
+        IMAPSizeResponse.java&#160;<span class="new">(new)</span>,
+        IMAPStatusResponse.java&#160;<span class="new">(new)</span>,
+        IMAPTaggedResponse.java&#160;<span class="new">(new)</span>,
+        IMAPUid.java&#160;<span class="new">(new)</span>,
+        IMAPUntaggedResponse.java&#160;<span class="new">(new)</span>,
+        IMAPUntaggedResponseHandler.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp</strong>:
+        NNTPFolder.java&#160;<span class="new">(new)</span>,
+        NNTPGroupFolder.java&#160;<span class="new">(new)</span>,
+        NNTPMessage.java&#160;<span class="new">(new)</span>,
+        NNTPRootFolder.java&#160;<span class="new">(new)</span>,
+        NNTPSSLStore.java&#160;<span class="new">(new)</span>,
+        NNTPStore.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/nntp/newsrc</strong>:
+        NNTPNewsrc.java&#160;<span class="new">(new)</span>,
+        NNTPNewsrcFile.java&#160;<span class="new">(new)</span>,
+        NNTPNewsrcGroup.java&#160;<span class="new">(new)</span>,
+        Range.java&#160;<span class="new">(new)</span>,
+        RangeList.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3Constants.java&#160;<span class="new">(new)</span>,
+        POP3Folder.java&#160;<span class="new">(new)</span>,
+        POP3Message.java&#160;<span class="new">(new)</span>,
+        POP3RootFolder.java&#160;<span class="new">(new)</span>,
+        POP3SSLStore.java&#160;<span class="new">(new)</span>,
+        POP3Store.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/store/pop3/connection</strong>:
+        POP3Connection.java&#160;<span class="new">(new)</span>,
+        POP3ConnectionPool.java&#160;<span class="new">(new)</span>,
+        POP3ListResponse.java&#160;<span class="new">(new)</span>,
+        POP3Response.java&#160;<span class="new">(new)</span>,
+        POP3StatusResponse.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/nntp</strong>:
+        NNTPConnection.java&#160;<span class="new">(new)</span>,
+        NNTPReply.java&#160;<span class="new">(new)</span>,
+        NNTPSSLTransport.java&#160;<span class="new">(new)</span>,
+        NNTPTransport.java&#160;<span class="new">(new)</span>,
+        StringListInputStream.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        MalformedSMTPReplyException.java&#160;<span class="new">(new)</span>,
+        SMTPAddressFailedException.java&#160;<span class="new">(new)</span>,
+        SMTPAddressSucceededException.java&#160;<span class="new">(new)</span>,
+        SMTPConnection.java&#160;<span class="new">(new)</span>,
+        SMTPMessage.java&#160;<span class="new">(new)</span>,
+        SMTPReply.java&#160;<span class="new">(new)</span>,
+        SMTPSTransport.java&#160;<span class="new">(new)</span>,
+        SMTPSendFailedException.java&#160;<span class="new">(new)</span>,
+        SMTPTransport.java&#160;<span class="new">(new)</span>,
+        SMTPTransportException.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/java/org/apache/geronimo/javamail/util</strong>:
+        CommandFailedException.java&#160;<span class="new">(new)</span>,
+        ConnectionException.java&#160;<span class="new">(new)</span>,
+        CountingOutputStream.java&#160;<span class="new">(new)</span>,
+        InvalidCommandException.java&#160;<span class="new">(new)</span>,
+        MIMEInputReader.java&#160;<span class="new">(new)</span>,
+        MIMEOutputStream.java&#160;<span class="new">(new)</span>,
+        MailConnection.java&#160;<span class="new">(new)</span>,
+        ProtocolProperties.java&#160;<span class="new">(new)</span>,
+        ResponseFormatException.java&#160;<span class="new">(new)</span>,
+        TraceInputStream.java&#160;<span class="new">(new)</span>,
+        TraceOutputStream.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/META-INF</strong>:
+        javamail.default.address.map&#160;<span class="new">(new)</span>,
+        javamail.default.providers&#160;<span class="new">(new)</span>,
+        mailcap&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/main/resources/OSGI-INF/providers</strong>:
+        org.apache.javamail.handlers.ImageGifHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.ImageJpegHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.MultipartHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.RFC822MessageHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.TextHtmlHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.TextPlainHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.handlers.TextXmlHandler&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.imap.IMAPSSSLStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.imap.IMAPStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.nntp.NNTPSSLStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.nntp.NNTPStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.pop3.POP3SSLStore&#160;<span class="new">(new)</span>,
+        org.apache.javamail.store.pop3.POP3Store&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.nntp.NNTPSSLTransport&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.nntp.NNTPTransport&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.smtp.SMTPSSLTransport&#160;<span class="new">(new)</span>,
+        org.apache.javamail.transport.smtp.SMTPTransport&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/site</strong>:
+        site.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractHandler.java&#160;<span class="new">(new)</span>,
+        TextHtmlTest.java&#160;<span class="new">(new)</span>,
+        TextPlainTest.java&#160;<span class="new">(new)</span>,
+        TextXmlTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/issues</strong>:
+        GERONIMO6480Test.java&#160;<span class="new">(new)</span>,
+        IssuesTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap</strong>:
+        AuthenticationTest.java&#160;<span class="new">(new)</span>,
+        IMAPStoreTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPBodyStructureTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3StoreTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/testserver</strong>:
+        AbstractProtocolTest.java&#160;<span class="new">(new)</span>,
+        ApopCmdHandler.java&#160;<span class="new">(new)</span>,
+        MailServer.java&#160;<span class="new">(new)</span>,
+        RefinedCoreCmdHandlerLoader.java&#160;<span class="new">(new)</span>,
+        RefinedJMXHandlersLoader.java&#160;<span class="new">(new)</span>,
+        RefinedSmtpCoreCmdHandlerLoader.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPTransportTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources</strong>:
+        dummykeystore.jks&#160;<span class="new">(new&#160;20)</span>,
+        pdf-test.pdf&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/imap</strong>:
+        multipart.bodystructure&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/geronimo-javamail_1.5_provider/src/test/resources/messages</strong>:
+        multipart.msg&#160;<span class="new">(new)</span>,
+        simple.msg&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site</strong>:
+        site.xml&#160;<span class="new">(new&#160;86)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/apt</strong>:
+        privacy-policy.apt&#160;<span class="new">(new&#160;52)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.5/src/site/markdown</strong>:
+        index.md&#160;<span class="new">(new&#160;35)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p class="previous"><a href="2016-04.html">April 2016</a> &#187; </p>
+<div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>

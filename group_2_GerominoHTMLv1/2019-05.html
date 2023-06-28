@@ -1,0 +1,3552 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - May 2019 Commit Log</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>May 2019 Commit Log</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for /geronimo</a></div>
+
+<div id="nav" class="section">
+<h2>Commit Logs</h2>
+<ul>
+    <li><a href="commitlog.html">June 2022</a></li>
+    <li><a href="2022-05.html">May 2022</a></li>
+    <li><a href="2022-04.html">April 2022</a></li>
+    <li><a href="2022-03.html">March 2022</a></li>
+    <li><a href="2022-02.html">February 2022</a></li>
+    <li><a href="2022-01.html">January 2022</a></li>
+    <li><a href="2021-12.html">December 2021</a></li>
+    <li><a href="2021-11.html">November 2021</a></li>
+    <li><a href="2021-10.html">October 2021</a></li>
+    <li><a href="2021-09.html">September 2021</a></li>
+    <li><a href="2021-08.html">August 2021</a></li>
+    <li><a href="2021-07.html">July 2021</a></li>
+    <li><a href="2021-06.html">June 2021</a></li>
+    <li><a href="2021-05.html">May 2021</a></li>
+    <li><a href="2021-04.html">April 2021</a></li>
+    <li><a href="2021-03.html">March 2021</a></li>
+    <li><a href="2021-02.html">February 2021</a></li>
+    <li><a href="2021-01.html">January 2021</a></li>
+    <li><a href="2020-12.html">December 2020</a></li>
+    <li><a href="2020-11.html">November 2020</a></li>
+    <li><a href="2020-10.html">October 2020</a></li>
+    <li><a href="2020-09.html">September 2020</a></li>
+    <li><a href="2020-08.html">August 2020</a></li>
+    <li><a href="2020-07.html">July 2020</a></li>
+    <li><a href="2020-06.html">June 2020</a></li>
+    <li><a href="2020-05.html">May 2020</a></li>
+    <li><a href="2020-04.html">April 2020</a></li>
+    <li><a href="2020-03.html">March 2020</a></li>
+    <li><a href="2020-02.html">February 2020</a></li>
+    <li><a href="2020-01.html">January 2020</a></li>
+    <li><a href="2019-12.html">December 2019</a></li>
+    <li><a href="2019-11.html">November 2019</a></li>
+    <li><a href="2019-10.html">October 2019</a></li>
+    <li><a href="2019-09.html">September 2019</a></li>
+    <li><a href="2019-08.html">August 2019</a></li>
+    <li><a href="2019-07.html">July 2019</a></li>
+    <li><a href="2019-06.html">June 2019</a></li>
+    <li><span class="here">May 2019</span></li>
+    <li><a href="2019-04.html">April 2019</a></li>
+    <li><a href="2019-03.html">March 2019</a></li>
+    <li><a href="2019-02.html">February 2019</a></li>
+    <li><a href="2019-01.html">January 2019</a></li>
+    <li><a href="2018-12.html">December 2018</a></li>
+    <li><a href="2018-11.html">November 2018</a></li>
+    <li><a href="2018-10.html">October 2018</a></li>
+    <li><a href="2018-09.html">September 2018</a></li>
+    <li><a href="2018-08.html">August 2018</a></li>
+    <li><a href="2018-07.html">July 2018</a></li>
+    <li><a href="2018-06.html">June 2018</a></li>
+    <li><a href="2018-05.html">May 2018</a></li>
+    <li><a href="2018-04.html">April 2018</a></li>
+    <li><a href="2018-03.html">March 2018</a></li>
+    <li><a href="2018-02.html">February 2018</a></li>
+    <li><a href="2018-01.html">January 2018</a></li>
+    <li><a href="2017-12.html">December 2017</a></li>
+    <li><a href="2017-11.html">November 2017</a></li>
+    <li><a href="2017-10.html">October 2017</a></li>
+    <li><a href="2017-09.html">September 2017</a></li>
+    <li><a href="2017-08.html">August 2017</a></li>
+    <li><a href="2017-07.html">July 2017</a></li>
+    <li><a href="2017-06.html">June 2017</a></li>
+    <li><a href="2017-05.html">May 2017</a></li>
+    <li><a href="2017-04.html">April 2017</a></li>
+    <li><a href="2017-03.html">March 2017</a></li>
+    <li><a href="2017-02.html">February 2017</a></li>
+    <li><a href="2017-01.html">January 2017</a></li>
+    <li><a href="2016-12.html">December 2016</a></li>
+    <li><a href="2016-11.html">November 2016</a></li>
+    <li><a href="2016-10.html">October 2016</a></li>
+    <li><a href="2016-09.html">September 2016</a></li>
+    <li><a href="2016-08.html">August 2016</a></li>
+    <li><a href="2016-07.html">July 2016</a></li>
+    <li><a href="2016-06.html">June 2016</a></li>
+    <li><a href="2016-05.html">May 2016</a></li>
+    <li><a href="2016-04.html">April 2016</a></li>
+    <li><a href="2016-03.html">March 2016</a></li>
+    <li><a href="2016-02.html">February 2016</a></li>
+    <li><a href="2016-01.html">January 2016</a></li>
+    <li><a href="2015-12.html">December 2015</a></li>
+    <li><a href="2015-11.html">November 2015</a></li>
+    <li><a href="2015-10.html">October 2015</a></li>
+    <li><a href="2015-09.html">September 2015</a></li>
+    <li><a href="2015-08.html">August 2015</a></li>
+    <li><a href="2015-07.html">July 2015</a></li>
+    <li><a href="2015-06.html">June 2015</a></li>
+    <li><a href="2015-05.html">May 2015</a></li>
+    <li><a href="2015-04.html">April 2015</a></li>
+    <li><a href="2015-03.html">March 2015</a></li>
+    <li><a href="2015-02.html">February 2015</a></li>
+    <li><a href="2015-01.html">January 2015</a></li>
+    <li><a href="2014-12.html">December 2014</a></li>
+    <li><a href="2014-11.html">November 2014</a></li>
+    <li><a href="2014-10.html">October 2014</a></li>
+    <li><a href="2014-09.html">September 2014</a></li>
+    <li><a href="2014-08.html">August 2014</a></li>
+    <li><a href="2014-07.html">July 2014</a></li>
+    <li><a href="2014-06.html">June 2014</a></li>
+    <li><a href="2014-05.html">May 2014</a></li>
+    <li><a href="2014-04.html">April 2014</a></li>
+    <li><a href="2014-03.html">March 2014</a></li>
+    <li><a href="2014-02.html">February 2014</a></li>
+    <li><a href="2014-01.html">January 2014</a></li>
+    <li><a href="2013-12.html">December 2013</a></li>
+    <li><a href="2013-11.html">November 2013</a></li>
+    <li><a href="2013-10.html">October 2013</a></li>
+    <li><a href="2013-09.html">September 2013</a></li>
+    <li><a href="2013-08.html">August 2013</a></li>
+    <li><a href="2013-07.html">July 2013</a></li>
+    <li><a href="2013-06.html">June 2013</a></li>
+    <li><a href="2013-05.html">May 2013</a></li>
+    <li><a href="2013-04.html">April 2013</a></li>
+    <li><a href="2013-03.html">March 2013</a></li>
+    <li><a href="2013-02.html">February 2013</a></li>
+    <li><a href="2013-01.html">January 2013</a></li>
+    <li><a href="2012-12.html">December 2012</a></li>
+    <li><a href="2012-11.html">November 2012</a></li>
+    <li><a href="2012-10.html">October 2012</a></li>
+    <li><a href="2012-09.html">September 2012</a></li>
+    <li><a href="2012-08.html">August 2012</a></li>
+    <li><a href="2012-07.html">July 2012</a></li>
+    <li><a href="2012-06.html">June 2012</a></li>
+    <li><a href="2012-05.html">May 2012</a></li>
+    <li><a href="2012-04.html">April 2012</a></li>
+    <li><a href="2012-03.html">March 2012</a></li>
+    <li><a href="2012-02.html">February 2012</a></li>
+    <li><a href="2012-01.html">January 2012</a></li>
+    <li><a href="2011-12.html">December 2011</a></li>
+    <li><a href="2011-11.html">November 2011</a></li>
+    <li><a href="2011-10.html">October 2011</a></li>
+    <li><a href="2011-09.html">September 2011</a></li>
+    <li><a href="2011-08.html">August 2011</a></li>
+    <li><a href="2011-07.html">July 2011</a></li>
+    <li><a href="2011-06.html">June 2011</a></li>
+    <li><a href="2011-05.html">May 2011</a></li>
+    <li><a href="2011-04.html">April 2011</a></li>
+    <li><a href="2011-03.html">March 2011</a></li>
+    <li><a href="2011-02.html">February 2011</a></li>
+    <li><a href="2011-01.html">January 2011</a></li>
+    <li><a href="2010-12.html">December 2010</a></li>
+    <li><a href="2010-11.html">November 2010</a></li>
+    <li><a href="2010-10.html">October 2010</a></li>
+    <li><a href="2010-09.html">September 2010</a></li>
+    <li><a href="2010-08.html">August 2010</a></li>
+    <li><a href="2010-07.html">July 2010</a></li>
+    <li><a href="2010-06.html">June 2010</a></li>
+    <li><a href="2010-05.html">May 2010</a></li>
+    <li><a href="2010-04.html">April 2010</a></li>
+    <li><a href="2010-03.html">March 2010</a></li>
+    <li><a href="2010-02.html">February 2010</a></li>
+    <li><a href="2010-01.html">January 2010</a></li>
+    <li><a href="2009-12.html">December 2009</a></li>
+    <li><a href="2009-11.html">November 2009</a></li>
+    <li><a href="2009-10.html">October 2009</a></li>
+    <li><a href="2009-09.html">September 2009</a></li>
+    <li><a href="2009-08.html">August 2009</a></li>
+    <li><a href="2009-07.html">July 2009</a></li>
+    <li><a href="2009-06.html">June 2009</a></li>
+    <li><a href="2009-05.html">May 2009</a></li>
+    <li><a href="2009-04.html">April 2009</a></li>
+    <li><a href="2009-03.html">March 2009</a></li>
+    <li><a href="2009-02.html">February 2009</a></li>
+    <li><a href="2009-01.html">January 2009</a></li>
+    <li><a href="2008-12.html">December 2008</a></li>
+    <li><a href="2008-11.html">November 2008</a></li>
+    <li><a href="2008-10.html">October 2008</a></li>
+    <li><a href="2008-09.html">September 2008</a></li>
+    <li><a href="2008-08.html">August 2008</a></li>
+    <li><a href="2008-07.html">July 2008</a></li>
+    <li><a href="2008-06.html">June 2008</a></li>
+    <li><a href="2008-05.html">May 2008</a></li>
+    <li><a href="2008-04.html">April 2008</a></li>
+    <li><a href="2008-03.html">March 2008</a></li>
+    <li><a href="2008-02.html">February 2008</a></li>
+    <li><a href="2008-01.html">January 2008</a></li>
+    <li><a href="2007-12.html">December 2007</a></li>
+    <li><a href="2007-11.html">November 2007</a></li>
+    <li><a href="2007-10.html">October 2007</a></li>
+    <li><a href="2007-09.html">September 2007</a></li>
+    <li><a href="2007-08.html">August 2007</a></li>
+    <li><a href="2007-07.html">July 2007</a></li>
+    <li><a href="2007-06.html">June 2007</a></li>
+    <li><a href="2007-05.html">May 2007</a></li>
+    <li><a href="2007-04.html">April 2007</a></li>
+    <li><a href="2007-03.html">March 2007</a></li>
+    <li><a href="2007-02.html">February 2007</a></li>
+    <li><a href="2007-01.html">January 2007</a></li>
+    <li><a href="2006-12.html">December 2006</a></li>
+    <li><a href="2006-11.html">November 2006</a></li>
+    <li><a href="2006-10.html">October 2006</a></li>
+    <li><a href="2006-09.html">September 2006</a></li>
+    <li><a href="2006-08.html">August 2006</a></li>
+    <li><a href="2006-07.html">July 2006</a></li>
+    <li><a href="2006-06.html">June 2006</a></li>
+    <li><a href="2006-05.html">May 2006</a></li>
+    <li><a href="2006-04.html">April 2006</a></li>
+    <li><a href="2006-03.html">March 2006</a></li>
+    <li><a href="2006-02.html">February 2006</a></li>
+    <li><a href="2006-01.html">January 2006</a></li>
+    <li><a href="2005-12.html">December 2005</a></li>
+    <li><a href="2005-11.html">November 2005</a></li>
+    <li><a href="2005-10.html">October 2005</a></li>
+    <li><a href="2005-09.html">September 2005</a></li>
+    <li><a href="2005-08.html">August 2005</a></li>
+    <li><a href="2005-07.html">July 2005</a></li>
+    <li><a href="2005-06.html">June 2005</a></li>
+    <li><a href="2005-05.html">May 2005</a></li>
+    <li><a href="2005-04.html">April 2005</a></li>
+    <li><a href="2005-03.html">March 2005</a></li>
+    <li><a href="2005-02.html">February 2005</a></li>
+    <li><a href="2005-01.html">January 2005</a></li>
+    <li><a href="2004-12.html">December 2004</a></li>
+    <li><a href="2004-11.html">November 2004</a></li>
+    <li><a href="2004-10.html">October 2004</a></li>
+    <li><a href="2004-09.html">September 2004</a></li>
+    <li><a href="2004-08.html">August 2004</a></li>
+    <li><a href="2004-07.html">July 2004</a></li>
+    <li><a href="2004-06.html">June 2004</a></li>
+    <li><a href="2004-05.html">May 2004</a></li>
+    <li><a href="2004-04.html">April 2004</a></li>
+    <li><a href="2004-03.html">March 2004</a></li>
+    <li><a href="2004-02.html">February 2004</a></li>
+    <li><a href="2004-01.html">January 2004</a></li>
+    <li><a href="2003-12.html">December 2003</a></li>
+    <li><a href="2003-11.html">November 2003</a></li>
+    <li><a href="2003-10.html">October 2003</a></li>
+    <li><a href="2003-09.html">September 2003</a></li>
+    <li><a href="2003-08.html">August 2003</a></li>
+</ul>
+</div><dl class="attributes">
+    <dt>Number of Commits:</dt>
+    <dd>46</dd>
+    <dt>Number of Active Developers:</dt>
+    <dd>3</dd>
+</dl>
+<dl class="commitlist">
+  <dt><a name="46"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2019-05-23 08:34</span>
+    <a class="permalink" title="Permalink to this commit" href="#46">#46</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859779</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>17</strong> lines of code changed in <span class="files">14 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/maven-xbean-plugin</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-asm-util</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-asm7-shaded</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-blueprint</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-bundleutils</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-classloader</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-classpath</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-finder-shaded</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-finder</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-naming</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-reflect</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-spring</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-telnet</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="45"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2019-05-23 08:34</span>
+    <a class="permalink" title="Permalink to this commit" href="#45">#45</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859777</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release xbean-4.14
+    </p>
+    <p class="commitdetails"><strong>17</strong> lines of code changed in <span class="files">14 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/maven-xbean-plugin</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-asm-util</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-asm7-shaded</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-blueprint</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-bundleutils</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-classloader</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-classpath</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-finder-shaded</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-finder</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-naming</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-reflect</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-spring</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>xbean/trunk/xbean-telnet</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="44"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2019-05-23 08:11</span>
+    <a class="permalink" title="Permalink to this commit" href="#44">#44</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859775</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+avoid rat on release backup files
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="43"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2019-05-23 06:42</span>
+    <a class="permalink" title="Permalink to this commit" href="#43">#43</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859771</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Avoid XDoclet issues with Javadoc plugin under Java 8
+    </p>
+    <p class="commitdetails"><strong>11</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+11&#160;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="42"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2019-05-23 06:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#42">#42</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859770</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+add missing tags
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="41"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2019-05-23 06:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#41">#41</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859769</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Update javadoc plugin
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="40"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2019-05-23 05:59</span>
+    <a class="permalink" title="Permalink to this commit" href="#40">#40</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859768</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Make sure javadoc plugin does not fail because of the doclets in XBeanMojo
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk</strong>:
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="39"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-13 12:13</span>
+    <a class="permalink" title="Permalink to this commit" href="#39">#39</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859191</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+remove tabs<br />
+<br />
+spacesssss for the win!<br />
+
+    </p>
+    <p class="commitdetails"><strong>987</strong> lines of code changed in <span class="files">64 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/main/java/org/apache/geronimo/specs/activation</strong>:
+        Activator.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/test/java/jakarta/activation</strong>:
+        MimeTypeParameterListTest.java&#160;<span class="change">(+45&#160;-45)</span>,
+        MimeTypeTest.java&#160;<span class="change">(+15&#160;-15)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec/src/main/java/jakarta/ejb</strong>:
+        AsyncResult.java&#160;<span class="change">(+21&#160;-21)</span>,
+        Schedule.java&#160;<span class="change">(+10&#160;-10)</span>,
+        ScheduleExpression.java&#160;<span class="change">(+110&#160;-110)</span>,
+        Schedules.java&#160;<span class="change">(+1&#160;-1)</span>,
+        TimerConfig.java&#160;<span class="change">(+15&#160;-15)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws</strong>:
+        WebServicePermission.java&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence</strong>:
+        ConstraintMode.java&#160;<span class="change">(+2&#160;-2)</span>,
+        Entity.java&#160;<span class="change">(+1&#160;-1)</span>,
+        EntityManager.java&#160;<span class="change">(+1&#160;-1)</span>,
+        MapKeyClass.java&#160;<span class="change">(+1&#160;-1)</span>,
+        MapKeyColumn.java&#160;<span class="change">(+10&#160;-10)</span>,
+        MapKeyJoinColumn.java&#160;<span class="change">(+8&#160;-8)</span>,
+        MapKeyJoinColumns.java&#160;<span class="change">(+1&#160;-1)</span>,
+        StoredProcedureQuery.java&#160;<span class="change">(+6&#160;-6)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence/criteria</strong>:
+        AbstractQuery.java&#160;<span class="change">(+1&#160;-1)</span>,
+        CollectionJoin.java&#160;<span class="change">(+1&#160;-1)</span>,
+        CriteriaBuilder.java&#160;<span class="change">(+21&#160;-21)</span>,
+        From.java&#160;<span class="change">(+8&#160;-8)</span>,
+        ListJoin.java&#160;<span class="change">(+1&#160;-1)</span>,
+        MapJoin.java&#160;<span class="change">(+1&#160;-1)</span>,
+        Subquery.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence/metamodel</strong>:
+        ListAttribute.java&#160;<span class="change">(+1&#160;-1)</span>,
+        MapAttribute.java&#160;<span class="change">(+1&#160;-1)</span>,
+        PluralAttribute.java&#160;<span class="change">(+1&#160;-1)</span>,
+        SetAttribute.java&#160;<span class="change">(+1&#160;-1)</span>,
+        SingularAttribute.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-saaj_spec/src/main/java/jakarta/xml/soap</strong>:
+        MessageFactory.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml</strong>:
+        XMLConstants.java&#160;<span class="change">(+5&#160;-5)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/namespace</strong>:
+        NamespaceContext.java&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/stream</strong>:
+        FactoryConfigurationError.java&#160;<span class="change">(+32&#160;-32)</span>,
+        FactoryLocator.java&#160;<span class="change">(+28&#160;-28)</span>,
+        Location.java&#160;<span class="change">(+5&#160;-5)</span>,
+        StreamFilter.java&#160;<span class="change">(+1&#160;-1)</span>,
+        XMLEventFactory.java&#160;<span class="change">(+58&#160;-58)</span>,
+        XMLEventReader.java&#160;<span class="change">(+8&#160;-8)</span>,
+        XMLEventWriter.java&#160;<span class="change">(+10&#160;-10)</span>,
+        XMLInputFactory.java&#160;<span class="change">(+87&#160;-87)</span>,
+        XMLOutputFactory.java&#160;<span class="change">(+55&#160;-55)</span>,
+        XMLReporter.java&#160;<span class="change">(+4&#160;-4)</span>,
+        XMLResolver.java&#160;<span class="change">(+4&#160;-4)</span>,
+        XMLStreamConstants.java&#160;<span class="change">(+15&#160;-15)</span>,
+        XMLStreamException.java&#160;<span class="change">(+33&#160;-33)</span>,
+        XMLStreamReader.java&#160;<span class="change">(+48&#160;-48)</span>,
+        XMLStreamWriter.java&#160;<span class="change">(+46&#160;-46)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/stream/events</strong>:
+        Attribute.java&#160;<span class="change">(+4&#160;-4)</span>,
+        Characters.java&#160;<span class="change">(+4&#160;-4)</span>,
+        Comment.java&#160;<span class="change">(+1&#160;-1)</span>,
+        DTD.java&#160;<span class="change">(+4&#160;-4)</span>,
+        EntityDeclaration.java&#160;<span class="change">(+6&#160;-6)</span>,
+        EntityReference.java&#160;<span class="change">(+2&#160;-2)</span>,
+        Namespace.java&#160;<span class="change">(+3&#160;-3)</span>,
+        NotationDeclaration.java&#160;<span class="change">(+3&#160;-3)</span>,
+        ProcessingInstruction.java&#160;<span class="change">(+2&#160;-2)</span>,
+        StartDocument.java&#160;<span class="change">(+6&#160;-6)</span>,
+        StartElement.java&#160;<span class="change">(+6&#160;-6)</span>,
+        XMLEvent.java&#160;<span class="change">(+16&#160;-16)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/stream/util</strong>:
+        EventReaderDelegate.java&#160;<span class="change">(+40&#160;-40)</span>,
+        StreamReaderDelegate.java&#160;<span class="change">(+150&#160;-150)</span>,
+        XMLEventAllocator.java&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec/src/main/java/jakarta/websocket</strong>:
+        CloseReason.java&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="38"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-13 12:11</span>
+    <a class="permalink" title="Permalink to this commit" href="#38">#38</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859190</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+move jpa and bean validation to jakarta.*<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">569 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jpa_2.2_spec&#160;<span class="del">(del)</span>,
+        geronimo-validation_2.0_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence</strong>:
+        Access.java&#160;<span class="new">(new)</span>,
+        AccessType.java&#160;<span class="new">(new)</span>,
+        AssociationOverride.java&#160;<span class="new">(new)</span>,
+        AssociationOverrides.java&#160;<span class="new">(new)</span>,
+        AttributeConverter.java&#160;<span class="new">(new)</span>,
+        AttributeNode.java&#160;<span class="new">(new)</span>,
+        AttributeOverride.java&#160;<span class="change">(changed)</span>,
+        AttributeOverrides.java&#160;<span class="change">(changed)</span>,
+        Basic.java&#160;<span class="change">(changed)</span>,
+        Cache.java&#160;<span class="change">(changed)</span>,
+        CacheRetrieveMode.java&#160;<span class="change">(changed)</span>,
+        CacheStoreMode.java&#160;<span class="change">(changed)</span>,
+        Cacheable.java&#160;<span class="new">(new)</span>,
+        CascadeType.java&#160;<span class="new">(new)</span>,
+        CollectionTable.java&#160;<span class="new">(new)</span>,
+        Column.java&#160;<span class="new">(new)</span>,
+        ColumnResult.java&#160;<span class="new">(new)</span>,
+        ConstraintMode.java&#160;<span class="change">(changed)</span>,
+        ConstructorResult.java&#160;<span class="new">(new)</span>,
+        Convert.java&#160;<span class="new">(new)</span>,
+        Converter.java&#160;<span class="change">(changed)</span>,
+        Converts.java&#160;<span class="change">(changed)</span>,
+        DiscriminatorColumn.java&#160;<span class="change">(changed)</span>,
+        DiscriminatorType.java&#160;<span class="change">(changed)</span>,
+        DiscriminatorValue.java&#160;<span class="new">(new)</span>,
+        ElementCollection.java&#160;<span class="new">(new)</span>,
+        Embeddable.java&#160;<span class="new">(new)</span>,
+        Embedded.java&#160;<span class="change">(changed)</span>,
+        EmbeddedId.java&#160;<span class="change">(changed)</span>,
+        Entity.java&#160;<span class="change">(changed)</span>,
+        EntityExistsException.java&#160;<span class="change">(changed)</span>,
+        EntityGraph.java&#160;<span class="new">(new)</span>,
+        EntityListeners.java&#160;<span class="change">(changed)</span>,
+        EntityManager.java&#160;<span class="new">(new)</span>,
+        EntityManagerFactory.java&#160;<span class="change">(changed)</span>,
+        EntityNotFoundException.java&#160;<span class="new">(new)</span>,
+        EntityResult.java&#160;<span class="new">(new)</span>,
+        EntityTransaction.java&#160;<span class="new">(new)</span>,
+        EnumType.java&#160;<span class="new">(new)</span>,
+        Enumerated.java&#160;<span class="new">(new)</span>,
+        ExcludeDefaultListeners.java&#160;<span class="change">(changed)</span>,
+        ExcludeSuperclassListeners.java&#160;<span class="new">(new)</span>,
+        FetchType.java&#160;<span class="change">(changed)</span>,
+        FieldResult.java&#160;<span class="change">(changed)</span>,
+        FlushModeType.java&#160;<span class="new">(new)</span>,
+        ForeignKey.java&#160;<span class="new">(new)</span>,
+        GeneratedValue.java&#160;<span class="new">(new)</span>,
+        GenerationType.java&#160;<span class="new">(new)</span>,
+        Id.java&#160;<span class="new">(new)</span>,
+        IdClass.java&#160;<span class="change">(changed)</span>,
+        Index.java&#160;<span class="new">(new)</span>,
+        Inheritance.java&#160;<span class="new">(new)</span>,
+        InheritanceType.java&#160;<span class="new">(new)</span>,
+        JoinColumn.java&#160;<span class="change">(changed)</span>,
+        JoinColumns.java&#160;<span class="change">(changed)</span>,
+        JoinTable.java&#160;<span class="new">(new)</span>,
+        Lob.java&#160;<span class="new">(new)</span>,
+        LockModeType.java&#160;<span class="change">(changed)</span>,
+        LockTimeoutException.java&#160;<span class="change">(changed)</span>,
+        ManyToMany.java&#160;<span class="new">(new)</span>,
+        ManyToOne.java&#160;<span class="new">(new)</span>,
+        MapKey.java&#160;<span class="change">(changed)</span>,
+        MapKeyClass.java&#160;<span class="new">(new)</span>,
+        MapKeyColumn.java&#160;<span class="change">(changed)</span>,
+        MapKeyEnumerated.java&#160;<span class="new">(new)</span>,
+        MapKeyJoinColumn.java&#160;<span class="new">(new)</span>,
+        MapKeyJoinColumns.java&#160;<span class="new">(new)</span>,
+        MapKeyTemporal.java&#160;<span class="change">(changed)</span>,
+        MappedSuperclass.java&#160;<span class="change">(changed)</span>,
+        MapsId.java&#160;<span class="change">(changed)</span>,
+        NamedAttributeNode.java&#160;<span class="change">(changed)</span>,
+        NamedEntityGraph.java&#160;<span class="new">(new)</span>,
+        NamedEntityGraphs.java&#160;<span class="new">(new)</span>,
+        NamedNativeQueries.java&#160;<span class="change">(changed)</span>,
+        NamedNativeQuery.java&#160;<span class="new">(new)</span>,
+        NamedQueries.java&#160;<span class="new">(new)</span>,
+        NamedQuery.java&#160;<span class="new">(new)</span>,
+        NamedStoredProcedureQueries.java&#160;<span class="change">(changed)</span>,
+        NamedStoredProcedureQuery.java&#160;<span class="new">(new)</span>,
+        NamedSubgraph.java&#160;<span class="new">(new)</span>,
+        NoResultException.java&#160;<span class="change">(changed)</span>,
+        NonUniqueResultException.java&#160;<span class="new">(new)</span>,
+        OneToMany.java&#160;<span class="change">(changed)</span>,
+        OneToOne.java&#160;<span class="change">(changed)</span>,
+        OptimisticLockException.java&#160;<span class="change">(changed)</span>,
+        OrderBy.java&#160;<span class="new">(new)</span>,
+        OrderColumn.java&#160;<span class="change">(changed)</span>,
+        Parameter.java&#160;<span class="change">(changed)</span>,
+        ParameterMode.java&#160;<span class="new">(new)</span>,
+        Persistence.java&#160;<span class="new">(new)</span>,
+        PersistenceContext.java&#160;<span class="change">(changed)</span>,
+        PersistenceContextType.java&#160;<span class="change">(changed)</span>,
+        PersistenceContexts.java&#160;<span class="change">(changed)</span>,
+        PersistenceException.java&#160;<span class="new">(new)</span>,
+        PersistenceProperty.java&#160;<span class="change">(changed)</span>,
+        PersistenceUnit.java&#160;<span class="change">(changed)</span>,
+        PersistenceUnitUtil.java&#160;<span class="change">(changed)</span>,
+        PersistenceUnits.java&#160;<span class="change">(changed)</span>,
+        PersistenceUtil.java&#160;<span class="change">(changed)</span>,
+        PessimisticLockException.java&#160;<span class="change">(changed)</span>,
+        PessimisticLockScope.java&#160;<span class="change">(changed)</span>,
+        PostLoad.java&#160;<span class="new">(new)</span>,
+        PostPersist.java&#160;<span class="change">(changed)</span>,
+        PostRemove.java&#160;<span class="change">(changed)</span>,
+        PostUpdate.java&#160;<span class="new">(new)</span>,
+        PrePersist.java&#160;<span class="change">(changed)</span>,
+        PreRemove.java&#160;<span class="new">(new)</span>,
+        PreUpdate.java&#160;<span class="change">(changed)</span>,
+        PrimaryKeyJoinColumn.java&#160;<span class="new">(new)</span>,
+        PrimaryKeyJoinColumns.java&#160;<span class="change">(changed)</span>,
+        Query.java&#160;<span class="new">(new)</span>,
+        QueryHint.java&#160;<span class="change">(changed)</span>,
+        QueryTimeoutException.java&#160;<span class="change">(changed)</span>,
+        RollbackException.java&#160;<span class="new">(new)</span>,
+        SecondaryTable.java&#160;<span class="new">(new)</span>,
+        SecondaryTables.java&#160;<span class="change">(changed)</span>,
+        SequenceGenerator.java&#160;<span class="change">(changed)</span>,
+        SequenceGenerators.java&#160;<span class="change">(changed)</span>,
+        SharedCacheMode.java&#160;<span class="change">(changed)</span>,
+        SqlResultSetMapping.java&#160;<span class="new">(new)</span>,
+        SqlResultSetMappings.java&#160;<span class="change">(changed)</span>,
+        StoredProcedureParameter.java&#160;<span class="change">(changed)</span>,
+        StoredProcedureQuery.java&#160;<span class="new">(new)</span>,
+        Subgraph.java&#160;<span class="new">(new)</span>,
+        SynchronizationType.java&#160;<span class="new">(new)</span>,
+        Table.java&#160;<span class="change">(changed)</span>,
+        TableGenerator.java&#160;<span class="new">(new)</span>,
+        TableGenerators.java&#160;<span class="new">(new)</span>,
+        Temporal.java&#160;<span class="change">(changed)</span>,
+        TemporalType.java&#160;<span class="change">(changed)</span>,
+        TransactionRequiredException.java&#160;<span class="new">(new)</span>,
+        Transient.java&#160;<span class="change">(changed)</span>,
+        Tuple.java&#160;<span class="new">(new)</span>,
+        TupleElement.java&#160;<span class="change">(changed)</span>,
+        TypedQuery.java&#160;<span class="new">(new)</span>,
+        UniqueConstraint.java&#160;<span class="new">(new)</span>,
+        ValidationMode.java&#160;<span class="change">(changed)</span>,
+        Version.java&#160;<span class="change">(changed)</span>,
+        package-info.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence/criteria</strong>:
+        AbstractQuery.java&#160;<span class="new">(new)</span>,
+        CollectionJoin.java&#160;<span class="change">(changed)</span>,
+        CommonAbstractCriteria.java&#160;<span class="change">(changed)</span>,
+        CompoundSelection.java&#160;<span class="new">(new)</span>,
+        CriteriaBuilder.java&#160;<span class="change">(changed)</span>,
+        CriteriaDelete.java&#160;<span class="new">(new)</span>,
+        CriteriaQuery.java&#160;<span class="change">(changed)</span>,
+        CriteriaUpdate.java&#160;<span class="change">(changed)</span>,
+        Expression.java&#160;<span class="new">(new)</span>,
+        Fetch.java&#160;<span class="change">(changed)</span>,
+        FetchParent.java&#160;<span class="new">(new)</span>,
+        From.java&#160;<span class="change">(changed)</span>,
+        Join.java&#160;<span class="change">(changed)</span>,
+        JoinType.java&#160;<span class="new">(new)</span>,
+        ListJoin.java&#160;<span class="new">(new)</span>,
+        MapJoin.java&#160;<span class="change">(changed)</span>,
+        Order.java&#160;<span class="new">(new)</span>,
+        ParameterExpression.java&#160;<span class="change">(changed)</span>,
+        Path.java&#160;<span class="change">(changed)</span>,
+        PluralJoin.java&#160;<span class="change">(changed)</span>,
+        Predicate.java&#160;<span class="change">(changed)</span>,
+        Root.java&#160;<span class="change">(changed)</span>,
+        Selection.java&#160;<span class="change">(changed)</span>,
+        SetJoin.java&#160;<span class="new">(new)</span>,
+        Subquery.java&#160;<span class="new">(new)</span>,
+        package-info.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence/metamodel</strong>:
+        Attribute.java&#160;<span class="new">(new)</span>,
+        BasicType.java&#160;<span class="new">(new)</span>,
+        Bindable.java&#160;<span class="change">(changed)</span>,
+        CollectionAttribute.java&#160;<span class="change">(changed)</span>,
+        EmbeddableType.java&#160;<span class="change">(changed)</span>,
+        EntityType.java&#160;<span class="new">(new)</span>,
+        IdentifiableType.java&#160;<span class="new">(new)</span>,
+        ListAttribute.java&#160;<span class="new">(new)</span>,
+        ManagedType.java&#160;<span class="change">(changed)</span>,
+        MapAttribute.java&#160;<span class="new">(new)</span>,
+        MappedSuperclassType.java&#160;<span class="new">(new)</span>,
+        Metamodel.java&#160;<span class="new">(new)</span>,
+        PluralAttribute.java&#160;<span class="change">(changed)</span>,
+        SetAttribute.java&#160;<span class="change">(changed)</span>,
+        SingularAttribute.java&#160;<span class="change">(changed)</span>,
+        StaticMetamodel.java&#160;<span class="new">(new)</span>,
+        Type.java&#160;<span class="change">(changed)</span>,
+        package-info.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jpa_spec/src/main/java/jakarta/persistence/spi</strong>:
+        ClassTransformer.java&#160;<span class="new">(new)</span>,
+        LoadState.java&#160;<span class="new">(new)</span>,
+        PersistenceProvider.java&#160;<span class="change">(changed)</span>,
+        PersistenceProviderResolver.java&#160;<span class="change">(changed)</span>,
+        PersistenceProviderResolverHolder.java&#160;<span class="new">(new)</span>,
+        PersistenceUnitInfo.java&#160;<span class="change">(changed)</span>,
+        PersistenceUnitTransactionType.java&#160;<span class="new">(new)</span>,
+        ProviderUtil.java&#160;<span class="change">(changed)</span>,
+        package-info.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec</strong>:
+        pom.xml&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation</strong>:
+        BootstrapConfiguration.java&#160;<span class="change">(changed)</span>,
+        ClockProvider.java&#160;<span class="new">(new)</span>,
+        Configuration.java&#160;<span class="change">(changed)</span>,
+        Constraint.java&#160;<span class="change">(changed)</span>,
+        ConstraintDeclarationException.java&#160;<span class="new">(new)</span>,
+        ConstraintDefinitionException.java&#160;<span class="new">(new)</span>,
+        ConstraintTarget.java&#160;<span class="new">(new)</span>,
+        ConstraintValidator.java&#160;<span class="new">(new)</span>,
+        ConstraintValidatorContext.java&#160;<span class="new">(new)</span>,
+        ConstraintValidatorFactory.java&#160;<span class="new">(new)</span>,
+        ConstraintViolation.java&#160;<span class="change">(changed)</span>,
+        ConstraintViolationException.java&#160;<span class="new">(new)</span>,
+        ElementKind.java&#160;<span class="change">(changed)</span>,
+        GroupDefinitionException.java&#160;<span class="change">(changed)</span>,
+        GroupSequence.java&#160;<span class="change">(changed)</span>,
+        MessageInterpolator.java&#160;<span class="change">(changed)</span>,
+        NoProviderFoundException.java&#160;<span class="change">(changed)</span>,
+        OverridesAttribute.java&#160;<span class="new">(new)</span>,
+        ParameterNameProvider.java&#160;<span class="change">(changed)</span>,
+        Path.java&#160;<span class="change">(changed)</span>,
+        Payload.java&#160;<span class="new">(new)</span>,
+        ReportAsSingleViolation.java&#160;<span class="new">(new)</span>,
+        TraversableResolver.java&#160;<span class="new">(new)</span>,
+        UnexpectedTypeException.java&#160;<span class="change">(changed)</span>,
+        Valid.java&#160;<span class="change">(changed)</span>,
+        Validation.java&#160;<span class="change">(changed)</span>,
+        ValidationException.java&#160;<span class="new">(new)</span>,
+        ValidationProviderResolver.java&#160;<span class="new">(new)</span>,
+        Validator.java&#160;<span class="change">(changed)</span>,
+        ValidatorContext.java&#160;<span class="change">(changed)</span>,
+        ValidatorFactory.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/bootstrap</strong>:
+        GenericBootstrap.java&#160;<span class="new">(new)</span>,
+        ProviderSpecificBootstrap.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/constraints</strong>:
+        AssertFalse.java&#160;<span class="new">(new)</span>,
+        AssertTrue.java&#160;<span class="change">(changed)</span>,
+        DecimalMax.java&#160;<span class="new">(new)</span>,
+        DecimalMin.java&#160;<span class="change">(changed)</span>,
+        Digits.java&#160;<span class="new">(new)</span>,
+        Email.java&#160;<span class="new">(new)</span>,
+        Future.java&#160;<span class="change">(changed)</span>,
+        FutureOrPresent.java&#160;<span class="change">(changed)</span>,
+        Max.java&#160;<span class="change">(changed)</span>,
+        Min.java&#160;<span class="new">(new)</span>,
+        Negative.java&#160;<span class="change">(changed)</span>,
+        NegativeOrZero.java&#160;<span class="new">(new)</span>,
+        NotBlank.java&#160;<span class="change">(changed)</span>,
+        NotEmpty.java&#160;<span class="new">(new)</span>,
+        NotNull.java&#160;<span class="new">(new)</span>,
+        Null.java&#160;<span class="change">(changed)</span>,
+        Past.java&#160;<span class="new">(new)</span>,
+        PastOrPresent.java&#160;<span class="new">(new)</span>,
+        Pattern.java&#160;<span class="new">(new)</span>,
+        Positive.java&#160;<span class="new">(new)</span>,
+        PositiveOrZero.java&#160;<span class="new">(new)</span>,
+        Size.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/constraintvalidation</strong>:
+        SupportedValidationTarget.java&#160;<span class="new">(new)</span>,
+        ValidationTarget.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/executable</strong>:
+        ExecutableType.java&#160;<span class="new">(new)</span>,
+        ExecutableValidator.java&#160;<span class="change">(changed)</span>,
+        ValidateOnExecution.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/groups</strong>:
+        ConvertGroup.java&#160;<span class="new">(new)</span>,
+        Default.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/metadata</strong>:
+        BeanDescriptor.java&#160;<span class="change">(changed)</span>,
+        CascadableDescriptor.java&#160;<span class="change">(changed)</span>,
+        ConstraintDescriptor.java&#160;<span class="change">(changed)</span>,
+        ConstructorDescriptor.java&#160;<span class="change">(changed)</span>,
+        ContainerDescriptor.java&#160;<span class="change">(changed)</span>,
+        ContainerElementTypeDescriptor.java&#160;<span class="change">(changed)</span>,
+        CrossParameterDescriptor.java&#160;<span class="new">(new)</span>,
+        ElementDescriptor.java&#160;<span class="new">(new)</span>,
+        ExecutableDescriptor.java&#160;<span class="change">(changed)</span>,
+        GroupConversionDescriptor.java&#160;<span class="new">(new)</span>,
+        MethodDescriptor.java&#160;<span class="new">(new)</span>,
+        MethodType.java&#160;<span class="new">(new)</span>,
+        ParameterDescriptor.java&#160;<span class="change">(changed)</span>,
+        PropertyDescriptor.java&#160;<span class="change">(changed)</span>,
+        ReturnValueDescriptor.java&#160;<span class="new">(new)</span>,
+        Scope.java&#160;<span class="change">(changed)</span>,
+        ValidateUnwrappedValue.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/spi</strong>:
+        BootstrapState.java&#160;<span class="change">(changed)</span>,
+        ConfigurationState.java&#160;<span class="new">(new)</span>,
+        ValidationProvider.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-validation_spec/src/main/java/jakarta/validation/valueextraction</strong>:
+        ExtractedValue.java&#160;<span class="new">(new)</span>,
+        UnwrapByDefault.java&#160;<span class="change">(changed)</span>,
+        Unwrapping.java&#160;<span class="new">(new)</span>,
+        ValueExtractor.java&#160;<span class="change">(changed)</span>,
+        ValueExtractorDeclarationException.java&#160;<span class="change">(changed)</span>,
+        ValueExtractorDefinitionException.java&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="37"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-13 08:01</span>
+    <a class="permalink" title="Permalink to this commit" href="#37">#37</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859184</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+move JPA-2.2 to jakarta.*<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jpa_2.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="36"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-13 08:00</span>
+    <a class="permalink" title="Permalink to this commit" href="#36">#36</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859183</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+move bean validation to jakarta.*<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-validation_2.0_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="35"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-13 05:07</span>
+    <a class="permalink" title="Permalink to this commit" href="#35">#35</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859179</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+try to fix osgi as good as I can<br />
+<br />
++ fix an old import <br />
+
+    </p>
+    <p class="commitdetails"><strong>23</strong> lines of code changed in <span class="files">16 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-saaj_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/jakarta/servlet/resources</strong>:
+        j2ee_1_4.xsd&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml</strong>:
+        XMLConstants.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="34"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 18:26</span>
+    <a class="permalink" title="Permalink to this commit" href="#34">#34</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859048</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+also make it running on java11<br />
+
+    </p>
+    <p class="commitdetails"><strong>46</strong> lines of code changed in <span class="files">17 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind/attachment</strong>:
+        AttachmentMarshaller.java&#160;<span class="change">(+1&#160;-1)</span>,
+        AttachmentUnmarshaller.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/handler/soap</strong>:
+        SOAPMessageContext.java&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/soap</strong>:
+        SOAPFaultException.java&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec</strong>:
+        pom.xml&#160;<span class="change">(+8)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs/core</strong>:
+        Link.java&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws</strong>:
+        EndpointReference.java&#160;<span class="change">(+1&#160;-1)</span>,
+        LogicalMessage.java&#160;<span class="change">(+1&#160;-1)</span>,
+        Service.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/handler/soap</strong>:
+        SOAPMessageContext.java&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/soap</strong>:
+        SOAPBinding.java&#160;<span class="change">(+2&#160;-2)</span>,
+        SOAPFaultException.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/spi</strong>:
+        ServiceDelegate.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/wsaddressing</strong>:
+        W3CEndpointReference.java&#160;<span class="change">(+12&#160;-12)</span>,
+        package-info.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-saaj_spec/src/main/java/jakarta/xml/soap</strong>:
+        AttachmentPart.java&#160;<span class="change">(+1&#160;-1)</span>,
+        SOAPMessage.java&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="33"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 18:02</span>
+    <a class="permalink" title="Permalink to this commit" href="#33">#33</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859047</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+finish migration for jax-rs and ws<br />
+
+    </p>
+    <p class="commitdetails"><strong>20</strong> lines of code changed in <span class="files">354 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        pom.xml&#160;<span class="change">(+3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/main/java/jakarta/activation</strong>:
+        ActivationDataFlavor.java&#160;<span class="change">(changed)</span>,
+        CommandInfo.java&#160;<span class="change">(changed)</span>,
+        CommandMap.java&#160;<span class="change">(changed)</span>,
+        CommandObject.java&#160;<span class="change">(changed)</span>,
+        DataContentHandler.java&#160;<span class="change">(changed)</span>,
+        DataContentHandlerFactory.java&#160;<span class="change">(changed)</span>,
+        DataHandler.java&#160;<span class="new">(new)</span>,
+        DataSource.java&#160;<span class="change">(changed)</span>,
+        FileDataSource.java&#160;<span class="change">(changed)</span>,
+        FileTypeMap.java&#160;<span class="change">(changed)</span>,
+        MailcapCommandMap.java&#160;<span class="change">(changed)</span>,
+        MimeType.java&#160;<span class="new">(new)</span>,
+        MimeTypeParameterList.java&#160;<span class="new">(new)</span>,
+        MimeTypeParseException.java&#160;<span class="new">(new)</span>,
+        MimetypesFileTypeMap.java&#160;<span class="change">(changed)</span>,
+        URLDataSource.java&#160;<span class="change">(changed)</span>,
+        UnsupportedDataTypeException.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/main/java/org/apache/geronimo/specs/activation</strong>:
+        CommandMapBundleTrackerCustomizer.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/test/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/test/java/jakarta/activation</strong>:
+        ActivationDataFlavorTest.java&#160;<span class="new">(new)</span>,
+        CommandInfoTest.java&#160;<span class="change">(changed)</span>,
+        DataHandlerTest.java&#160;<span class="new">(new)</span>,
+        MailcapCommandMapTest.java&#160;<span class="new">(new)</span>,
+        MimeTypeParameterListTest.java&#160;<span class="change">(changed)</span>,
+        MimeTypeTest.java&#160;<span class="new">(new)</span>,
+        MimetypesFileTypeMapTest.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind</strong>:
+        Binder.java&#160;<span class="new">(new)</span>,
+        ContextFinder.java&#160;<span class="change">(changed)</span>,
+        DataBindingException.java&#160;<span class="change">(changed)</span>,
+        DatatypeConverter.java&#160;<span class="new">(new)</span>,
+        DatatypeConverterHelper.java&#160;<span class="change">(changed)</span>,
+        DatatypeConverterInterface.java&#160;<span class="new">(new)</span>,
+        Element.java&#160;<span class="new">(new)</span>,
+        JAXB.java&#160;<span class="change">(changed)</span>,
+        JAXBContext.java&#160;<span class="new">(new)</span>,
+        JAXBElement.java&#160;<span class="change">(changed)</span>,
+        JAXBException.java&#160;<span class="change">(changed)</span>,
+        JAXBIntrospector.java&#160;<span class="change">(changed)</span>,
+        JAXBPermission.java&#160;<span class="new">(new)</span>,
+        MarshalException.java&#160;<span class="new">(new)</span>,
+        Marshaller.java&#160;<span class="change">(changed)</span>,
+        NotIdentifiableEvent.java&#160;<span class="change">(changed)</span>,
+        ParseConversionEvent.java&#160;<span class="new">(new)</span>,
+        PrintConversionEvent.java&#160;<span class="change">(changed)</span>,
+        PropertyException.java&#160;<span class="new">(new)</span>,
+        SchemaOutputResolver.java&#160;<span class="change">(changed)</span>,
+        TypeConstraintException.java&#160;<span class="change">(changed)</span>,
+        UnmarshalException.java&#160;<span class="new">(new)</span>,
+        Unmarshaller.java&#160;<span class="change">(changed)</span>,
+        UnmarshallerHandler.java&#160;<span class="change">(changed)</span>,
+        ValidationEvent.java&#160;<span class="new">(new)</span>,
+        ValidationEventHandler.java&#160;<span class="change">(changed)</span>,
+        ValidationEventLocator.java&#160;<span class="change">(changed)</span>,
+        ValidationException.java&#160;<span class="new">(new)</span>,
+        Validator.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind/annotation</strong>:
+        DomHandler.java&#160;<span class="new">(new)</span>,
+        W3CDomHandler.java&#160;<span class="change">(changed)</span>,
+        XmlAccessOrder.java&#160;<span class="change">(changed)</span>,
+        XmlAccessType.java&#160;<span class="new">(new)</span>,
+        XmlAccessorOrder.java&#160;<span class="change">(changed)</span>,
+        XmlAccessorType.java&#160;<span class="new">(new)</span>,
+        XmlAnyAttribute.java&#160;<span class="change">(changed)</span>,
+        XmlAnyElement.java&#160;<span class="change">(changed)</span>,
+        XmlAttachmentRef.java&#160;<span class="change">(changed)</span>,
+        XmlAttribute.java&#160;<span class="new">(new)</span>,
+        XmlElement.java&#160;<span class="new">(new)</span>,
+        XmlElementDecl.java&#160;<span class="new">(new)</span>,
+        XmlElementRef.java&#160;<span class="new">(new)</span>,
+        XmlElementRefs.java&#160;<span class="change">(changed)</span>,
+        XmlElementWrapper.java&#160;<span class="change">(changed)</span>,
+        XmlElements.java&#160;<span class="change">(changed)</span>,
+        XmlEnum.java&#160;<span class="change">(changed)</span>,
+        XmlEnumValue.java&#160;<span class="new">(new)</span>,
+        XmlID.java&#160;<span class="new">(new)</span>,
+        XmlIDREF.java&#160;<span class="new">(new)</span>,
+        XmlInlineBinaryData.java&#160;<span class="new">(new)</span>,
+        XmlList.java&#160;<span class="new">(new)</span>,
+        XmlMimeType.java&#160;<span class="change">(changed)</span>,
+        XmlMixed.java&#160;<span class="new">(new)</span>,
+        XmlNs.java&#160;<span class="new">(new)</span>,
+        XmlNsForm.java&#160;<span class="new">(new)</span>,
+        XmlRegistry.java&#160;<span class="new">(new)</span>,
+        XmlRootElement.java&#160;<span class="change">(changed)</span>,
+        XmlSchema.java&#160;<span class="change">(changed)</span>,
+        XmlSchemaType.java&#160;<span class="change">(changed)</span>,
+        XmlSchemaTypes.java&#160;<span class="change">(changed)</span>,
+        XmlSeeAlso.java&#160;<span class="change">(changed)</span>,
+        XmlTransient.java&#160;<span class="new">(new)</span>,
+        XmlType.java&#160;<span class="new">(new)</span>,
+        XmlValue.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind/annotation/adapters</strong>:
+        CollapsedStringAdapter.java&#160;<span class="change">(changed)</span>,
+        HexBinaryAdapter.java&#160;<span class="new">(new)</span>,
+        NormalizedStringAdapter.java&#160;<span class="change">(changed)</span>,
+        XmlAdapter.java&#160;<span class="new">(new)</span>,
+        XmlJavaTypeAdapter.java&#160;<span class="new">(new)</span>,
+        XmlJavaTypeAdapters.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind/attachment</strong>:
+        AttachmentMarshaller.java&#160;<span class="new">(new)</span>,
+        AttachmentUnmarshaller.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind/helpers</strong>:
+        AbstractMarshallerImpl.java&#160;<span class="new">(new)</span>,
+        AbstractUnmarshallerImpl.java&#160;<span class="change">(changed)</span>,
+        DefaultValidationEventHandler.java&#160;<span class="new">(new)</span>,
+        NotIdentifiableEventImpl.java&#160;<span class="change">(changed)</span>,
+        ParseConversionEventImpl.java&#160;<span class="new">(new)</span>,
+        PrintConversionEventImpl.java&#160;<span class="change">(changed)</span>,
+        ValidationEventImpl.java&#160;<span class="change">(changed)</span>,
+        ValidationEventLocatorImpl.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java/jakarta/xml/bind/util</strong>:
+        JAXBResult.java&#160;<span class="new">(new)</span>,
+        JAXBSource.java&#160;<span class="new">(new)</span>,
+        ValidationEventCollector.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec</strong>:
+        pom.xml&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec</strong>:
+        pom.xml&#160;<span class="change">(+12&#160;-12)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-saaj_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-saaj_spec/src/main/java/jakarta/xml/soap</strong>:
+        AttachmentPart.java&#160;<span class="change">(changed)</span>,
+        Detail.java&#160;<span class="new">(new)</span>,
+        DetailEntry.java&#160;<span class="change">(changed)</span>,
+        FactoryFinder.java&#160;<span class="new">(new)</span>,
+        MessageFactory.java&#160;<span class="new">(new)</span>,
+        MimeHeader.java&#160;<span class="change">(changed)</span>,
+        MimeHeaders.java&#160;<span class="change">(changed)</span>,
+        Name.java&#160;<span class="new">(new)</span>,
+        Node.java&#160;<span class="change">(changed)</span>,
+        SAAJMetaFactory.java&#160;<span class="new">(new)</span>,
+        SAAJResult.java&#160;<span class="change">(changed)</span>,
+        SOAPBody.java&#160;<span class="new">(new)</span>,
+        SOAPBodyElement.java&#160;<span class="change">(changed)</span>,
+        SOAPConnection.java&#160;<span class="new">(new)</span>,
+        SOAPConnectionFactory.java&#160;<span class="change">(changed)</span>,
+        SOAPConstants.java&#160;<span class="change">(changed)</span>,
+        SOAPElement.java&#160;<span class="change">(changed)</span>,
+        SOAPElementFactory.java&#160;<span class="new">(new)</span>,
+        SOAPEnvelope.java&#160;<span class="new">(new)</span>,
+        SOAPException.java&#160;<span class="change">(changed)</span>,
+        SOAPFactory.java&#160;<span class="new">(new)</span>,
+        SOAPFault.java&#160;<span class="new">(new)</span>,
+        SOAPFaultElement.java&#160;<span class="change">(changed)</span>,
+        SOAPHeader.java&#160;<span class="change">(changed)</span>,
+        SOAPHeaderElement.java&#160;<span class="change">(changed)</span>,
+        SOAPMessage.java&#160;<span class="change">(changed)</span>,
+        SOAPPart.java&#160;<span class="new">(new)</span>,
+        Text.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/namespace</strong>:
+        NamespaceContext.java&#160;<span class="new">(new)</span>,
+        QName.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/stream</strong>:
+        EventFilter.java&#160;<span class="change">(changed)</span>,
+        FactoryConfigurationError.java&#160;<span class="new">(new)</span>,
+        FactoryLocator.java&#160;<span class="change">(changed)</span>,
+        Location.java&#160;<span class="new">(new)</span>,
+        StreamFilter.java&#160;<span class="new">(new)</span>,
+        XMLEventFactory.java&#160;<span class="change">(changed)</span>,
+        XMLEventReader.java&#160;<span class="new">(new)</span>,
+        XMLEventWriter.java&#160;<span class="change">(changed)</span>,
+        XMLInputFactory.java&#160;<span class="change">(changed)</span>,
+        XMLOutputFactory.java&#160;<span class="new">(new)</span>,
+        XMLReporter.java&#160;<span class="new">(new)</span>,
+        XMLResolver.java&#160;<span class="change">(changed)</span>,
+        XMLStreamConstants.java&#160;<span class="new">(new)</span>,
+        XMLStreamException.java&#160;<span class="new">(new)</span>,
+        XMLStreamReader.java&#160;<span class="new">(new)</span>,
+        XMLStreamWriter.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/stream/events</strong>:
+        Attribute.java&#160;<span class="change">(changed)</span>,
+        Characters.java&#160;<span class="change">(changed)</span>,
+        Comment.java&#160;<span class="new">(new)</span>,
+        DTD.java&#160;<span class="new">(new)</span>,
+        EndDocument.java&#160;<span class="change">(changed)</span>,
+        EndElement.java&#160;<span class="new">(new)</span>,
+        EntityDeclaration.java&#160;<span class="new">(new)</span>,
+        EntityReference.java&#160;<span class="change">(changed)</span>,
+        Namespace.java&#160;<span class="new">(new)</span>,
+        NotationDeclaration.java&#160;<span class="new">(new)</span>,
+        ProcessingInstruction.java&#160;<span class="new">(new)</span>,
+        StartDocument.java&#160;<span class="change">(changed)</span>,
+        StartElement.java&#160;<span class="new">(new)</span>,
+        XMLEvent.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java/jakarta/xml/stream/util</strong>:
+        EventReaderDelegate.java&#160;<span class="change">(changed)</span>,
+        StreamReaderDelegate.java&#160;<span class="new">(new)</span>,
+        XMLEventAllocator.java&#160;<span class="change">(changed)</span>,
+        XMLEventConsumer.java&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="32"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 17:38</span>
+    <a class="permalink" title="Permalink to this commit" href="#32">#32</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859046</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+more specs over to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">13 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-activation_1.1_spec&#160;<span class="del">(del)</span>,
+        geronimo-jaxb_2.2_spec&#160;<span class="del">(del)</span>,
+        geronimo-saaj_1.3_spec&#160;<span class="del">(del)</span>,
+        geronimo-stax-api_1.2_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec</strong>:
+        pom.xml&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-activation_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxb_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-saaj_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-stax_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="31"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 16:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#31">#31</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859037</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+first move of jaxrs and jaxws<br />
+<br />
+jax-ws misses some other depending specs - will migrate as well.<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">369 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jaxrs_2.1_spec&#160;<span class="del">(del)</span>,
+        geronimo-jaxws_2.2_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>,
+        run_sigtest.sh&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs</strong>:
+        ApplicationPath.java&#160;<span class="change">(changed)</span>,
+        BadRequestException.java&#160;<span class="change">(changed)</span>,
+        BeanParam.java&#160;<span class="new">(new)</span>,
+        ClientErrorException.java&#160;<span class="change">(changed)</span>,
+        ConstrainedTo.java&#160;<span class="change">(changed)</span>,
+        Consumes.java&#160;<span class="new">(new)</span>,
+        CookieParam.java&#160;<span class="change">(changed)</span>,
+        DELETE.java&#160;<span class="new">(new)</span>,
+        DefaultValue.java&#160;<span class="change">(changed)</span>,
+        Encoded.java&#160;<span class="change">(changed)</span>,
+        ForbiddenException.java&#160;<span class="change">(changed)</span>,
+        FormParam.java&#160;<span class="new">(new)</span>,
+        GET.java&#160;<span class="change">(changed)</span>,
+        HEAD.java&#160;<span class="change">(changed)</span>,
+        HeaderParam.java&#160;<span class="new">(new)</span>,
+        HttpMethod.java&#160;<span class="new">(new)</span>,
+        InternalServerErrorException.java&#160;<span class="change">(changed)</span>,
+        MatrixParam.java&#160;<span class="new">(new)</span>,
+        NameBinding.java&#160;<span class="new">(new)</span>,
+        NotAcceptableException.java&#160;<span class="change">(changed)</span>,
+        NotAllowedException.java&#160;<span class="change">(changed)</span>,
+        NotAuthorizedException.java&#160;<span class="change">(changed)</span>,
+        NotFoundException.java&#160;<span class="new">(new)</span>,
+        NotSupportedException.java&#160;<span class="change">(changed)</span>,
+        OPTIONS.java&#160;<span class="change">(changed)</span>,
+        PATCH.java&#160;<span class="change">(changed)</span>,
+        POST.java&#160;<span class="change">(changed)</span>,
+        PUT.java&#160;<span class="new">(new)</span>,
+        Path.java&#160;<span class="change">(changed)</span>,
+        PathParam.java&#160;<span class="new">(new)</span>,
+        Priorities.java&#160;<span class="new">(new)</span>,
+        ProcessingException.java&#160;<span class="new">(new)</span>,
+        Produces.java&#160;<span class="new">(new)</span>,
+        QueryParam.java&#160;<span class="new">(new)</span>,
+        RedirectionException.java&#160;<span class="change">(changed)</span>,
+        RuntimeType.java&#160;<span class="change">(changed)</span>,
+        ServerErrorException.java&#160;<span class="change">(changed)</span>,
+        ServiceUnavailableException.java&#160;<span class="change">(changed)</span>,
+        WebApplicationException.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs/client</strong>:
+        AsyncInvoker.java&#160;<span class="change">(changed)</span>,
+        Client.java&#160;<span class="new">(new)</span>,
+        ClientBuilder.java&#160;<span class="change">(changed)</span>,
+        ClientFinder.java&#160;<span class="change">(changed)</span>,
+        ClientRequestContext.java&#160;<span class="change">(changed)</span>,
+        ClientRequestFilter.java&#160;<span class="new">(new)</span>,
+        ClientResponseContext.java&#160;<span class="change">(changed)</span>,
+        ClientResponseFilter.java&#160;<span class="new">(new)</span>,
+        CompletionStageRxInvoker.java&#160;<span class="change">(changed)</span>,
+        Entity.java&#160;<span class="new">(new)</span>,
+        Invocation.java&#160;<span class="change">(changed)</span>,
+        InvocationCallback.java&#160;<span class="change">(changed)</span>,
+        ResponseProcessingException.java&#160;<span class="change">(changed)</span>,
+        RxInvoker.java&#160;<span class="new">(new)</span>,
+        RxInvokerProvider.java&#160;<span class="new">(new)</span>,
+        SyncInvoker.java&#160;<span class="new">(new)</span>,
+        WebTarget.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs/container</strong>:
+        AsyncResponse.java&#160;<span class="new">(new)</span>,
+        CompletionCallback.java&#160;<span class="new">(new)</span>,
+        ConnectionCallback.java&#160;<span class="change">(changed)</span>,
+        ContainerRequestContext.java&#160;<span class="new">(new)</span>,
+        ContainerRequestFilter.java&#160;<span class="new">(new)</span>,
+        ContainerResponseContext.java&#160;<span class="new">(new)</span>,
+        ContainerResponseFilter.java&#160;<span class="change">(changed)</span>,
+        DynamicFeature.java&#160;<span class="change">(changed)</span>,
+        PreMatching.java&#160;<span class="new">(new)</span>,
+        ResourceContext.java&#160;<span class="change">(changed)</span>,
+        ResourceInfo.java&#160;<span class="change">(changed)</span>,
+        Suspended.java&#160;<span class="new">(new)</span>,
+        TimeoutHandler.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs/core</strong>:
+        AbstractMultivaluedMap.java&#160;<span class="new">(new)</span>,
+        Application.java&#160;<span class="change">(changed)</span>,
+        CacheControl.java&#160;<span class="new">(new)</span>,
+        Configurable.java&#160;<span class="change">(changed)</span>,
+        Configuration.java&#160;<span class="change">(changed)</span>,
+        Context.java&#160;<span class="change">(changed)</span>,
+        Cookie.java&#160;<span class="new">(new)</span>,
+        EntityTag.java&#160;<span class="change">(changed)</span>,
+        Feature.java&#160;<span class="change">(changed)</span>,
+        FeatureContext.java&#160;<span class="change">(changed)</span>,
+        Form.java&#160;<span class="new">(new)</span>,
+        GenericEntity.java&#160;<span class="change">(changed)</span>,
+        GenericType.java&#160;<span class="new">(new)</span>,
+        HttpHeaders.java&#160;<span class="new">(new)</span>,
+        Link.java&#160;<span class="change">(changed)</span>,
+        MediaType.java&#160;<span class="change">(changed)</span>,
+        MultivaluedHashMap.java&#160;<span class="new">(new)</span>,
+        MultivaluedMap.java&#160;<span class="new">(new)</span>,
+        NewCookie.java&#160;<span class="new">(new)</span>,
+        NoContentException.java&#160;<span class="new">(new)</span>,
+        PathSegment.java&#160;<span class="new">(new)</span>,
+        Request.java&#160;<span class="change">(changed)</span>,
+        Response.java&#160;<span class="new">(new)</span>,
+        SecurityContext.java&#160;<span class="change">(changed)</span>,
+        StreamingOutput.java&#160;<span class="new">(new)</span>,
+        UriBuilder.java&#160;<span class="change">(changed)</span>,
+        UriBuilderException.java&#160;<span class="new">(new)</span>,
+        UriInfo.java&#160;<span class="change">(changed)</span>,
+        Variant.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs/ext</strong>:
+        ContextResolver.java&#160;<span class="change">(changed)</span>,
+        ExceptionMapper.java&#160;<span class="new">(new)</span>,
+        InterceptorContext.java&#160;<span class="new">(new)</span>,
+        MessageBodyReader.java&#160;<span class="new">(new)</span>,
+        MessageBodyWriter.java&#160;<span class="new">(new)</span>,
+        ParamConverter.java&#160;<span class="change">(changed)</span>,
+        ParamConverterProvider.java&#160;<span class="new">(new)</span>,
+        Provider.java&#160;<span class="change">(changed)</span>,
+        Providers.java&#160;<span class="change">(changed)</span>,
+        ReaderInterceptor.java&#160;<span class="new">(new)</span>,
+        ReaderInterceptorContext.java&#160;<span class="change">(changed)</span>,
+        RuntimeDelegate.java&#160;<span class="new">(new)</span>,
+        RuntimeDelegateFinder.java&#160;<span class="change">(changed)</span>,
+        WriterInterceptor.java&#160;<span class="new">(new)</span>,
+        WriterInterceptorContext.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrs_spec/src/main/java/jakarta/ws/rs/sse</strong>:
+        InboundSseEvent.java&#160;<span class="new">(new)</span>,
+        OutboundSseEvent.java&#160;<span class="change">(changed)</span>,
+        Sse.java&#160;<span class="change">(changed)</span>,
+        SseBroadcaster.java&#160;<span class="new">(new)</span>,
+        SseEvent.java&#160;<span class="change">(changed)</span>,
+        SseEventSink.java&#160;<span class="change">(changed)</span>,
+        SseEventSource.java&#160;<span class="new">(new)</span>,
+        SseFinder.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws</strong>:
+        Action.java&#160;<span class="change">(changed)</span>,
+        AsyncHandler.java&#160;<span class="new">(new)</span>,
+        Binding.java&#160;<span class="new">(new)</span>,
+        BindingProvider.java&#160;<span class="change">(changed)</span>,
+        BindingType.java&#160;<span class="change">(changed)</span>,
+        Dispatch.java&#160;<span class="change">(changed)</span>,
+        Endpoint.java&#160;<span class="new">(new)</span>,
+        EndpointContext.java&#160;<span class="change">(changed)</span>,
+        EndpointReference.java&#160;<span class="new">(new)</span>,
+        FaultAction.java&#160;<span class="new">(new)</span>,
+        Holder.java&#160;<span class="change">(changed)</span>,
+        LogicalMessage.java&#160;<span class="change">(changed)</span>,
+        ProtocolException.java&#160;<span class="change">(changed)</span>,
+        Provider.java&#160;<span class="change">(changed)</span>,
+        RequestWrapper.java&#160;<span class="change">(changed)</span>,
+        RespectBinding.java&#160;<span class="new">(new)</span>,
+        RespectBindingFeature.java&#160;<span class="change">(changed)</span>,
+        Response.java&#160;<span class="new">(new)</span>,
+        ResponseWrapper.java&#160;<span class="change">(changed)</span>,
+        Service.java&#160;<span class="new">(new)</span>,
+        ServiceMode.java&#160;<span class="new">(new)</span>,
+        WebEndpoint.java&#160;<span class="change">(changed)</span>,
+        WebFault.java&#160;<span class="new">(new)</span>,
+        WebServiceClient.java&#160;<span class="change">(changed)</span>,
+        WebServiceContext.java&#160;<span class="new">(new)</span>,
+        WebServiceException.java&#160;<span class="change">(changed)</span>,
+        WebServiceFeature.java&#160;<span class="change">(changed)</span>,
+        WebServicePermission.java&#160;<span class="change">(changed)</span>,
+        WebServiceProvider.java&#160;<span class="change">(changed)</span>,
+        WebServiceRef.java&#160;<span class="new">(new)</span>,
+        WebServiceRefs.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/handler</strong>:
+        Handler.java&#160;<span class="new">(new)</span>,
+        HandlerResolver.java&#160;<span class="change">(changed)</span>,
+        LogicalHandler.java&#160;<span class="change">(changed)</span>,
+        LogicalMessageContext.java&#160;<span class="new">(new)</span>,
+        MessageContext.java&#160;<span class="new">(new)</span>,
+        PortInfo.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/handler/soap</strong>:
+        SOAPHandler.java&#160;<span class="new">(new)</span>,
+        SOAPMessageContext.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/http</strong>:
+        HTTPBinding.java&#160;<span class="new">(new)</span>,
+        HTTPException.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/soap</strong>:
+        Addressing.java&#160;<span class="change">(changed)</span>,
+        AddressingFeature.java&#160;<span class="change">(changed)</span>,
+        MTOM.java&#160;<span class="change">(changed)</span>,
+        MTOMFeature.java&#160;<span class="new">(new)</span>,
+        SOAPBinding.java&#160;<span class="change">(changed)</span>,
+        SOAPFaultException.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/spi</strong>:
+        FactoryFinder.java&#160;<span class="new">(new)</span>,
+        Invoker.java&#160;<span class="change">(changed)</span>,
+        Provider.java&#160;<span class="new">(new)</span>,
+        ServiceDelegate.java&#160;<span class="change">(changed)</span>,
+        WebServiceFeatureAnnotation.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/spi/http</strong>:
+        HttpContext.java&#160;<span class="new">(new)</span>,
+        HttpExchange.java&#160;<span class="new">(new)</span>,
+        HttpHandler.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxws_spec/src/main/java/jakarta/xml/ws/wsaddressing</strong>:
+        W3CEndpointReference.java&#160;<span class="new">(new)</span>,
+        W3CEndpointReferenceBuilder.java&#160;<span class="new">(new)</span>,
+        package-info.java&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="30"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 12:41</span>
+    <a class="permalink" title="Permalink to this commit" href="#30">#30</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859028</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate activation to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-activation_1.1_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="29"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 12:38</span>
+    <a class="permalink" title="Permalink to this commit" href="#29">#29</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859026</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate jaxb to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jaxb_2.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="28"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 12:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#28">#28</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859025</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate stax to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-stax-api_1.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="27"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 12:36</span>
+    <a class="permalink" title="Permalink to this commit" href="#27">#27</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859024</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate saaj to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-saaj_1.3_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="26"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 12:22</span>
+    <a class="permalink" title="Permalink to this commit" href="#26">#26</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859023</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+move jaxws to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jaxws_2.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="25"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 12:21</span>
+    <a class="permalink" title="Permalink to this commit" href="#25">#25</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1859022</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate jaxrs to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jaxrs_2.1_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="24"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 06:42</span>
+    <a class="permalink" title="Permalink to this commit" href="#24">#24</a>
+  </dt>
+  <dd>
+    <p class="comment">
+move JSON-B from javax to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">59 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jsonb_1.0_spec&#160;<span class="new">(new)</span>,
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java/jakarta/json/bind</strong>:
+        Jsonb.java&#160;<span class="new">(new)</span>,
+        JsonbBuilder.java&#160;<span class="new">(new)</span>,
+        JsonbConfig.java&#160;<span class="new">(new)</span>,
+        JsonbException.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java/jakarta/json/bind/adapter</strong>:
+        JsonbAdapter.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java/jakarta/json/bind/annotation</strong>:
+        JsonbAnnotation.java&#160;<span class="change">(changed)</span>,
+        JsonbCreator.java&#160;<span class="change">(changed)</span>,
+        JsonbDateFormat.java&#160;<span class="change">(changed)</span>,
+        JsonbNillable.java&#160;<span class="change">(changed)</span>,
+        JsonbNumberFormat.java&#160;<span class="new">(new)</span>,
+        JsonbProperty.java&#160;<span class="change">(changed)</span>,
+        JsonbPropertyOrder.java&#160;<span class="change">(changed)</span>,
+        JsonbTransient.java&#160;<span class="change">(changed)</span>,
+        JsonbTypeAdapter.java&#160;<span class="change">(changed)</span>,
+        JsonbTypeDeserializer.java&#160;<span class="new">(new)</span>,
+        JsonbTypeSerializer.java&#160;<span class="new">(new)</span>,
+        JsonbVisibility.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java/jakarta/json/bind/config</strong>:
+        BinaryDataStrategy.java&#160;<span class="new">(new)</span>,
+        PropertyNamingStrategy.java&#160;<span class="change">(changed)</span>,
+        PropertyOrderStrategy.java&#160;<span class="new">(new)</span>,
+        PropertyVisibilityStrategy.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java/jakarta/json/bind/serializer</strong>:
+        DeserializationContext.java&#160;<span class="change">(changed)</span>,
+        JsonbDeserializer.java&#160;<span class="new">(new)</span>,
+        JsonbSerializer.java&#160;<span class="new">(new)</span>,
+        SerializationContext.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsonb_spec/src/main/java/jakarta/json/bind/spi</strong>:
+        JsonbProvider.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="23"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 04:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#23">#23</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858974</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+remove more old javax refs<br />
+
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec</strong>:
+        pom.xml&#160;<span class="change">(+6&#160;-6)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec/src/main/java/jakarta/transaction</strong>:
+        TransactionScoped.java&#160;<span class="change">(+1&#160;-1)</span>,
+        Transactional.java&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="22"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 04:01</span>
+    <a class="permalink" title="Permalink to this commit" href="#22">#22</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858973</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+also migrate missing transitive specs<br />
+
+    </p>
+    <p class="commitdetails"><strong>14</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec</strong>:
+        pom.xml&#160;<span class="change">(+12&#160;-12)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec/src/main/java/jakarta/ejb</strong>:
+        EJBContext.java&#160;<span class="change">(+1&#160;-1)</span>,
+        SessionContext.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="21"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-09 03:54</span>
+    <a class="permalink" title="Permalink to this commit" href="#21">#21</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858972</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+remove classes which are in JavaSE now<br />
+
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in <span class="files">9 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc</strong>:
+        FactoryFinder.java&#160;<span class="change">(+1&#160;-6)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec/src/main/java/jakarta/transaction/xa</strong>:
+        XAException.java&#160;<span class="del">(del)</span>,
+        XAResource.java&#160;<span class="del">(del)</span>,
+        Xid.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec/src/main/java/javax/transaction/xa</strong>:
+        XAException.java&#160;<span class="del">(del)</span>,
+        XAResource.java&#160;<span class="del">(del)</span>,
+        Xid.java&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet</strong>:
+        package.html&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="20"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-07 13:25</span>
+    <a class="permalink" title="Permalink to this commit" href="#20">#20</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858877</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+add jax-rpc in jakarta style<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">105 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jaxrpc_1.1_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec</strong>:
+        pom.xml&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc</strong>:
+        Call.java&#160;<span class="new">(new)</span>,
+        FactoryFinder.java&#160;<span class="new">(new)</span>,
+        JAXRPCException.java&#160;<span class="new">(new)</span>,
+        NamespaceConstants.java&#160;<span class="new">(new)</span>,
+        ParameterMode.java&#160;<span class="change">(changed)</span>,
+        Service.java&#160;<span class="new">(new)</span>,
+        ServiceException.java&#160;<span class="change">(changed)</span>,
+        ServiceFactory.java&#160;<span class="new">(new)</span>,
+        Stub.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/encoding</strong>:
+        DeserializationContext.java&#160;<span class="change">(changed)</span>,
+        Deserializer.java&#160;<span class="new">(new)</span>,
+        DeserializerFactory.java&#160;<span class="new">(new)</span>,
+        SerializationContext.java&#160;<span class="new">(new)</span>,
+        Serializer.java&#160;<span class="new">(new)</span>,
+        SerializerFactory.java&#160;<span class="new">(new)</span>,
+        TypeMapping.java&#160;<span class="change">(changed)</span>,
+        TypeMappingRegistry.java&#160;<span class="new">(new)</span>,
+        XMLType.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/handler</strong>:
+        GenericHandler.java&#160;<span class="change">(changed)</span>,
+        Handler.java&#160;<span class="new">(new)</span>,
+        HandlerChain.java&#160;<span class="change">(changed)</span>,
+        HandlerInfo.java&#160;<span class="change">(changed)</span>,
+        HandlerRegistry.java&#160;<span class="change">(changed)</span>,
+        MessageContext.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/handler/soap</strong>:
+        SOAPMessageContext.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/holders</strong>:
+        BigDecimalHolder.java&#160;<span class="new">(new)</span>,
+        BigIntegerHolder.java&#160;<span class="change">(changed)</span>,
+        BooleanHolder.java&#160;<span class="new">(new)</span>,
+        BooleanWrapperHolder.java&#160;<span class="change">(changed)</span>,
+        ByteArrayHolder.java&#160;<span class="new">(new)</span>,
+        ByteHolder.java&#160;<span class="new">(new)</span>,
+        ByteWrapperHolder.java&#160;<span class="new">(new)</span>,
+        CalendarHolder.java&#160;<span class="new">(new)</span>,
+        DoubleHolder.java&#160;<span class="new">(new)</span>,
+        DoubleWrapperHolder.java&#160;<span class="new">(new)</span>,
+        FloatHolder.java&#160;<span class="change">(changed)</span>,
+        FloatWrapperHolder.java&#160;<span class="change">(changed)</span>,
+        Holder.java&#160;<span class="new">(new)</span>,
+        IntHolder.java&#160;<span class="change">(changed)</span>,
+        IntegerWrapperHolder.java&#160;<span class="new">(new)</span>,
+        LongHolder.java&#160;<span class="change">(changed)</span>,
+        LongWrapperHolder.java&#160;<span class="new">(new)</span>,
+        ObjectHolder.java&#160;<span class="change">(changed)</span>,
+        QNameHolder.java&#160;<span class="change">(changed)</span>,
+        ShortHolder.java&#160;<span class="new">(new)</span>,
+        ShortWrapperHolder.java&#160;<span class="new">(new)</span>,
+        StringHolder.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/server</strong>:
+        ServiceLifecycle.java&#160;<span class="new">(new)</span>,
+        ServletEndpointContext.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jaxrpc_spec/src/main/java/jakarta/xml/rpc/soap</strong>:
+        SOAPFaultException.java&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="19"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-07 13:00</span>
+    <a class="permalink" title="Permalink to this commit" href="#19">#19</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858876</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+port JAX-RPC to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jaxrpc_1.1_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="18"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-06 07:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#18">#18</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858789</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+more jakarta migration<br />
+
+    </p>
+    <p class="commitdetails"><strong>34570</strong> lines of code changed in <span class="files">130 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec/src/main/java/jakarta/el</strong>:
+        BeanNameELResolver.java&#160;<span class="new">(new&#160;155)</span>,
+        BeanNameResolver.java&#160;<span class="new">(new&#160;91)</span>,
+        ELClass.java&#160;<span class="new">(new&#160;33)</span>,
+        ELManager.java&#160;<span class="new">(new&#160;90)</span>,
+        ELProcessor.java&#160;<span class="new">(new&#160;355)</span>,
+        ELUtils.java&#160;<span class="del">(del)</span>,
+        EvaluationListener.java&#160;<span class="new">(new&#160;55)</span>,
+        ImportHandler.java&#160;<span class="new">(new&#160;489)</span>,
+        LambdaExpression.java&#160;<span class="new">(new&#160;93)</span>,
+        StandardELContext.java&#160;<span class="new">(new&#160;210)</span>,
+        StaticFieldELResolver.java&#160;<span class="new">(new&#160;203)</span>,
+        TypeConverter.java&#160;<span class="new">(new&#160;62)</span>,
+        Util.java&#160;<span class="new">(new&#160;839)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec/src/main/resources</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec/src/main/resources/jakarta/el</strong>:
+        LocalStrings.properties&#160;<span class="new">(new&#160;52)</span>,
+        LocalStrings_cs.properties&#160;<span class="new">(new&#160;20)</span>,
+        LocalStrings_de.properties&#160;<span class="new">(new&#160;22)</span>,
+        LocalStrings_es.properties&#160;<span class="new">(new&#160;28)</span>,
+        LocalStrings_fr.properties&#160;<span class="new">(new&#160;52)</span>,
+        LocalStrings_ja.properties&#160;<span class="new">(new&#160;52)</span>,
+        LocalStrings_ko.properties&#160;<span class="new">(new&#160;52)</span>,
+        LocalStrings_pt_BR.properties&#160;<span class="new">(new&#160;16)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="new">(new&#160;50)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec/src/main/java/javax/transaction/xa</strong>:
+        XAException.java&#160;<span class="new">(new)</span>,
+        XAResource.java&#160;<span class="new">(new)</span>,
+        Xid.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/jakarta/servlet</strong>:
+        LocalStrings.properties&#160;<span class="new">(new&#160;26)</span>,
+        LocalStrings_cs.properties&#160;<span class="new">(new&#160;16)</span>,
+        LocalStrings_de.properties&#160;<span class="new">(new&#160;22)</span>,
+        LocalStrings_es.properties&#160;<span class="new">(new&#160;23)</span>,
+        LocalStrings_fr.properties&#160;<span class="new">(new&#160;26)</span>,
+        LocalStrings_ja.properties&#160;<span class="new">(new&#160;26)</span>,
+        LocalStrings_ko.properties&#160;<span class="new">(new&#160;26)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="new">(new&#160;22)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/jakarta/servlet/http</strong>:
+        LocalStrings.properties&#160;<span class="new">(new&#160;27)</span>,
+        LocalStrings_de.properties&#160;<span class="new">(new&#160;16)</span>,
+        LocalStrings_es.properties&#160;<span class="new">(new&#160;25)</span>,
+        LocalStrings_fr.properties&#160;<span class="new">(new&#160;27)</span>,
+        LocalStrings_ja.properties&#160;<span class="new">(new&#160;27)</span>,
+        LocalStrings_ko.properties&#160;<span class="new">(new&#160;27)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="new">(new&#160;23)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/jakarta/servlet/resources</strong>:
+        XMLSchema.dtd&#160;<span class="new">(new&#160;418)</span>,
+        datatypes.dtd&#160;<span class="new">(new&#160;219)</span>,
+        j2ee_1_4.xsd&#160;<span class="new">(new&#160;1582)</span>,
+        j2ee_web_services_1_1.xsd&#160;<span class="new">(new&#160;465)</span>,
+        j2ee_web_services_client_1_1.xsd&#160;<span class="new">(new&#160;319)</span>,
+        javaee_5.xsd&#160;<span class="new">(new&#160;2119)</span>,
+        javaee_6.xsd&#160;<span class="new">(new&#160;2447)</span>,
+        javaee_7.xsd&#160;<span class="new">(new&#160;3121)</span>,
+        javaee_8.xsd&#160;<span class="new">(new&#160;3117)</span>,
+        javaee_web_services_1_2.xsd&#160;<span class="new">(new&#160;771)</span>,
+        javaee_web_services_1_3.xsd&#160;<span class="new">(new&#160;594)</span>,
+        javaee_web_services_1_4.xsd&#160;<span class="new">(new&#160;575)</span>,
+        javaee_web_services_client_1_2.xsd&#160;<span class="new">(new&#160;586)</span>,
+        javaee_web_services_client_1_3.xsd&#160;<span class="new">(new&#160;744)</span>,
+        javaee_web_services_client_1_4.xsd&#160;<span class="new">(new&#160;740)</span>,
+        jsp_2_0.xsd&#160;<span class="new">(new&#160;282)</span>,
+        jsp_2_1.xsd&#160;<span class="new">(new&#160;73)</span>,
+        jsp_2_2.xsd&#160;<span class="new">(new&#160;398)</span>,
+        jsp_2_3.xsd&#160;<span class="new">(new&#160;396)</span>,
+        web-app_2_2.dtd&#160;<span class="new">(new&#160;581)</span>,
+        web-app_2_3.dtd&#160;<span class="new">(new&#160;1003)</span>,
+        web-app_2_4.xsd&#160;<span class="new">(new&#160;1208)</span>,
+        web-app_2_5.xsd&#160;<span class="new">(new&#160;945)</span>,
+        web-app_3_0.xsd&#160;<span class="new">(new&#160;281)</span>,
+        web-app_3_1.xsd&#160;<span class="new">(new&#160;333)</span>,
+        web-app_4_0.xsd&#160;<span class="new">(new&#160;368)</span>,
+        web-common_3_0.xsd&#160;<span class="new">(new&#160;1584)</span>,
+        web-common_3_1.xsd&#160;<span class="new">(new&#160;1481)</span>,
+        web-common_4_0.xsd&#160;<span class="new">(new&#160;1477)</span>,
+        web-fragment_3_0.xsd&#160;<span class="new">(new&#160;281)</span>,
+        web-fragment_3_1.xsd&#160;<span class="new">(new&#160;347)</span>,
+        web-fragment_4_0.xsd&#160;<span class="new">(new&#160;343)</span>,
+        web-jsptaglibrary_1_1.dtd&#160;<span class="new">(new&#160;207)</span>,
+        web-jsptaglibrary_1_2.dtd&#160;<span class="new">(new&#160;478)</span>,
+        web-jsptaglibrary_2_0.xsd&#160;<span class="new">(new&#160;983)</span>,
+        web-jsptaglibrary_2_1.xsd&#160;<span class="new">(new&#160;229)</span>,
+        xml.xsd&#160;<span class="new">(new&#160;97)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/javax/servlet</strong>:
+        LocalStrings.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_cs.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_de.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_es.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_fr.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_ja.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_ko.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/javax/servlet/http</strong>:
+        LocalStrings.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_de.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_es.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_fr.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_ja.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_ko.properties&#160;<span class="del">(del)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/javax/servlet/resources</strong>:
+        XMLSchema.dtd&#160;<span class="del">(del)</span>,
+        datatypes.dtd&#160;<span class="del">(del)</span>,
+        j2ee_1_4.xsd&#160;<span class="del">(del)</span>,
+        j2ee_web_services_1_1.xsd&#160;<span class="del">(del)</span>,
+        j2ee_web_services_client_1_1.xsd&#160;<span class="del">(del)</span>,
+        javaee_5.xsd&#160;<span class="del">(del)</span>,
+        javaee_6.xsd&#160;<span class="del">(del)</span>,
+        javaee_7.xsd&#160;<span class="del">(del)</span>,
+        javaee_8.xsd&#160;<span class="del">(del)</span>,
+        javaee_web_services_1_2.xsd&#160;<span class="del">(del)</span>,
+        javaee_web_services_1_3.xsd&#160;<span class="del">(del)</span>,
+        javaee_web_services_1_4.xsd&#160;<span class="del">(del)</span>,
+        javaee_web_services_client_1_2.xsd&#160;<span class="del">(del)</span>,
+        javaee_web_services_client_1_3.xsd&#160;<span class="del">(del)</span>,
+        javaee_web_services_client_1_4.xsd&#160;<span class="del">(del)</span>,
+        jsp_2_0.xsd&#160;<span class="del">(del)</span>,
+        jsp_2_1.xsd&#160;<span class="del">(del)</span>,
+        jsp_2_2.xsd&#160;<span class="del">(del)</span>,
+        jsp_2_3.xsd&#160;<span class="del">(del)</span>,
+        web-app_2_2.dtd&#160;<span class="del">(del)</span>,
+        web-app_2_3.dtd&#160;<span class="del">(del)</span>,
+        web-app_2_4.xsd&#160;<span class="del">(del)</span>,
+        web-app_2_5.xsd&#160;<span class="del">(del)</span>,
+        web-app_3_0.xsd&#160;<span class="del">(del)</span>,
+        web-app_3_1.xsd&#160;<span class="del">(del)</span>,
+        web-app_4_0.xsd&#160;<span class="del">(del)</span>,
+        web-common_3_0.xsd&#160;<span class="del">(del)</span>,
+        web-common_3_1.xsd&#160;<span class="del">(del)</span>,
+        web-common_4_0.xsd&#160;<span class="del">(del)</span>,
+        web-fragment_3_0.xsd&#160;<span class="del">(del)</span>,
+        web-fragment_3_1.xsd&#160;<span class="del">(del)</span>,
+        web-fragment_4_0.xsd&#160;<span class="del">(del)</span>,
+        web-jsptaglibrary_1_1.dtd&#160;<span class="del">(del)</span>,
+        web-jsptaglibrary_1_2.dtd&#160;<span class="del">(del)</span>,
+        web-jsptaglibrary_2_0.xsd&#160;<span class="del">(del)</span>,
+        web-jsptaglibrary_2_1.xsd&#160;<span class="del">(del)</span>,
+        xml.xsd&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="17"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-06 06:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#17">#17</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858778</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+further jakarta migration steps <br />
+
+    </p>
+    <p class="commitdetails"><strong>1596</strong> lines of code changed in <span class="files">349 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jta_1.2_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec/src/main/java/jakarta/ejb</strong>:
+        AccessLocalException.java&#160;<span class="change">(changed)</span>,
+        AccessTimeout.java&#160;<span class="change">(changed)</span>,
+        ActivationConfigProperty.java&#160;<span class="change">(changed)</span>,
+        AfterBegin.java&#160;<span class="new">(new)</span>,
+        AfterCompletion.java&#160;<span class="change">(changed)</span>,
+        ApplicationException.java&#160;<span class="change">(changed)</span>,
+        AsyncResult.java&#160;<span class="new">(new)</span>,
+        Asynchronous.java&#160;<span class="change">(changed)</span>,
+        BeforeCompletion.java&#160;<span class="change">(changed)</span>,
+        ConcurrencyManagement.java&#160;<span class="change">(changed)</span>,
+        ConcurrencyManagementType.java&#160;<span class="change">(changed)</span>,
+        ConcurrentAccessException.java&#160;<span class="change">(changed)</span>,
+        ConcurrentAccessTimeoutException.java&#160;<span class="change">(changed)</span>,
+        CreateException.java&#160;<span class="change">(changed)</span>,
+        DependsOn.java&#160;<span class="new">(new)</span>,
+        DuplicateKeyException.java&#160;<span class="new">(new)</span>,
+        EJB.java&#160;<span class="new">(new)</span>,
+        EJBAccessException.java&#160;<span class="change">(changed)</span>,
+        EJBContext.java&#160;<span class="change">(changed)</span>,
+        EJBException.java&#160;<span class="change">(changed)</span>,
+        EJBHome.java&#160;<span class="change">(changed)</span>,
+        EJBLocalHome.java&#160;<span class="new">(new)</span>,
+        EJBLocalObject.java&#160;<span class="change">(changed)</span>,
+        EJBMetaData.java&#160;<span class="change">(changed)</span>,
+        EJBObject.java&#160;<span class="new">(new)</span>,
+        EJBTransactionRequiredException.java&#160;<span class="new">(new)</span>,
+        EJBTransactionRolledbackException.java&#160;<span class="new">(new)</span>,
+        EJBs.java&#160;<span class="new">(new)</span>,
+        EnterpriseBean.java&#160;<span class="new">(new)</span>,
+        EntityBean.java&#160;<span class="change">(changed)</span>,
+        EntityContext.java&#160;<span class="new">(new)</span>,
+        FinderException.java&#160;<span class="change">(changed)</span>,
+        Handle.java&#160;<span class="change">(changed)</span>,
+        HomeHandle.java&#160;<span class="change">(changed)</span>,
+        IllegalLoopbackException.java&#160;<span class="change">(changed)</span>,
+        Init.java&#160;<span class="change">(changed)</span>,
+        Local.java&#160;<span class="change">(changed)</span>,
+        LocalBean.java&#160;<span class="new">(new)</span>,
+        LocalHome.java&#160;<span class="new">(new)</span>,
+        Lock.java&#160;<span class="change">(changed)</span>,
+        LockType.java&#160;<span class="change">(changed)</span>,
+        MessageDriven.java&#160;<span class="new">(new)</span>,
+        MessageDrivenBean.java&#160;<span class="change">(changed)</span>,
+        MessageDrivenContext.java&#160;<span class="new">(new)</span>,
+        NoMoreTimeoutsException.java&#160;<span class="new">(new)</span>,
+        NoSuchEJBException.java&#160;<span class="new">(new)</span>,
+        NoSuchEntityException.java&#160;<span class="change">(changed)</span>,
+        NoSuchObjectLocalException.java&#160;<span class="change">(changed)</span>,
+        ObjectNotFoundException.java&#160;<span class="new">(new)</span>,
+        PostActivate.java&#160;<span class="new">(new)</span>,
+        PrePassivate.java&#160;<span class="new">(new)</span>,
+        Remote.java&#160;<span class="new">(new)</span>,
+        RemoteHome.java&#160;<span class="new">(new)</span>,
+        Remove.java&#160;<span class="new">(new)</span>,
+        RemoveException.java&#160;<span class="change">(changed)</span>,
+        Schedule.java&#160;<span class="new">(new)</span>,
+        ScheduleExpression.java&#160;<span class="change">(changed)</span>,
+        Schedules.java&#160;<span class="new">(new)</span>,
+        SessionBean.java&#160;<span class="new">(new)</span>,
+        SessionContext.java&#160;<span class="change">(changed)</span>,
+        SessionSynchronization.java&#160;<span class="new">(new)</span>,
+        Singleton.java&#160;<span class="new">(new)</span>,
+        Startup.java&#160;<span class="new">(new)</span>,
+        Stateful.java&#160;<span class="change">(changed)</span>,
+        StatefulTimeout.java&#160;<span class="new">(new)</span>,
+        Stateless.java&#160;<span class="change">(changed)</span>,
+        TimedObject.java&#160;<span class="new">(new)</span>,
+        Timeout.java&#160;<span class="change">(changed)</span>,
+        Timer.java&#160;<span class="new">(new)</span>,
+        TimerConfig.java&#160;<span class="new">(new)</span>,
+        TimerHandle.java&#160;<span class="change">(changed)</span>,
+        TimerService.java&#160;<span class="change">(changed)</span>,
+        TransactionAttribute.java&#160;<span class="new">(new)</span>,
+        TransactionAttributeType.java&#160;<span class="new">(new)</span>,
+        TransactionManagement.java&#160;<span class="change">(changed)</span>,
+        TransactionManagementType.java&#160;<span class="change">(changed)</span>,
+        TransactionRequiredLocalException.java&#160;<span class="new">(new)</span>,
+        TransactionRolledbackLocalException.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec/src/main/java/jakarta/ejb/embeddable</strong>:
+        EJBContainer.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec/src/main/java/jakarta/ejb/spi</strong>:
+        EJBContainerProvider.java&#160;<span class="new">(new)</span>,
+        HandleDelegate.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec/src/main/java/jakarta/el</strong>:
+        ArrayELResolver.java&#160;<span class="change">(+49&#160;-63)</span>,
+        BeanELResolver.java&#160;<span class="change">(+154&#160;-232)</span>,
+        CompositeELResolver.java&#160;<span class="change">(+118&#160;-104)</span>,
+        ELContext.java&#160;<span class="change">(+248&#160;-24)</span>,
+        ELContextEvent.java&#160;<span class="change">(+3&#160;-4)</span>,
+        ELContextListener.java&#160;<span class="change">(+3&#160;-3)</span>,
+        ELException.java&#160;<span class="change">(+16&#160;-14)</span>,
+        ELResolver.java&#160;<span class="change">(+103&#160;-35)</span>,
+        Expression.java&#160;<span class="change">(+9&#160;-5)</span>,
+        ExpressionFactory.java&#160;<span class="change">(+357&#160;-94)</span>,
+        FunctionMapper.java&#160;<span class="change">(+15&#160;-7)</span>,
+        ListELResolver.java&#160;<span class="change">(+54&#160;-74)</span>,
+        MapELResolver.java&#160;<span class="change">(+38&#160;-43)</span>,
+        MethodExpression.java&#160;<span class="change">(+58&#160;-6)</span>,
+        MethodInfo.java&#160;<span class="change">(+10&#160;-18)</span>,
+        MethodNotFoundException.java&#160;<span class="change">(+8&#160;-23)</span>,
+        PropertyNotFoundException.java&#160;<span class="change">(+8&#160;-24)</span>,
+        PropertyNotWritableException.java&#160;<span class="change">(+8&#160;-23)</span>,
+        ResourceBundleELResolver.java&#160;<span class="change">(+29&#160;-33)</span>,
+        ValueExpression.java&#160;<span class="change">(+78&#160;-10)</span>,
+        ValueReference.java&#160;<span class="change">(+17&#160;-16)</span>,
+        VariableMapper.java&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java/jakarta/servlet/jsp</strong>:
+        JspApplicationContext.java&#160;<span class="change">(+3&#160;-3)</span>,
+        JspContext.java&#160;<span class="change">(+4&#160;-4)</span>,
+        JspFactory.java&#160;<span class="change">(+2&#160;-2)</span>,
+        PageContext.java&#160;<span class="change">(+10&#160;-10)</span>,
+        SkipPageException.java&#160;<span class="change">(+3&#160;-3)</span>,
+        package.html&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java/jakarta/servlet/jsp/el</strong>:
+        ELException.java&#160;<span class="change">(+1&#160;-1)</span>,
+        ELParseException.java&#160;<span class="change">(+1&#160;-1)</span>,
+        Expression.java&#160;<span class="change">(+1&#160;-1)</span>,
+        ExpressionEvaluator.java&#160;<span class="change">(+1&#160;-1)</span>,
+        FunctionMapper.java&#160;<span class="change">(+1&#160;-1)</span>,
+        ImplicitObjectELResolver.java&#160;<span class="change">(+3&#160;-3)</span>,
+        ScopedAttributeELResolver.java&#160;<span class="change">(+4&#160;-4)</span>,
+        VariableResolver.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java/jakarta/servlet/jsp/tagext</strong>:
+        JspFragment.java&#160;<span class="change">(+2&#160;-2)</span>,
+        SimpleTag.java&#160;<span class="change">(+3&#160;-3)</span>,
+        SimpleTagSupport.java&#160;<span class="change">(+1&#160;-1)</span>,
+        TagLibraryInfo.java&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/resources/javax/servlet/jsp/resources</strong>:
+        web-jsptaglibrary_1_1.dtd&#160;<span class="new">(new)</span>,
+        web-jsptaglibrary_1_2.dtd&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec/src/main/java/jakarta/transaction</strong>:
+        HeuristicCommitException.java&#160;<span class="new">(new)</span>,
+        HeuristicMixedException.java&#160;<span class="new">(new)</span>,
+        HeuristicRollbackException.java&#160;<span class="new">(new)</span>,
+        InvalidTransactionException.java&#160;<span class="new">(new)</span>,
+        NotSupportedException.java&#160;<span class="change">(changed)</span>,
+        RollbackException.java&#160;<span class="new">(new)</span>,
+        Status.java&#160;<span class="new">(new)</span>,
+        Synchronization.java&#160;<span class="change">(changed)</span>,
+        SystemException.java&#160;<span class="change">(changed)</span>,
+        Transaction.java&#160;<span class="new">(new)</span>,
+        TransactionManager.java&#160;<span class="change">(changed)</span>,
+        TransactionRequiredException.java&#160;<span class="change">(changed)</span>,
+        TransactionRolledbackException.java&#160;<span class="new">(new)</span>,
+        TransactionScoped.java&#160;<span class="change">(changed)</span>,
+        TransactionSynchronizationRegistry.java&#160;<span class="change">(changed)</span>,
+        Transactional.java&#160;<span class="new">(new)</span>,
+        TransactionalException.java&#160;<span class="new">(new)</span>,
+        UserTransaction.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jta_spec/src/main/java/jakarta/transaction/xa</strong>:
+        XAException.java&#160;<span class="change">(changed)</span>,
+        XAResource.java&#160;<span class="change">(changed)</span>,
+        Xid.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec</strong>:
+        pom.xml&#160;<span class="change">(+22&#160;-51)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet</strong>:
+        AsyncContext.java&#160;<span class="change">(+12&#160;-12)</span>,
+        GenericServlet.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpConstraintElement.java&#160;<span class="change">(+2&#160;-2)</span>,
+        HttpMethodConstraintElement.java&#160;<span class="change">(+1&#160;-1)</span>,
+        RequestDispatcher.java&#160;<span class="change">(+18&#160;-18)</span>,
+        Servlet.java&#160;<span class="change">(+3&#160;-3)</span>,
+        ServletContainerInitializer.java&#160;<span class="change">(+3&#160;-3)</span>,
+        ServletContext.java&#160;<span class="change">(+41&#160;-41)</span>,
+        ServletOutputStream.java&#160;<span class="change">(+2&#160;-2)</span>,
+        ServletRequest.java&#160;<span class="change">(+6&#160;-6)</span>,
+        ServletRequestWrapper.java&#160;<span class="change">(+2&#160;-2)</span>,
+        ServletResponseWrapper.java&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet/annotation</strong>:
+        HandlesTypes.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpConstraint.java&#160;<span class="change">(+2&#160;-2)</span>,
+        HttpMethodConstraint.java&#160;<span class="change">(+1&#160;-1)</span>,
+        MultipartConfig.java&#160;<span class="change">(+4&#160;-4)</span>,
+        ServletSecurity.java&#160;<span class="change">(+1&#160;-1)</span>,
+        WebFilter.java&#160;<span class="change">(+4&#160;-4)</span>,
+        WebInitParam.java&#160;<span class="change">(+3&#160;-3)</span>,
+        WebListener.java&#160;<span class="change">(+7&#160;-7)</span>,
+        WebServlet.java&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet/http</strong>:
+        Cookie.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpServlet.java&#160;<span class="change">(+12&#160;-12)</span>,
+        HttpServletMapping.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpServletRequest.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpServletRequestWrapper.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpServletResponse.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpServletResponseWrapper.java&#160;<span class="change">(+1&#160;-1)</span>,
+        HttpSessionIdListener.java&#160;<span class="change">(+2&#160;-2)</span>,
+        HttpUtils.java&#160;<span class="change">(+1&#160;-1)</span>,
+        Part.java&#160;<span class="change">(+1&#160;-1)</span>,
+        package.html&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec/src/main/java/jakarta/websocket</strong>:
+        ClientEndpoint.java&#160;<span class="new">(new)</span>,
+        ClientEndpointConfig.java&#160;<span class="new">(new)</span>,
+        CloseReason.java&#160;<span class="new">(new)</span>,
+        ContainerProvider.java&#160;<span class="change">(changed)</span>,
+        DecodeException.java&#160;<span class="new">(new)</span>,
+        Decoder.java&#160;<span class="change">(changed)</span>,
+        DeploymentException.java&#160;<span class="change">(changed)</span>,
+        EncodeException.java&#160;<span class="new">(new)</span>,
+        Encoder.java&#160;<span class="change">(changed)</span>,
+        Endpoint.java&#160;<span class="change">(changed)</span>,
+        EndpointConfig.java&#160;<span class="change">(changed)</span>,
+        Extension.java&#160;<span class="new">(new)</span>,
+        HandshakeResponse.java&#160;<span class="change">(changed)</span>,
+        MessageHandler.java&#160;<span class="new">(new)</span>,
+        OnClose.java&#160;<span class="change">(changed)</span>,
+        OnError.java&#160;<span class="change">(changed)</span>,
+        OnMessage.java&#160;<span class="new">(new)</span>,
+        OnOpen.java&#160;<span class="new">(new)</span>,
+        PongMessage.java&#160;<span class="change">(changed)</span>,
+        RemoteEndpoint.java&#160;<span class="change">(changed)</span>,
+        SendHandler.java&#160;<span class="new">(new)</span>,
+        SendResult.java&#160;<span class="change">(changed)</span>,
+        Session.java&#160;<span class="new">(new)</span>,
+        SessionException.java&#160;<span class="new">(new)</span>,
+        WebSocketContainer.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec/src/main/java/jakarta/websocket/server</strong>:
+        HandshakeRequest.java&#160;<span class="change">(changed)</span>,
+        PathParam.java&#160;<span class="new">(new)</span>,
+        ServerApplicationConfig.java&#160;<span class="change">(changed)</span>,
+        ServerContainer.java&#160;<span class="change">(changed)</span>,
+        ServerEndpoint.java&#160;<span class="new">(new)</span>,
+        ServerEndpointConfig.java&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="16"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-05 12:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#16">#16</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858695</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate jta to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jta_1.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="15"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-05 09:46</span>
+    <a class="permalink" title="Permalink to this commit" href="#15">#15</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858686</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+servlet 4.0 spec<br />
+
+    </p>
+    <p class="commitdetails"><strong>515</strong> lines of code changed in <span class="files">7 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet</strong>:
+        GenericFilter.java&#160;<span class="new">(new&#160;81)</span>,
+        package.html&#160;<span class="new">(new&#160;30)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet/http</strong>:
+        HttpFilter.java&#160;<span class="new">(new&#160;94)</span>,
+        HttpServletMapping.java&#160;<span class="new">(new&#160;53)</span>,
+        MappingMatch.java&#160;<span class="new">(new&#160;31)</span>,
+        PushBuilder.java&#160;<span class="new">(new&#160;196)</span>,
+        package.html&#160;<span class="new">(new&#160;30)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="14"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-04 17:29</span>
+    <a class="permalink" title="Permalink to this commit" href="#14">#14</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858615</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+port servlet 4.0 over from tomcat<br />
+
+    </p>
+    <p class="commitdetails"><strong>12</strong> lines of code changed in <span class="files">317 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec</strong>:
+        pom.xml&#160;<span class="change">(+9&#160;-9)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java/jakarta/servlet/jsp</strong>:
+        ErrorData.java&#160;<span class="new">(new)</span>,
+        HttpJspPage.java&#160;<span class="change">(changed)</span>,
+        JspApplicationContext.java&#160;<span class="new">(new)</span>,
+        JspContext.java&#160;<span class="new">(new)</span>,
+        JspEngineInfo.java&#160;<span class="change">(changed)</span>,
+        JspException.java&#160;<span class="change">(changed)</span>,
+        JspFactory.java&#160;<span class="new">(new)</span>,
+        JspPage.java&#160;<span class="change">(changed)</span>,
+        JspTagException.java&#160;<span class="change">(changed)</span>,
+        JspWriter.java&#160;<span class="change">(changed)</span>,
+        PageContext.java&#160;<span class="new">(new)</span>,
+        SkipPageException.java&#160;<span class="change">(changed)</span>,
+        package.html&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java/jakarta/servlet/jsp/el</strong>:
+        ELException.java&#160;<span class="change">(changed)</span>,
+        ELParseException.java&#160;<span class="new">(new)</span>,
+        Expression.java&#160;<span class="change">(changed)</span>,
+        ExpressionEvaluator.java&#160;<span class="new">(new)</span>,
+        FunctionMapper.java&#160;<span class="new">(new)</span>,
+        ImplicitObjectELResolver.java&#160;<span class="change">(changed)</span>,
+        ScopedAttributeELResolver.java&#160;<span class="change">(changed)</span>,
+        VariableResolver.java&#160;<span class="new">(new)</span>,
+        package.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java/jakarta/servlet/jsp/tagext</strong>:
+        BodyContent.java&#160;<span class="change">(changed)</span>,
+        BodyTag.java&#160;<span class="change">(changed)</span>,
+        BodyTagSupport.java&#160;<span class="change">(changed)</span>,
+        DynamicAttributes.java&#160;<span class="new">(new)</span>,
+        FunctionInfo.java&#160;<span class="new">(new)</span>,
+        IterationTag.java&#160;<span class="new">(new)</span>,
+        JspFragment.java&#160;<span class="change">(changed)</span>,
+        JspIdConsumer.java&#160;<span class="new">(new)</span>,
+        JspTag.java&#160;<span class="change">(changed)</span>,
+        PageData.java&#160;<span class="new">(new)</span>,
+        SimpleTag.java&#160;<span class="change">(changed)</span>,
+        SimpleTagSupport.java&#160;<span class="new">(new)</span>,
+        Tag.java&#160;<span class="new">(new)</span>,
+        TagAdapter.java&#160;<span class="new">(new)</span>,
+        TagAttributeInfo.java&#160;<span class="new">(new)</span>,
+        TagData.java&#160;<span class="change">(changed)</span>,
+        TagExtraInfo.java&#160;<span class="new">(new)</span>,
+        TagFileInfo.java&#160;<span class="new">(new)</span>,
+        TagInfo.java&#160;<span class="change">(changed)</span>,
+        TagLibraryInfo.java&#160;<span class="new">(new)</span>,
+        TagLibraryValidator.java&#160;<span class="change">(changed)</span>,
+        TagSupport.java&#160;<span class="change">(changed)</span>,
+        TagVariableInfo.java&#160;<span class="change">(changed)</span>,
+        TryCatchFinally.java&#160;<span class="new">(new)</span>,
+        ValidationMessage.java&#160;<span class="change">(changed)</span>,
+        VariableInfo.java&#160;<span class="new">(new)</span>,
+        package.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/resources/javax/servlet/jsp/resources</strong>:
+        jspxml.dtd&#160;<span class="new">(new)</span>,
+        jspxml.xsd&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec</strong>:
+        pom.xml&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet</strong>:
+        AsyncContext.java&#160;<span class="new">(new)</span>,
+        AsyncEvent.java&#160;<span class="change">(changed)</span>,
+        AsyncListener.java&#160;<span class="change">(changed)</span>,
+        DispatcherType.java&#160;<span class="new">(new)</span>,
+        Filter.java&#160;<span class="change">(changed)</span>,
+        FilterChain.java&#160;<span class="new">(new)</span>,
+        FilterConfig.java&#160;<span class="change">(changed)</span>,
+        FilterRegistration.java&#160;<span class="change">(changed)</span>,
+        GenericServlet.java&#160;<span class="change">(changed)</span>,
+        HttpConstraintElement.java&#160;<span class="new">(new)</span>,
+        HttpMethodConstraintElement.java&#160;<span class="change">(changed)</span>,
+        MultipartConfigElement.java&#160;<span class="new">(new)</span>,
+        ReadListener.java&#160;<span class="change">(changed)</span>,
+        Registration.java&#160;<span class="change">(changed)</span>,
+        RequestDispatcher.java&#160;<span class="change">(changed)</span>,
+        Servlet.java&#160;<span class="change">(changed)</span>,
+        ServletConfig.java&#160;<span class="change">(changed)</span>,
+        ServletContainerInitializer.java&#160;<span class="new">(new)</span>,
+        ServletContext.java&#160;<span class="change">(changed)</span>,
+        ServletContextAttributeEvent.java&#160;<span class="new">(new)</span>,
+        ServletContextAttributeListener.java&#160;<span class="change">(changed)</span>,
+        ServletContextEvent.java&#160;<span class="change">(changed)</span>,
+        ServletContextListener.java&#160;<span class="new">(new)</span>,
+        ServletException.java&#160;<span class="new">(new)</span>,
+        ServletInputStream.java&#160;<span class="new">(new)</span>,
+        ServletOutputStream.java&#160;<span class="new">(new)</span>,
+        ServletRegistration.java&#160;<span class="change">(changed)</span>,
+        ServletRequest.java&#160;<span class="change">(changed)</span>,
+        ServletRequestAttributeEvent.java&#160;<span class="change">(changed)</span>,
+        ServletRequestAttributeListener.java&#160;<span class="change">(changed)</span>,
+        ServletRequestEvent.java&#160;<span class="change">(changed)</span>,
+        ServletRequestListener.java&#160;<span class="change">(changed)</span>,
+        ServletRequestWrapper.java&#160;<span class="new">(new)</span>,
+        ServletResponse.java&#160;<span class="change">(changed)</span>,
+        ServletResponseWrapper.java&#160;<span class="change">(changed)</span>,
+        ServletSecurityElement.java&#160;<span class="change">(changed)</span>,
+        SessionCookieConfig.java&#160;<span class="new">(new)</span>,
+        SessionTrackingMode.java&#160;<span class="new">(new)</span>,
+        SingleThreadModel.java&#160;<span class="change">(changed)</span>,
+        UnavailableException.java&#160;<span class="change">(changed)</span>,
+        WriteListener.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet/annotation</strong>:
+        HandlesTypes.java&#160;<span class="change">(changed)</span>,
+        HttpConstraint.java&#160;<span class="new">(new)</span>,
+        HttpMethodConstraint.java&#160;<span class="new">(new)</span>,
+        MultipartConfig.java&#160;<span class="new">(new)</span>,
+        ServletSecurity.java&#160;<span class="change">(changed)</span>,
+        WebFilter.java&#160;<span class="new">(new)</span>,
+        WebInitParam.java&#160;<span class="change">(changed)</span>,
+        WebListener.java&#160;<span class="change">(changed)</span>,
+        WebServlet.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet/descriptor</strong>:
+        JspConfigDescriptor.java&#160;<span class="new">(new)</span>,
+        JspPropertyGroupDescriptor.java&#160;<span class="new">(new)</span>,
+        TaglibDescriptor.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java/jakarta/servlet/http</strong>:
+        Cookie.java&#160;<span class="new">(new)</span>,
+        HttpServlet.java&#160;<span class="new">(new)</span>,
+        HttpServletRequest.java&#160;<span class="change">(changed)</span>,
+        HttpServletRequestWrapper.java&#160;<span class="new">(new)</span>,
+        HttpServletResponse.java&#160;<span class="new">(new)</span>,
+        HttpServletResponseWrapper.java&#160;<span class="new">(new)</span>,
+        HttpSession.java&#160;<span class="new">(new)</span>,
+        HttpSessionActivationListener.java&#160;<span class="change">(changed)</span>,
+        HttpSessionAttributeListener.java&#160;<span class="new">(new)</span>,
+        HttpSessionBindingEvent.java&#160;<span class="change">(changed)</span>,
+        HttpSessionBindingListener.java&#160;<span class="change">(changed)</span>,
+        HttpSessionContext.java&#160;<span class="change">(changed)</span>,
+        HttpSessionEvent.java&#160;<span class="change">(changed)</span>,
+        HttpSessionIdListener.java&#160;<span class="change">(changed)</span>,
+        HttpSessionListener.java&#160;<span class="new">(new)</span>,
+        HttpUpgradeHandler.java&#160;<span class="new">(new)</span>,
+        HttpUtils.java&#160;<span class="new">(new)</span>,
+        Part.java&#160;<span class="change">(changed)</span>,
+        WebConnection.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/javax/servlet</strong>:
+        LocalStrings.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_cs.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_de.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_es.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_fr.properties&#160;<span class="change">(changed)</span>,
+        LocalStrings_ja.properties&#160;<span class="change">(changed)</span>,
+        LocalStrings_ko.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/javax/servlet/http</strong>:
+        LocalStrings.properties&#160;<span class="change">(changed)</span>,
+        LocalStrings_de.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_es.properties&#160;<span class="change">(changed)</span>,
+        LocalStrings_fr.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_ja.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_ko.properties&#160;<span class="new">(new)</span>,
+        LocalStrings_zh_CN.properties&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/resources/javax/servlet/resources</strong>:
+        XMLSchema.dtd&#160;<span class="change">(changed)</span>,
+        datatypes.dtd&#160;<span class="new">(new)</span>,
+        j2ee_1_4.xsd&#160;<span class="change">(changed)</span>,
+        j2ee_web_services_1_1.xsd&#160;<span class="change">(changed)</span>,
+        j2ee_web_services_client_1_1.xsd&#160;<span class="new">(new)</span>,
+        javaee_5.xsd&#160;<span class="new">(new)</span>,
+        javaee_6.xsd&#160;<span class="new">(new)</span>,
+        javaee_7.xsd&#160;<span class="new">(new)</span>,
+        javaee_8.xsd&#160;<span class="new">(new)</span>,
+        javaee_web_services_1_2.xsd&#160;<span class="new">(new)</span>,
+        javaee_web_services_1_3.xsd&#160;<span class="new">(new)</span>,
+        javaee_web_services_1_4.xsd&#160;<span class="new">(new)</span>,
+        javaee_web_services_client_1_2.xsd&#160;<span class="new">(new)</span>,
+        javaee_web_services_client_1_3.xsd&#160;<span class="new">(new)</span>,
+        javaee_web_services_client_1_4.xsd&#160;<span class="new">(new)</span>,
+        jsp_2_0.xsd&#160;<span class="new">(new)</span>,
+        jsp_2_1.xsd&#160;<span class="new">(new)</span>,
+        jsp_2_2.xsd&#160;<span class="new">(new)</span>,
+        jsp_2_3.xsd&#160;<span class="new">(new)</span>,
+        web-app_2_2.dtd&#160;<span class="new">(new)</span>,
+        web-app_2_3.dtd&#160;<span class="change">(changed)</span>,
+        web-app_2_4.xsd&#160;<span class="change">(changed)</span>,
+        web-app_2_5.xsd&#160;<span class="new">(new)</span>,
+        web-app_3_0.xsd&#160;<span class="new">(new)</span>,
+        web-app_3_1.xsd&#160;<span class="new">(new)</span>,
+        web-app_4_0.xsd&#160;<span class="new">(new)</span>,
+        web-common_3_0.xsd&#160;<span class="new">(new)</span>,
+        web-common_3_1.xsd&#160;<span class="new">(new)</span>,
+        web-common_4_0.xsd&#160;<span class="new">(new)</span>,
+        web-fragment_3_0.xsd&#160;<span class="new">(new)</span>,
+        web-fragment_3_1.xsd&#160;<span class="new">(new)</span>,
+        web-fragment_4_0.xsd&#160;<span class="new">(new)</span>,
+        web-jsptaglibrary_1_1.dtd&#160;<span class="new">(new)</span>,
+        web-jsptaglibrary_1_2.dtd&#160;<span class="new">(new)</span>,
+        web-jsptaglibrary_2_0.xsd&#160;<span class="new">(new)</span>,
+        web-jsptaglibrary_2_1.xsd&#160;<span class="new">(new)</span>,
+        xml.xsd&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="13"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-04 16:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#13">#13</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858613</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 migrate from javax to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">17 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-ejb_3.2_spec&#160;<span class="del">(del)</span>,
+        geronimo-jsp_2.2_spec&#160;<span class="del">(del)</span>,
+        geronimo-servlet_3.1_spec&#160;<span class="del">(del)</span>,
+        geronimo-websockets_1.0_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+4)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-ejb_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jsp_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-servlet_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-websockets_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="12"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-04 16:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#12">#12</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858612</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-servlet_3.1_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="11"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-04 13:26</span>
+    <a class="permalink" title="Permalink to this commit" href="#11">#11</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858608</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate websockets to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-websockets_1.0_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="10"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-04 13:25</span>
+    <a class="permalink" title="Permalink to this commit" href="#10">#10</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858607</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate JSP to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jsp_2.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="9"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-04 13:24</span>
+    <a class="permalink" title="Permalink to this commit" href="#9">#9</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858606</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+migrate EJB-3.2 spec to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-ejb_3.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 17:27</span>
+    <a class="permalink" title="Permalink to this commit" href="#8">#8</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858588</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 move to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">417 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jcdi_2.0_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-annotation_spec/src/main/java/jakarta/annotation</strong>:
+        Generated.java&#160;<span class="change">(changed)</span>,
+        ManagedBean.java&#160;<span class="new">(new)</span>,
+        PostConstruct.java&#160;<span class="change">(changed)</span>,
+        PreDestroy.java&#160;<span class="change">(changed)</span>,
+        Priority.java&#160;<span class="new">(new)</span>,
+        Resource.java&#160;<span class="new">(new)</span>,
+        Resources.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-annotation_spec/src/main/java/jakarta/annotation/security</strong>:
+        DeclareRoles.java&#160;<span class="new">(new)</span>,
+        DenyAll.java&#160;<span class="new">(new)</span>,
+        PermitAll.java&#160;<span class="change">(changed)</span>,
+        RolesAllowed.java&#160;<span class="change">(changed)</span>,
+        RunAs.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-annotation_spec/src/main/java/jakarta/annotation/sql</strong>:
+        DataSourceDefinition.java&#160;<span class="new">(new)</span>,
+        DataSourceDefinitions.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-atinject_spec/src/main/java/jakarta/inject</strong>:
+        Inject.java&#160;<span class="change">(changed)</span>,
+        Named.java&#160;<span class="change">(changed)</span>,
+        Provider.java&#160;<span class="new">(new)</span>,
+        Qualifier.java&#160;<span class="new">(new)</span>,
+        Scope.java&#160;<span class="new">(new)</span>,
+        Singleton.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec/src/main/java/jakarta/el</strong>:
+        ArrayELResolver.java&#160;<span class="change">(changed)</span>,
+        BeanELResolver.java&#160;<span class="new">(new)</span>,
+        CompositeELResolver.java&#160;<span class="change">(changed)</span>,
+        ELContext.java&#160;<span class="change">(changed)</span>,
+        ELContextEvent.java&#160;<span class="change">(changed)</span>,
+        ELContextListener.java&#160;<span class="change">(changed)</span>,
+        ELException.java&#160;<span class="new">(new)</span>,
+        ELResolver.java&#160;<span class="change">(changed)</span>,
+        ELUtils.java&#160;<span class="new">(new)</span>,
+        Expression.java&#160;<span class="change">(changed)</span>,
+        ExpressionFactory.java&#160;<span class="change">(changed)</span>,
+        FunctionMapper.java&#160;<span class="change">(changed)</span>,
+        ListELResolver.java&#160;<span class="change">(changed)</span>,
+        MapELResolver.java&#160;<span class="new">(new)</span>,
+        MethodExpression.java&#160;<span class="new">(new)</span>,
+        MethodInfo.java&#160;<span class="new">(new)</span>,
+        MethodNotFoundException.java&#160;<span class="change">(changed)</span>,
+        PropertyNotFoundException.java&#160;<span class="change">(changed)</span>,
+        PropertyNotWritableException.java&#160;<span class="change">(changed)</span>,
+        ResourceBundleELResolver.java&#160;<span class="change">(changed)</span>,
+        ValueExpression.java&#160;<span class="change">(changed)</span>,
+        ValueReference.java&#160;<span class="new">(new)</span>,
+        VariableMapper.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-interceptor_spec/src/main/java/jakarta/interceptor</strong>:
+        AroundConstruct.java&#160;<span class="new">(new)</span>,
+        AroundInvoke.java&#160;<span class="new">(new)</span>,
+        AroundTimeout.java&#160;<span class="change">(changed)</span>,
+        ExcludeClassInterceptors.java&#160;<span class="change">(changed)</span>,
+        ExcludeDefaultInterceptors.java&#160;<span class="change">(changed)</span>,
+        Interceptor.java&#160;<span class="change">(changed)</span>,
+        InterceptorBinding.java&#160;<span class="new">(new)</span>,
+        Interceptors.java&#160;<span class="new">(new)</span>,
+        InvocationContext.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>,
+        run_sigtest.sh&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/decorator</strong>:
+        Decorator.java&#160;<span class="new">(new)</span>,
+        Delegate.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/context</strong>:
+        ApplicationScoped.java&#160;<span class="change">(changed)</span>,
+        BeforeDestroyed.java&#160;<span class="change">(changed)</span>,
+        BusyConversationException.java&#160;<span class="change">(changed)</span>,
+        ContextException.java&#160;<span class="new">(new)</span>,
+        ContextNotActiveException.java&#160;<span class="new">(new)</span>,
+        Conversation.java&#160;<span class="change">(changed)</span>,
+        ConversationScoped.java&#160;<span class="new">(new)</span>,
+        Dependent.java&#160;<span class="change">(changed)</span>,
+        Destroyed.java&#160;<span class="new">(new)</span>,
+        Initialized.java&#160;<span class="new">(new)</span>,
+        NonexistentConversationException.java&#160;<span class="new">(new)</span>,
+        NormalScope.java&#160;<span class="change">(changed)</span>,
+        RequestScoped.java&#160;<span class="change">(changed)</span>,
+        SessionScoped.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/context/control</strong>:
+        ActivateRequestContext.java&#160;<span class="new">(new)</span>,
+        RequestContextController.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/context/spi</strong>:
+        AlterableContext.java&#160;<span class="new">(new)</span>,
+        Context.java&#160;<span class="new">(new)</span>,
+        Contextual.java&#160;<span class="new">(new)</span>,
+        CreationalContext.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/event</strong>:
+        Event.java&#160;<span class="change">(changed)</span>,
+        ImmutableNotificationOptions.java&#160;<span class="change">(changed)</span>,
+        NotificationOptions.java&#160;<span class="change">(changed)</span>,
+        ObserverException.java&#160;<span class="change">(changed)</span>,
+        Observes.java&#160;<span class="new">(new)</span>,
+        ObservesAsync.java&#160;<span class="new">(new)</span>,
+        Reception.java&#160;<span class="new">(new)</span>,
+        TransactionPhase.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/inject</strong>:
+        Alternative.java&#160;<span class="new">(new)</span>,
+        AmbiguousResolutionException.java&#160;<span class="new">(new)</span>,
+        Any.java&#160;<span class="change">(changed)</span>,
+        CreationException.java&#160;<span class="new">(new)</span>,
+        Decorated.java&#160;<span class="change">(changed)</span>,
+        Default.java&#160;<span class="change">(changed)</span>,
+        Disposes.java&#160;<span class="change">(changed)</span>,
+        IllegalProductException.java&#160;<span class="new">(new)</span>,
+        InjectionException.java&#160;<span class="change">(changed)</span>,
+        Instance.java&#160;<span class="new">(new)</span>,
+        Intercepted.java&#160;<span class="change">(changed)</span>,
+        Model.java&#160;<span class="change">(changed)</span>,
+        New.java&#160;<span class="change">(changed)</span>,
+        Produces.java&#160;<span class="new">(new)</span>,
+        ResolutionException.java&#160;<span class="new">(new)</span>,
+        Specializes.java&#160;<span class="new">(new)</span>,
+        Stereotype.java&#160;<span class="change">(changed)</span>,
+        TransientReference.java&#160;<span class="new">(new)</span>,
+        Typed.java&#160;<span class="new">(new)</span>,
+        UnproxyableResolutionException.java&#160;<span class="change">(changed)</span>,
+        UnsatisfiedResolutionException.java&#160;<span class="new">(new)</span>,
+        Vetoed.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/inject/literal</strong>:
+        InjectLiteral.java&#160;<span class="new">(new)</span>,
+        NamedLiteral.java&#160;<span class="new">(new)</span>,
+        QualifierLiteral.java&#160;<span class="new">(new)</span>,
+        SingletonLiteral.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/inject/se</strong>:
+        SeContainer.java&#160;<span class="change">(changed)</span>,
+        SeContainerInitializer.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/inject/spi</strong>:
+        AfterBeanDiscovery.java&#160;<span class="change">(changed)</span>,
+        AfterDeploymentValidation.java&#160;<span class="change">(changed)</span>,
+        AfterTypeDiscovery.java&#160;<span class="change">(changed)</span>,
+        Annotated.java&#160;<span class="new">(new)</span>,
+        AnnotatedCallable.java&#160;<span class="new">(new)</span>,
+        AnnotatedConstructor.java&#160;<span class="new">(new)</span>,
+        AnnotatedField.java&#160;<span class="change">(changed)</span>,
+        AnnotatedMember.java&#160;<span class="new">(new)</span>,
+        AnnotatedMethod.java&#160;<span class="new">(new)</span>,
+        AnnotatedParameter.java&#160;<span class="change">(changed)</span>,
+        AnnotatedType.java&#160;<span class="change">(changed)</span>,
+        Bean.java&#160;<span class="change">(changed)</span>,
+        BeanAttributes.java&#160;<span class="new">(new)</span>,
+        BeanManager.java&#160;<span class="new">(new)</span>,
+        BeforeBeanDiscovery.java&#160;<span class="change">(changed)</span>,
+        BeforeShutdown.java&#160;<span class="change">(changed)</span>,
+        CDI.java&#160;<span class="change">(changed)</span>,
+        CDIProvider.java&#160;<span class="new">(new)</span>,
+        Decorator.java&#160;<span class="change">(changed)</span>,
+        DefinitionException.java&#160;<span class="new">(new)</span>,
+        DeploymentException.java&#160;<span class="new">(new)</span>,
+        EventContext.java&#160;<span class="change">(changed)</span>,
+        EventMetadata.java&#160;<span class="change">(changed)</span>,
+        Extension.java&#160;<span class="new">(new)</span>,
+        InjectionPoint.java&#160;<span class="new">(new)</span>,
+        InjectionTarget.java&#160;<span class="new">(new)</span>,
+        InjectionTargetFactory.java&#160;<span class="change">(changed)</span>,
+        InterceptionFactory.java&#160;<span class="change">(changed)</span>,
+        InterceptionType.java&#160;<span class="change">(changed)</span>,
+        Interceptor.java&#160;<span class="new">(new)</span>,
+        ObserverMethod.java&#160;<span class="new">(new)</span>,
+        PassivationCapable.java&#160;<span class="change">(changed)</span>,
+        Prioritized.java&#160;<span class="change">(changed)</span>,
+        ProcessAnnotatedType.java&#160;<span class="new">(new)</span>,
+        ProcessBean.java&#160;<span class="new">(new)</span>,
+        ProcessBeanAttributes.java&#160;<span class="change">(changed)</span>,
+        ProcessInjectionPoint.java&#160;<span class="change">(changed)</span>,
+        ProcessInjectionTarget.java&#160;<span class="change">(changed)</span>,
+        ProcessManagedBean.java&#160;<span class="new">(new)</span>,
+        ProcessObserverMethod.java&#160;<span class="change">(changed)</span>,
+        ProcessProducer.java&#160;<span class="change">(changed)</span>,
+        ProcessProducerField.java&#160;<span class="new">(new)</span>,
+        ProcessProducerMethod.java&#160;<span class="new">(new)</span>,
+        ProcessSessionBean.java&#160;<span class="new">(new)</span>,
+        ProcessSyntheticAnnotatedType.java&#160;<span class="new">(new)</span>,
+        ProcessSyntheticBean.java&#160;<span class="new">(new)</span>,
+        ProcessSyntheticObserverMethod.java&#160;<span class="change">(changed)</span>,
+        Producer.java&#160;<span class="change">(changed)</span>,
+        ProducerFactory.java&#160;<span class="change">(changed)</span>,
+        SessionBeanType.java&#160;<span class="change">(changed)</span>,
+        Unmanaged.java&#160;<span class="change">(changed)</span>,
+        WithAnnotations.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/inject/spi/configurator</strong>:
+        AnnotatedConstructorConfigurator.java&#160;<span class="new">(new)</span>,
+        AnnotatedFieldConfigurator.java&#160;<span class="change">(changed)</span>,
+        AnnotatedMethodConfigurator.java&#160;<span class="change">(changed)</span>,
+        AnnotatedParameterConfigurator.java&#160;<span class="new">(new)</span>,
+        AnnotatedTypeConfigurator.java&#160;<span class="change">(changed)</span>,
+        BeanAttributesConfigurator.java&#160;<span class="new">(new)</span>,
+        BeanConfigurator.java&#160;<span class="change">(changed)</span>,
+        InjectionPointConfigurator.java&#160;<span class="change">(changed)</span>,
+        ObserverMethodConfigurator.java&#160;<span class="new">(new)</span>,
+        ProducerConfigurator.java&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-jcdi_spec/src/main/java/jakarta/enterprise/util</strong>:
+        AnnotationLiteral.java&#160;<span class="change">(changed)</span>,
+        Nonbinding.java&#160;<span class="new">(new)</span>,
+        TypeLiteral.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-json_spec/src/main/java/jakarta/json</strong>:
+        EmptyJsonArray.java&#160;<span class="new">(new)</span>,
+        EmptyJsonObject.java&#160;<span class="new">(new)</span>,
+        Json.java&#160;<span class="change">(changed)</span>,
+        JsonArray.java&#160;<span class="new">(new)</span>,
+        JsonArrayBuilder.java&#160;<span class="new">(new)</span>,
+        JsonBuilderFactory.java&#160;<span class="change">(changed)</span>,
+        JsonException.java&#160;<span class="new">(new)</span>,
+        JsonMergePatch.java&#160;<span class="change">(changed)</span>,
+        JsonNumber.java&#160;<span class="new">(new)</span>,
+        JsonObject.java&#160;<span class="change">(changed)</span>,
+        JsonObjectBuilder.java&#160;<span class="new">(new)</span>,
+        JsonPatch.java&#160;<span class="new">(new)</span>,
+        JsonPatchBuilder.java&#160;<span class="new">(new)</span>,
+        JsonPointer.java&#160;<span class="new">(new)</span>,
+        JsonReader.java&#160;<span class="new">(new)</span>,
+        JsonReaderFactory.java&#160;<span class="new">(new)</span>,
+        JsonString.java&#160;<span class="change">(changed)</span>,
+        JsonStructure.java&#160;<span class="change">(changed)</span>,
+        JsonValue.java&#160;<span class="change">(changed)</span>,
+        JsonWriter.java&#160;<span class="change">(changed)</span>,
+        JsonWriterFactory.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-json_spec/src/main/java/jakarta/json/spi</strong>:
+        JsonProvider.java&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-json_spec/src/main/java/jakarta/json/stream</strong>:
+        JsonCollectors.java&#160;<span class="new">(new)</span>,
+        JsonGenerationException.java&#160;<span class="new">(new)</span>,
+        JsonGenerator.java&#160;<span class="change">(changed)</span>,
+        JsonGeneratorFactory.java&#160;<span class="change">(changed)</span>,
+        JsonLocation.java&#160;<span class="change">(changed)</span>,
+        JsonParser.java&#160;<span class="new">(new)</span>,
+        JsonParserFactory.java&#160;<span class="new">(new)</span>,
+        JsonParsingException.java&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 17:20</span>
+    <a class="permalink" title="Permalink to this commit" href="#7">#7</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858587</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 move CDI 2.0 api to jakarta<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-jcdi_2.0_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 17:17</span>
+    <a class="permalink" title="Permalink to this commit" href="#6">#6</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858586</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 move to jakarta package name<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-annotation_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-atinject_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-interceptor_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-json_spec/src/main/java</strong>:
+        javax&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 17:11</span>
+    <a class="permalink" title="Permalink to this commit" href="#5">#5</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858585</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 move to jakarta.* package<br />
+
+    </p>
+    <p class="commitdetails"><strong>20</strong> lines of code changed in <span class="files">8 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-annotation_spec</strong>:
+        pom.xml&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-atinject_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec</strong>:
+        pom.xml&#160;<span class="change">(+5&#160;-5)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-interceptor_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-json_spec</strong>:
+        pom.xml&#160;<span class="change">(+3&#160;-3)</span>,
+        run_sigtest.sh&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 17:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#4">#4</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858584</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 add a few specs<br />
+
+    </p>
+    <p class="commitdetails"><strong>74</strong> lines of code changed in <span class="files">16 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-annotation_1.3_spec&#160;<span class="del">(del)</span>,
+        geronimo-atinject_1.0_spec&#160;<span class="del">(del)</span>,
+        geronimo-el_2.2_spec&#160;<span class="del">(del)</span>,
+        geronimo-interceptor_1.2_spec&#160;<span class="del">(del)</span>,
+        geronimo-json_1.1_spec&#160;<span class="del">(del)</span>,
+        pom.xml&#160;<span class="new">(new&#160;74)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-annotation_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-atinject_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-el_spec</strong>:
+        pom.xml&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-interceptor_spec</strong>:
+        pom.xml&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>specs/branches/jakarta/geronimo-jakarta-json_spec</strong>:
+        pom.xml&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 10:15</span>
+    <a class="permalink" title="Permalink to this commit" href="#3">#3</a>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 move to jakarta package<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-annotation_1.3_spec&#160;<span class="new">(new)</span>,
+        geronimo-atinject_1.0_spec&#160;<span class="new">(new)</span>,
+        geronimo-el_2.2_spec&#160;<span class="new">(new)</span>,
+        geronimo-interceptor_1.2_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2019-05-03 10:13</span>
+    <a class="permalink" title="Permalink to this commit" href="#2">#2</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858573</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6726 move to jakarta package <br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/branches/jakarta</strong>:
+        geronimo-json_1.1_spec&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2019-05-02 13:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#1">#1</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1858548</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+XBEAN-318 Make sure to log the class name when an error occurs during class read
+    </p>
+    <p class="commitdetails"><strong>17</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>xbean/trunk/xbean-finder/src/main/java/org/apache/xbean/finder</strong>:
+        AnnotationFinder.java&#160;<span class="change">(+17&#160;-12)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p class="previous"><a href="2019-04.html">April 2019</a> &#187; </p>
+<div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>

@@ -1,0 +1,1308 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - October 2020 Commit Log</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>October 2020 Commit Log</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for /geronimo</a></div>
+
+<div id="nav" class="section">
+<h2>Commit Logs</h2>
+<ul>
+    <li><a href="commitlog.html">June 2022</a></li>
+    <li><a href="2022-05.html">May 2022</a></li>
+    <li><a href="2022-04.html">April 2022</a></li>
+    <li><a href="2022-03.html">March 2022</a></li>
+    <li><a href="2022-02.html">February 2022</a></li>
+    <li><a href="2022-01.html">January 2022</a></li>
+    <li><a href="2021-12.html">December 2021</a></li>
+    <li><a href="2021-11.html">November 2021</a></li>
+    <li><a href="2021-10.html">October 2021</a></li>
+    <li><a href="2021-09.html">September 2021</a></li>
+    <li><a href="2021-08.html">August 2021</a></li>
+    <li><a href="2021-07.html">July 2021</a></li>
+    <li><a href="2021-06.html">June 2021</a></li>
+    <li><a href="2021-05.html">May 2021</a></li>
+    <li><a href="2021-04.html">April 2021</a></li>
+    <li><a href="2021-03.html">March 2021</a></li>
+    <li><a href="2021-02.html">February 2021</a></li>
+    <li><a href="2021-01.html">January 2021</a></li>
+    <li><a href="2020-12.html">December 2020</a></li>
+    <li><a href="2020-11.html">November 2020</a></li>
+    <li><span class="here">October 2020</span></li>
+    <li><a href="2020-09.html">September 2020</a></li>
+    <li><a href="2020-08.html">August 2020</a></li>
+    <li><a href="2020-07.html">July 2020</a></li>
+    <li><a href="2020-06.html">June 2020</a></li>
+    <li><a href="2020-05.html">May 2020</a></li>
+    <li><a href="2020-04.html">April 2020</a></li>
+    <li><a href="2020-03.html">March 2020</a></li>
+    <li><a href="2020-02.html">February 2020</a></li>
+    <li><a href="2020-01.html">January 2020</a></li>
+    <li><a href="2019-12.html">December 2019</a></li>
+    <li><a href="2019-11.html">November 2019</a></li>
+    <li><a href="2019-10.html">October 2019</a></li>
+    <li><a href="2019-09.html">September 2019</a></li>
+    <li><a href="2019-08.html">August 2019</a></li>
+    <li><a href="2019-07.html">July 2019</a></li>
+    <li><a href="2019-06.html">June 2019</a></li>
+    <li><a href="2019-05.html">May 2019</a></li>
+    <li><a href="2019-04.html">April 2019</a></li>
+    <li><a href="2019-03.html">March 2019</a></li>
+    <li><a href="2019-02.html">February 2019</a></li>
+    <li><a href="2019-01.html">January 2019</a></li>
+    <li><a href="2018-12.html">December 2018</a></li>
+    <li><a href="2018-11.html">November 2018</a></li>
+    <li><a href="2018-10.html">October 2018</a></li>
+    <li><a href="2018-09.html">September 2018</a></li>
+    <li><a href="2018-08.html">August 2018</a></li>
+    <li><a href="2018-07.html">July 2018</a></li>
+    <li><a href="2018-06.html">June 2018</a></li>
+    <li><a href="2018-05.html">May 2018</a></li>
+    <li><a href="2018-04.html">April 2018</a></li>
+    <li><a href="2018-03.html">March 2018</a></li>
+    <li><a href="2018-02.html">February 2018</a></li>
+    <li><a href="2018-01.html">January 2018</a></li>
+    <li><a href="2017-12.html">December 2017</a></li>
+    <li><a href="2017-11.html">November 2017</a></li>
+    <li><a href="2017-10.html">October 2017</a></li>
+    <li><a href="2017-09.html">September 2017</a></li>
+    <li><a href="2017-08.html">August 2017</a></li>
+    <li><a href="2017-07.html">July 2017</a></li>
+    <li><a href="2017-06.html">June 2017</a></li>
+    <li><a href="2017-05.html">May 2017</a></li>
+    <li><a href="2017-04.html">April 2017</a></li>
+    <li><a href="2017-03.html">March 2017</a></li>
+    <li><a href="2017-02.html">February 2017</a></li>
+    <li><a href="2017-01.html">January 2017</a></li>
+    <li><a href="2016-12.html">December 2016</a></li>
+    <li><a href="2016-11.html">November 2016</a></li>
+    <li><a href="2016-10.html">October 2016</a></li>
+    <li><a href="2016-09.html">September 2016</a></li>
+    <li><a href="2016-08.html">August 2016</a></li>
+    <li><a href="2016-07.html">July 2016</a></li>
+    <li><a href="2016-06.html">June 2016</a></li>
+    <li><a href="2016-05.html">May 2016</a></li>
+    <li><a href="2016-04.html">April 2016</a></li>
+    <li><a href="2016-03.html">March 2016</a></li>
+    <li><a href="2016-02.html">February 2016</a></li>
+    <li><a href="2016-01.html">January 2016</a></li>
+    <li><a href="2015-12.html">December 2015</a></li>
+    <li><a href="2015-11.html">November 2015</a></li>
+    <li><a href="2015-10.html">October 2015</a></li>
+    <li><a href="2015-09.html">September 2015</a></li>
+    <li><a href="2015-08.html">August 2015</a></li>
+    <li><a href="2015-07.html">July 2015</a></li>
+    <li><a href="2015-06.html">June 2015</a></li>
+    <li><a href="2015-05.html">May 2015</a></li>
+    <li><a href="2015-04.html">April 2015</a></li>
+    <li><a href="2015-03.html">March 2015</a></li>
+    <li><a href="2015-02.html">February 2015</a></li>
+    <li><a href="2015-01.html">January 2015</a></li>
+    <li><a href="2014-12.html">December 2014</a></li>
+    <li><a href="2014-11.html">November 2014</a></li>
+    <li><a href="2014-10.html">October 2014</a></li>
+    <li><a href="2014-09.html">September 2014</a></li>
+    <li><a href="2014-08.html">August 2014</a></li>
+    <li><a href="2014-07.html">July 2014</a></li>
+    <li><a href="2014-06.html">June 2014</a></li>
+    <li><a href="2014-05.html">May 2014</a></li>
+    <li><a href="2014-04.html">April 2014</a></li>
+    <li><a href="2014-03.html">March 2014</a></li>
+    <li><a href="2014-02.html">February 2014</a></li>
+    <li><a href="2014-01.html">January 2014</a></li>
+    <li><a href="2013-12.html">December 2013</a></li>
+    <li><a href="2013-11.html">November 2013</a></li>
+    <li><a href="2013-10.html">October 2013</a></li>
+    <li><a href="2013-09.html">September 2013</a></li>
+    <li><a href="2013-08.html">August 2013</a></li>
+    <li><a href="2013-07.html">July 2013</a></li>
+    <li><a href="2013-06.html">June 2013</a></li>
+    <li><a href="2013-05.html">May 2013</a></li>
+    <li><a href="2013-04.html">April 2013</a></li>
+    <li><a href="2013-03.html">March 2013</a></li>
+    <li><a href="2013-02.html">February 2013</a></li>
+    <li><a href="2013-01.html">January 2013</a></li>
+    <li><a href="2012-12.html">December 2012</a></li>
+    <li><a href="2012-11.html">November 2012</a></li>
+    <li><a href="2012-10.html">October 2012</a></li>
+    <li><a href="2012-09.html">September 2012</a></li>
+    <li><a href="2012-08.html">August 2012</a></li>
+    <li><a href="2012-07.html">July 2012</a></li>
+    <li><a href="2012-06.html">June 2012</a></li>
+    <li><a href="2012-05.html">May 2012</a></li>
+    <li><a href="2012-04.html">April 2012</a></li>
+    <li><a href="2012-03.html">March 2012</a></li>
+    <li><a href="2012-02.html">February 2012</a></li>
+    <li><a href="2012-01.html">January 2012</a></li>
+    <li><a href="2011-12.html">December 2011</a></li>
+    <li><a href="2011-11.html">November 2011</a></li>
+    <li><a href="2011-10.html">October 2011</a></li>
+    <li><a href="2011-09.html">September 2011</a></li>
+    <li><a href="2011-08.html">August 2011</a></li>
+    <li><a href="2011-07.html">July 2011</a></li>
+    <li><a href="2011-06.html">June 2011</a></li>
+    <li><a href="2011-05.html">May 2011</a></li>
+    <li><a href="2011-04.html">April 2011</a></li>
+    <li><a href="2011-03.html">March 2011</a></li>
+    <li><a href="2011-02.html">February 2011</a></li>
+    <li><a href="2011-01.html">January 2011</a></li>
+    <li><a href="2010-12.html">December 2010</a></li>
+    <li><a href="2010-11.html">November 2010</a></li>
+    <li><a href="2010-10.html">October 2010</a></li>
+    <li><a href="2010-09.html">September 2010</a></li>
+    <li><a href="2010-08.html">August 2010</a></li>
+    <li><a href="2010-07.html">July 2010</a></li>
+    <li><a href="2010-06.html">June 2010</a></li>
+    <li><a href="2010-05.html">May 2010</a></li>
+    <li><a href="2010-04.html">April 2010</a></li>
+    <li><a href="2010-03.html">March 2010</a></li>
+    <li><a href="2010-02.html">February 2010</a></li>
+    <li><a href="2010-01.html">January 2010</a></li>
+    <li><a href="2009-12.html">December 2009</a></li>
+    <li><a href="2009-11.html">November 2009</a></li>
+    <li><a href="2009-10.html">October 2009</a></li>
+    <li><a href="2009-09.html">September 2009</a></li>
+    <li><a href="2009-08.html">August 2009</a></li>
+    <li><a href="2009-07.html">July 2009</a></li>
+    <li><a href="2009-06.html">June 2009</a></li>
+    <li><a href="2009-05.html">May 2009</a></li>
+    <li><a href="2009-04.html">April 2009</a></li>
+    <li><a href="2009-03.html">March 2009</a></li>
+    <li><a href="2009-02.html">February 2009</a></li>
+    <li><a href="2009-01.html">January 2009</a></li>
+    <li><a href="2008-12.html">December 2008</a></li>
+    <li><a href="2008-11.html">November 2008</a></li>
+    <li><a href="2008-10.html">October 2008</a></li>
+    <li><a href="2008-09.html">September 2008</a></li>
+    <li><a href="2008-08.html">August 2008</a></li>
+    <li><a href="2008-07.html">July 2008</a></li>
+    <li><a href="2008-06.html">June 2008</a></li>
+    <li><a href="2008-05.html">May 2008</a></li>
+    <li><a href="2008-04.html">April 2008</a></li>
+    <li><a href="2008-03.html">March 2008</a></li>
+    <li><a href="2008-02.html">February 2008</a></li>
+    <li><a href="2008-01.html">January 2008</a></li>
+    <li><a href="2007-12.html">December 2007</a></li>
+    <li><a href="2007-11.html">November 2007</a></li>
+    <li><a href="2007-10.html">October 2007</a></li>
+    <li><a href="2007-09.html">September 2007</a></li>
+    <li><a href="2007-08.html">August 2007</a></li>
+    <li><a href="2007-07.html">July 2007</a></li>
+    <li><a href="2007-06.html">June 2007</a></li>
+    <li><a href="2007-05.html">May 2007</a></li>
+    <li><a href="2007-04.html">April 2007</a></li>
+    <li><a href="2007-03.html">March 2007</a></li>
+    <li><a href="2007-02.html">February 2007</a></li>
+    <li><a href="2007-01.html">January 2007</a></li>
+    <li><a href="2006-12.html">December 2006</a></li>
+    <li><a href="2006-11.html">November 2006</a></li>
+    <li><a href="2006-10.html">October 2006</a></li>
+    <li><a href="2006-09.html">September 2006</a></li>
+    <li><a href="2006-08.html">August 2006</a></li>
+    <li><a href="2006-07.html">July 2006</a></li>
+    <li><a href="2006-06.html">June 2006</a></li>
+    <li><a href="2006-05.html">May 2006</a></li>
+    <li><a href="2006-04.html">April 2006</a></li>
+    <li><a href="2006-03.html">March 2006</a></li>
+    <li><a href="2006-02.html">February 2006</a></li>
+    <li><a href="2006-01.html">January 2006</a></li>
+    <li><a href="2005-12.html">December 2005</a></li>
+    <li><a href="2005-11.html">November 2005</a></li>
+    <li><a href="2005-10.html">October 2005</a></li>
+    <li><a href="2005-09.html">September 2005</a></li>
+    <li><a href="2005-08.html">August 2005</a></li>
+    <li><a href="2005-07.html">July 2005</a></li>
+    <li><a href="2005-06.html">June 2005</a></li>
+    <li><a href="2005-05.html">May 2005</a></li>
+    <li><a href="2005-04.html">April 2005</a></li>
+    <li><a href="2005-03.html">March 2005</a></li>
+    <li><a href="2005-02.html">February 2005</a></li>
+    <li><a href="2005-01.html">January 2005</a></li>
+    <li><a href="2004-12.html">December 2004</a></li>
+    <li><a href="2004-11.html">November 2004</a></li>
+    <li><a href="2004-10.html">October 2004</a></li>
+    <li><a href="2004-09.html">September 2004</a></li>
+    <li><a href="2004-08.html">August 2004</a></li>
+    <li><a href="2004-07.html">July 2004</a></li>
+    <li><a href="2004-06.html">June 2004</a></li>
+    <li><a href="2004-05.html">May 2004</a></li>
+    <li><a href="2004-04.html">April 2004</a></li>
+    <li><a href="2004-03.html">March 2004</a></li>
+    <li><a href="2004-02.html">February 2004</a></li>
+    <li><a href="2004-01.html">January 2004</a></li>
+    <li><a href="2003-12.html">December 2003</a></li>
+    <li><a href="2003-11.html">November 2003</a></li>
+    <li><a href="2003-10.html">October 2003</a></li>
+    <li><a href="2003-09.html">September 2003</a></li>
+    <li><a href="2003-08.html">August 2003</a></li>
+</ul>
+</div><dl class="attributes">
+    <dt>Number of Commits:</dt>
+    <dd>34</dd>
+    <dt>Number of Active Developers:</dt>
+    <dd>3</dd>
+</dl>
+<dl class="commitlist">
+  <dt><a name="34"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:10</span>
+    <a class="permalink" title="Permalink to this commit" href="#34">#34</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882565</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-validation_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="33"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:10</span>
+    <a class="permalink" title="Permalink to this commit" href="#33">#33</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882563</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-validation_2.0_spec-1.1
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-validation_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="32"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#32">#32</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882561</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+fix javadoc plugin<br />
+
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-validation_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="31"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:07</span>
+    <a class="permalink" title="Permalink to this commit" href="#31">#31</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882560</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-security_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="30"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:07</span>
+    <a class="permalink" title="Permalink to this commit" href="#30">#30</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882558</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-security_1.0_spec-1.1
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-security_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="29"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#29">#29</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882557</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jsonb_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="28"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#28">#28</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882555</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-jsonb_1.0_spec-1.4
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jsonb_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="27"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#27">#27</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882554</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+fix javaplugin setup<br />
+
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jsonb_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+10)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="26"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#26">#26</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882553</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-json_1.1_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="25"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#25">#25</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882551</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-json_1.1_spec-1.5
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-json_1.1_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="24"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 16:02</span>
+    <a class="permalink" title="Permalink to this commit" href="#24">#24</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882550</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+fix javadoc plugin setup<br />
+
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-json_1.1_spec</strong>:
+        pom.xml&#160;<span class="change">(+10)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="23"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 07:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#23">#23</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882537</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="22"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 07:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#22">#22</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882535</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-jcdi_2.0_spec-1.3
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="21"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 07:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#21">#21</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882534</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+pin down javadoc plugin version to avoid doclint errors<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="20"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 06:50</span>
+    <a class="permalink" title="Permalink to this commit" href="#20">#20</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882533</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_1.1_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="19"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 06:50</span>
+    <a class="permalink" title="Permalink to this commit" href="#19">#19</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882531</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-jcdi_1.1_spec-1.1
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_1.1_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="18"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 06:40</span>
+    <a class="permalink" title="Permalink to this commit" href="#18">#18</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882530</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="17"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 06:40</span>
+    <a class="permalink" title="Permalink to this commit" href="#17">#17</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882528</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-jcdi_1.0_spec-1.1
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="16"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 06:31</span>
+    <a class="permalink" title="Permalink to this commit" href="#16">#16</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882527</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6784 fix ClassCastException for Boolean<br />
+<br />
+txs to Arne Limburg (id: arne) for the fix!<br />
+
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_1.0_spec/src/main/java/javax/enterprise/util</strong>:
+        AnnotationLiteral.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_1.1_spec/src/main/java/javax/enterprise/util</strong>:
+        AnnotationLiteral.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_2.0_spec/src/main/java/javax/enterprise/util</strong>:
+        AnnotationLiteral.java&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="15"></a>
+    <a href="user_struberg.html" class="author">struberg</a>
+    <span class="date">2020-10-15 06:20</span>
+    <a class="permalink" title="Permalink to this commit" href="#15">#15</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882526</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+upgrade to flava8 2.4 and enable JPMS<br />
+
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-jcdi_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-json_1.1_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-jsonb_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-security_1.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-validation_2.0_spec</strong>:
+        pom.xml&#160;<span class="change">(+2&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="14"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:22</span>
+    <a class="permalink" title="Permalink to this commit" href="#14">#14</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882436</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_mail</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="13"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:22</span>
+    <a class="permalink" title="Permalink to this commit" href="#13">#13</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882434</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-javamail_1.6-1.0.0
+    </p>
+    <p class="commitdetails"><strong>6</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_mail</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="12"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:21</span>
+    <a class="permalink" title="Permalink to this commit" href="#12">#12</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882433</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+upgrading javadoc plugin
+    </p>
+    <p class="commitdetails"><strong>13</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6</strong>:
+        pom.xml&#160;<span class="change">(+13&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="11"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:15</span>
+    <a class="permalink" title="Permalink to this commit" href="#11">#11</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882430</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+setting spec jar to 1.0.0 (staging)
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6</strong>:
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_mail</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="10"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:12</span>
+    <a class="permalink" title="Permalink to this commit" href="#10">#10</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882429</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="9"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:12</span>
+    <a class="permalink" title="Permalink to this commit" href="#9">#9</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882427</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare release geronimo-javamail_1.6_spec-1.0.0
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        pom.xml&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_rmannibucau.html" class="author">rmannibucau</a>
+    <span class="date">2020-10-12 06:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#8">#8</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882425</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+upgrading junit and ensuring a better resolution of internal dependencies
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-14)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_mail</strong>:
+        pom.xml&#160;<span class="change">(+2)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider</strong>:
+        pom.xml&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-12 05:31</span>
+    <a class="permalink" title="Permalink to this commit" href="#7">#7</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882421</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Update reduced pom
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        dependency-reduced-pom.xml&#160;<span class="change">(+3&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-09 12:14</span>
+    <a class="permalink" title="Permalink to this commit" href="#6">#6</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882367</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Rollback to initial version
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-09 12:01</span>
+    <a class="permalink" title="Permalink to this commit" href="#5">#5</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882364</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+[maven-release-plugin] prepare for next development iteration
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-09 10:42</span>
+    <a class="permalink" title="Permalink to this commit" href="#4">#4</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882359</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+add reduced pom as I can't exclude it from svn
+    </p>
+    <p class="commitdetails"><strong>174</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        dependency-reduced-pom.xml&#160;<span class="new">(new&#160;174)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-09 08:19</span>
+    <a class="permalink" title="Permalink to this commit" href="#3">#3</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882344</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Disable javadoc failures after JDK8
+    </p>
+    <p class="commitdetails"><strong>16</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        pom.xml&#160;<span class="change">(+16)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-07 11:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#2">#2</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882306</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6780 added Oauth2 support for geronimo Java Mail Provider. Thanks Cesar
+    </p>
+    <p class="commitdetails"><strong>32342</strong> lines of code changed in <span class="files">176 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6</strong>:
+        .gitignore&#160;<span class="new">(new&#160;10)</span>,
+        .travis.yml&#160;<span class="new">(new&#160;8)</span>,
+        LICENSE&#160;<span class="new">(new&#160;202)</span>,
+        NOTICE&#160;<span class="new">(new&#160;8)</span>,
+        README.txt&#160;<span class="new">(new&#160;19)</span>,
+        pom.xml&#160;<span class="new">(new&#160;276)</span>,
+        tck.adoc&#160;<span class="new">(new&#160;146)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_mail</strong>:
+        pom.xml&#160;<span class="new">(new&#160;162)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_mail/src/site</strong>:
+        site.xml&#160;<span class="new">(new&#160;37)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider</strong>:
+        pom.xml&#160;<span class="new">(new&#160;352)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/authentication</strong>:
+        AuthenticatorFactory.java&#160;<span class="new">(new&#160;119)</span>,
+        ClientAuthenticator.java&#160;<span class="new">(new&#160;86)</span>,
+        CramMD5Authenticator.java&#160;<span class="new">(new&#160;175)</span>,
+        DigestMD5Authenticator.java&#160;<span class="new">(new&#160;628)</span>,
+        LoginAuthenticator.java&#160;<span class="new">(new&#160;140)</span>,
+        PlainAuthenticator.java&#160;<span class="new">(new&#160;126)</span>,
+        SASLAuthenticator.java&#160;<span class="new">(new&#160;174)</span>,
+        XOAUTH2Authenticator.java&#160;<span class="new">(new&#160;102)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractImageHandler.java&#160;<span class="new">(new&#160;91)</span>,
+        AbstractTextHandler.java&#160;<span class="new">(new&#160;134)</span>,
+        ImageGifHandler.java&#160;<span class="new">(new&#160;29)</span>,
+        ImageJpegHandler.java&#160;<span class="new">(new&#160;29)</span>,
+        MultipartHandler.java&#160;<span class="new">(new&#160;65)</span>,
+        RFC822MessageHandler.java&#160;<span class="new">(new&#160;120)</span>,
+        TextHtmlHandler.java&#160;<span class="new">(new&#160;29)</span>,
+        TextPlainHandler.java&#160;<span class="new">(new&#160;29)</span>,
+        TextXmlHandler.java&#160;<span class="new">(new&#160;29)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/store/imap</strong>:
+        ACL.java&#160;<span class="new">(new&#160;93)</span>,
+        IMAPAttachedMessage.java&#160;<span class="new">(new&#160;125)</span>,
+        IMAPFolder.java&#160;<span class="new">(new&#160;2393)</span>,
+        IMAPMessage.java&#160;<span class="new">(new&#160;1300)</span>,
+        IMAPMimeBodyPart.java&#160;<span class="new">(new&#160;359)</span>,
+        IMAPMultipartDataSource.java&#160;<span class="new">(new&#160;56)</span>,
+        IMAPNamespaceFolder.java&#160;<span class="new">(new&#160;51)</span>,
+        IMAPRootFolder.java&#160;<span class="new">(new&#160;131)</span>,
+        IMAPSSLStore.java&#160;<span class="new">(new&#160;42)</span>,
+        IMAPStore.java&#160;<span class="new">(new&#160;614)</span>,
+        Rights.java&#160;<span class="new">(new&#160;303)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPACLResponse.java&#160;<span class="new">(new&#160;52)</span>,
+        IMAPBody.java&#160;<span class="new">(new&#160;78)</span>,
+        IMAPBodySection.java&#160;<span class="new">(new&#160;273)</span>,
+        IMAPBodyStructure.java&#160;<span class="new">(new&#160;228)</span>,
+        IMAPCapabilityResponse.java&#160;<span class="new">(new&#160;90)</span>,
+        IMAPCommand.java&#160;<span class="new">(new&#160;1477)</span>,
+        IMAPConnection.java&#160;<span class="new">(new&#160;2021)</span>,
+        IMAPConnectionPool.java&#160;<span class="new">(new&#160;589)</span>,
+        IMAPContinuationResponse.java&#160;<span class="new">(new&#160;42)</span>,
+        IMAPDateFormat.java&#160;<span class="new">(new&#160;72)</span>,
+        IMAPEnvelope.java&#160;<span class="new">(new&#160;70)</span>,
+        IMAPFetchBodyPart.java&#160;<span class="new">(new&#160;76)</span>,
+        IMAPFetchDataItem.java&#160;<span class="new">(new&#160;61)</span>,
+        IMAPFetchResponse.java&#160;<span class="new">(new&#160;161)</span>,
+        IMAPFlags.java&#160;<span class="new">(new&#160;40)</span>,
+        IMAPFlagsResponse.java&#160;<span class="new">(new&#160;48)</span>,
+        IMAPInternalDate.java&#160;<span class="new">(new&#160;45)</span>,
+        IMAPInternetHeader.java&#160;<span class="new">(new&#160;66)</span>,
+        IMAPListResponse.java&#160;<span class="new">(new&#160;92)</span>,
+        IMAPListRightsResponse.java&#160;<span class="new">(new&#160;51)</span>,
+        IMAPMailboxResponse.java&#160;<span class="new">(new&#160;37)</span>,
+        IMAPMailboxStatus.java&#160;<span class="new">(new&#160;188)</span>,
+        IMAPMessageSize.java&#160;<span class="new">(new&#160;33)</span>,
+        IMAPMessageText.java&#160;<span class="new">(new&#160;52)</span>,
+        IMAPMyRightsResponse.java&#160;<span class="new">(new&#160;38)</span>,
+        IMAPNamespace.java&#160;<span class="new">(new&#160;49)</span>,
+        IMAPNamespaceResponse.java&#160;<span class="new">(new&#160;98)</span>,
+        IMAPOkResponse.java&#160;<span class="new">(new&#160;78)</span>,
+        IMAPPermanentFlagsResponse.java&#160;<span class="new">(new&#160;42)</span>,
+        IMAPQuotaResponse.java&#160;<span class="new">(new&#160;70)</span>,
+        IMAPQuotaRootResponse.java&#160;<span class="new">(new&#160;57)</span>,
+        IMAPResponse.java&#160;<span class="new">(new&#160;72)</span>,
+        IMAPResponseBuffer.java&#160;<span class="new">(new&#160;138)</span>,
+        IMAPResponseStream.java&#160;<span class="new">(new&#160;405)</span>,
+        IMAPResponseTokenizer.java&#160;<span class="new">(new&#160;1469)</span>,
+        IMAPSearchDateFormat.java&#160;<span class="new">(new&#160;69)</span>,
+        IMAPSearchResponse.java&#160;<span class="new">(new&#160;53)</span>,
+        IMAPServerStatusResponse.java&#160;<span class="new">(new&#160;50)</span>,
+        IMAPSizeResponse.java&#160;<span class="new">(new&#160;50)</span>,
+        IMAPStatusResponse.java&#160;<span class="new">(new&#160;82)</span>,
+        IMAPTaggedResponse.java&#160;<span class="new">(new&#160;161)</span>,
+        IMAPUid.java&#160;<span class="new">(new&#160;36)</span>,
+        IMAPUntaggedResponse.java&#160;<span class="new">(new&#160;67)</span>,
+        IMAPUntaggedResponseHandler.java&#160;<span class="new">(new&#160;34)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/store/nntp</strong>:
+        NNTPFolder.java&#160;<span class="new">(new&#160;449)</span>,
+        NNTPGroupFolder.java&#160;<span class="new">(new&#160;391)</span>,
+        NNTPMessage.java&#160;<span class="new">(new&#160;377)</span>,
+        NNTPRootFolder.java&#160;<span class="new">(new&#160;399)</span>,
+        NNTPSSLStore.java&#160;<span class="new">(new&#160;44)</span>,
+        NNTPStore.java&#160;<span class="new">(new&#160;260)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/store/nntp/newsrc</strong>:
+        NNTPNewsrc.java&#160;<span class="new">(new&#160;182)</span>,
+        NNTPNewsrcFile.java&#160;<span class="new">(new&#160;66)</span>,
+        NNTPNewsrcGroup.java&#160;<span class="new">(new&#160;185)</span>,
+        Range.java&#160;<span class="new">(new&#160;318)</span>,
+        RangeList.java&#160;<span class="new">(new&#160;227)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3Constants.java&#160;<span class="new">(new&#160;40)</span>,
+        POP3Folder.java&#160;<span class="new">(new&#160;515)</span>,
+        POP3Message.java&#160;<span class="new">(new&#160;378)</span>,
+        POP3RootFolder.java&#160;<span class="new">(new&#160;142)</span>,
+        POP3SSLStore.java&#160;<span class="new">(new&#160;43)</span>,
+        POP3Store.java&#160;<span class="new">(new&#160;359)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/store/pop3/connection</strong>:
+        POP3Connection.java&#160;<span class="new">(new&#160;693)</span>,
+        POP3ConnectionPool.java&#160;<span class="new">(new&#160;224)</span>,
+        POP3ListResponse.java&#160;<span class="new">(new&#160;99)</span>,
+        POP3Response.java&#160;<span class="new">(new&#160;85)</span>,
+        POP3StatusResponse.java&#160;<span class="new">(new&#160;67)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/transport/nntp</strong>:
+        NNTPConnection.java&#160;<span class="new">(new&#160;728)</span>,
+        NNTPReply.java&#160;<span class="new">(new&#160;242)</span>,
+        NNTPSSLTransport.java&#160;<span class="new">(new&#160;34)</span>,
+        NNTPTransport.java&#160;<span class="new">(new&#160;260)</span>,
+        StringListInputStream.java&#160;<span class="new">(new&#160;112)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        MalformedSMTPReplyException.java&#160;<span class="new">(new&#160;39)</span>,
+        SMTPAddressFailedException.java&#160;<span class="new">(new&#160;80)</span>,
+        SMTPAddressSucceededException.java&#160;<span class="new">(new&#160;80)</span>,
+        SMTPConnection.java&#160;<span class="new">(new&#160;1370)</span>,
+        SMTPMessage.java&#160;<span class="new">(new&#160;237)</span>,
+        SMTPReply.java&#160;<span class="new">(new&#160;208)</span>,
+        SMTPSTransport.java&#160;<span class="new">(new&#160;33)</span>,
+        SMTPSendFailedException.java&#160;<span class="new">(new&#160;75)</span>,
+        SMTPTransport.java&#160;<span class="new">(new&#160;656)</span>,
+        SMTPTransportException.java&#160;<span class="new">(new&#160;44)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/java/org/apache/geronimo/javamail/util</strong>:
+        CommandFailedException.java&#160;<span class="new">(new&#160;35)</span>,
+        ConnectionException.java&#160;<span class="new">(new&#160;35)</span>,
+        CountingOutputStream.java&#160;<span class="new">(new&#160;60)</span>,
+        InvalidCommandException.java&#160;<span class="new">(new&#160;35)</span>,
+        MIMEInputReader.java&#160;<span class="new">(new&#160;140)</span>,
+        MIMEOutputStream.java&#160;<span class="new">(new&#160;132)</span>,
+        MailConnection.java&#160;<span class="new">(new&#160;961)</span>,
+        ProtocolProperties.java&#160;<span class="new">(new&#160;291)</span>,
+        ResponseFormatException.java&#160;<span class="new">(new&#160;34)</span>,
+        TraceInputStream.java&#160;<span class="new">(new&#160;110)</span>,
+        TraceOutputStream.java&#160;<span class="new">(new&#160;97)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/resources/META-INF</strong>:
+        javamail.default.address.map&#160;<span class="new">(new&#160;34)</span>,
+        javamail.default.providers&#160;<span class="new">(new&#160;43)</span>,
+        mailcap&#160;<span class="new">(new&#160;31)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/main/resources/OSGI-INF/providers</strong>:
+        org.apache.javamail.handlers.ImageGifHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.handlers.ImageJpegHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.handlers.MultipartHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.handlers.RFC822MessageHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.handlers.TextHtmlHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.handlers.TextPlainHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.handlers.TextXmlHandler&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.store.imap.IMAPSSSLStore&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.store.imap.IMAPStore&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.store.nntp.NNTPSSLStore&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.store.nntp.NNTPStore&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.store.pop3.POP3SSLStore&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.store.pop3.POP3Store&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.transport.nntp.NNTPSSLTransport&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.transport.nntp.NNTPTransport&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.transport.smtp.SMTPSSLTransport&#160;<span class="new">(new&#160;1)</span>,
+        org.apache.javamail.transport.smtp.SMTPTransport&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/site</strong>:
+        site.xml&#160;<span class="new">(new&#160;37)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/handlers</strong>:
+        AbstractHandler.java&#160;<span class="new">(new&#160;63)</span>,
+        TextHtmlTest.java&#160;<span class="new">(new&#160;40)</span>,
+        TextPlainTest.java&#160;<span class="new">(new&#160;40)</span>,
+        TextXmlTest.java&#160;<span class="new">(new&#160;40)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/issues</strong>:
+        GERONIMO6480Test.java&#160;<span class="new">(new&#160;142)</span>,
+        IssuesTest.java&#160;<span class="new">(new&#160;149)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/store/imap</strong>:
+        AuthenticationTest.java&#160;<span class="new">(new&#160;293)</span>,
+        IMAPStoreTest.java&#160;<span class="new">(new&#160;89)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/store/imap/connection</strong>:
+        IMAPBodyStructureTest.java&#160;<span class="new">(new&#160;42)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/store/pop3</strong>:
+        POP3StoreTest.java&#160;<span class="new">(new&#160;449)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/testserver</strong>:
+        AbstractProtocolTest.java&#160;<span class="new">(new&#160;115)</span>,
+        ApopCmdHandler.java&#160;<span class="new">(new&#160;119)</span>,
+        MailServer.java&#160;<span class="new">(new&#160;590)</span>,
+        RefinedCoreCmdHandlerLoader.java&#160;<span class="new">(new&#160;31)</span>,
+        RefinedJMXHandlersLoader.java&#160;<span class="new">(new&#160;48)</span>,
+        RefinedSmtpCoreCmdHandlerLoader.java&#160;<span class="new">(new&#160;146)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/java/org/apache/geronimo/javamail/transport/smtp</strong>:
+        SMTPTransportTest.java&#160;<span class="new">(new&#160;57)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/resources</strong>:
+        dummykeystore.jks&#160;<span class="new">(new)</span>,
+        pdf-test.pdf&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/resources/imap</strong>:
+        multipart.bodystructure&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/geronimo-javamail_1.6_provider/src/test/resources/messages</strong>:
+        multipart.msg&#160;<span class="new">(new&#160;19)</span>,
+        simple.msg&#160;<span class="new">(new&#160;11)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/src/site</strong>:
+        site.xml&#160;<span class="new">(new&#160;86)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/src/site/apt</strong>:
+        privacy-policy.apt&#160;<span class="new">(new&#160;52)</span>
+      </li>
+      <li>
+        <strong>javamail/trunk/geronimo-javamail_1.6/src/site/markdown</strong>:
+        index.md&#160;<span class="new">(new&#160;35)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_jlmonteiro.html" class="author">jlmonteiro</a>
+    <span class="date">2020-10-07 07:54</span>
+    <a class="permalink" title="Permalink to this commit" href="#1">#1</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">1882300</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+GERONIMO-6783 Add geronimo-javamail_1.6_spec<br />
+<a href="https://github.com/apache/geronimo">https://github.com/apache/geronimo</a>-specs/pull/17<br />
+<br />
+Thanks Cesar
+    </p>
+    <p class="commitdetails"><strong>560</strong> lines of code changed in <span class="files">23 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>specs/trunk</strong>:
+        pom.xml&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec</strong>:
+        README.txt&#160;<span class="change">(+7&#160;-6)</span>,
+        pom.xml&#160;<span class="change">(+4&#160;-13)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec/src/main/java/javax/mail</strong>:
+        Flags.java&#160;<span class="change">(+54&#160;-5)</span>,
+        Folder.java&#160;<span class="change">(+24&#160;-1)</span>,
+        MailSessionDefinition.java&#160;<span class="change">(+2)</span>,
+        Multipart.java&#160;<span class="change">(+1&#160;-1)</span>,
+        Part.java&#160;<span class="change">(+4&#160;-4)</span>,
+        Service.java&#160;<span class="change">(+3&#160;-2)</span>,
+        Session.java&#160;<span class="change">(+21&#160;-4)</span>,
+        UIDFolder.java&#160;<span class="change">(+35)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec/src/main/java/javax/mail/internet</strong>:
+        InternetAddress.java&#160;<span class="change">(+102)</span>,
+        InternetHeaders.java&#160;<span class="change">(+68&#160;-33)</span>,
+        MailDateFormat.java&#160;<span class="change">(+85&#160;-2)</span>,
+        MimeBodyPart.java&#160;<span class="change">(+7&#160;-12)</span>,
+        MimeMessage.java&#160;<span class="change">(+16&#160;-16)</span>,
+        MimeMultipart.java&#160;<span class="change">(+1)</span>,
+        MimePart.java&#160;<span class="change">(+3&#160;-3)</span>,
+        MimeUtility.java&#160;<span class="change">(+37)</span>,
+        ParameterList.java&#160;<span class="change">(+1&#160;-1)</span>,
+        ParseException.java&#160;<span class="change">(+2)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec/src/test/java/javax/mail</strong>:
+        FlagsTest.java&#160;<span class="change">(+66&#160;-4)</span>
+      </li>
+      <li>
+        <strong>specs/trunk/geronimo-javamail_1.6_spec/src/test/java/javax/mail/internet</strong>:
+        MimeMessageTest.java&#160;<span class="change">(+16)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p class="previous"><a href="2020-09.html">September 2020</a> &#187; </p>
+<div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>
